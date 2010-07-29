@@ -1,0 +1,1 @@
+REGISTER_ATTRIBUTES(nelma_attribute_list)

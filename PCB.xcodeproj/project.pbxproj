@@ -1,0 +1,642 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6575A6D111FCFCF0006D983A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6575A6D011FCFCF0006D983A /* Cocoa.framework */; };
+		6575A6D611FCFCF0006D983A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6575A6D411FCFCF0006D983A /* InfoPlist.strings */; };
+		6575A6D811FCFCF0006D983A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6575A6D711FCFCF0006D983A /* main.m */; };
+		6575A6DB11FCFCF0006D983A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6575A6D911FCFCF0006D983A /* MainMenu.xib */; };
+		6575A6DE11FCFCF0006D983A /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6575A6DC11FCFCF0006D983A /* Credits.rtf */; };
+		6575A6E111FCFCF0006D983A /* PCBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6575A6E011FCFCF0006D983A /* PCBAppDelegate.m */; };
+		6575A76B11FD0F00006D983A /* action.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A6EB11FD0EFF006D983A /* action.c */; };
+		6575A76C11FD0F00006D983A /* autoplace.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A6ED11FD0EFF006D983A /* autoplace.c */; };
+		6575A76D11FD0F00006D983A /* autoroute.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A6EF11FD0EFF006D983A /* autoroute.c */; };
+		6575A76E11FD0F00006D983A /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A6F211FD0EFF006D983A /* buffer.c */; };
+		6575A76F11FD0F00006D983A /* change.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A6F411FD0EFF006D983A /* change.c */; };
+		6575A77011FD0F00006D983A /* check_icon.data in Resources */ = {isa = PBXBuildFile; fileRef = 6575A6F611FD0EFF006D983A /* check_icon.data */; };
+		6575A77111FD0F00006D983A /* clip.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A6F711FD0EFF006D983A /* clip.c */; };
+		6575A77211FD0F00006D983A /* command.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A6F911FD0EFF006D983A /* command.c */; };
+		6575A77311FD0F00006D983A /* compat.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A6FB11FD0EFF006D983A /* compat.c */; };
+		6575A77411FD0F00006D983A /* copy.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A6FE11FD0EFF006D983A /* copy.c */; };
+		6575A77511FD0F00006D983A /* create.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A70111FD0EFF006D983A /* create.c */; };
+		6575A77611FD0F00006D983A /* crosshair.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A70311FD0EFF006D983A /* crosshair.c */; };
+		6575A77711FD0F00006D983A /* data.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A70511FD0EFF006D983A /* data.c */; };
+		6575A77B11FD0F00006D983A /* default_font in Resources */ = {isa = PBXBuildFile; fileRef = 6575A70C11FD0EFF006D983A /* default_font */; };
+		6575A77C11FD0F00006D983A /* djopt.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A70D11FD0EFF006D983A /* djopt.c */; };
+		6575A77D11FD0F00006D983A /* draw.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A71011FD0EFF006D983A /* draw.c */; };
+		6575A77E11FD0F00006D983A /* drill.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A71211FD0EFF006D983A /* drill.c */; };
+		6575A77F11FD0F00006D983A /* edif.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A71511FD0EFF006D983A /* edif.c */; };
+		6575A78111FD0F00006D983A /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A71811FD0EFF006D983A /* error.c */; };
+		6575A78211FD0F00006D983A /* file.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A71A11FD0EFF006D983A /* file.c */; };
+		6575A78311FD0F00006D983A /* find.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A71C11FD0EFF006D983A /* find.c */; };
+		6575A78411FD0F00006D983A /* flags.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A71E11FD0EFF006D983A /* flags.c */; };
+		6575A78511FD0F00006D983A /* fontmode.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A71F11FD0EFF006D983A /* fontmode.c */; };
+		6575A78611FD0F00006D983A /* gpcb-menu.res in Resources */ = {isa = PBXBuildFile; fileRef = 6575A72111FD0EFF006D983A /* gpcb-menu.res */; };
+		6575A78711FD0F00006D983A /* heap.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A72211FD0EFF006D983A /* heap.c */; };
+		6575A78811FD0F00006D983A /* insert.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A72511FD0EFF006D983A /* insert.c */; };
+		6575A78911FD0F00006D983A /* intersect.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A72711FD0EFF006D983A /* intersect.c */; };
+		6575A78A11FD0F00006D983A /* line.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A72911FD0EFF006D983A /* line.c */; };
+		6575A78B11FD0F00006D983A /* lrealpath.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A72B11FD0EFF006D983A /* lrealpath.c */; };
+		6575A78C11FD0F00006D983A /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A72E11FD0EFF006D983A /* main.c */; };
+		6575A78D11FD0F00006D983A /* mirror.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A72F11FD0EFF006D983A /* mirror.c */; };
+		6575A78E11FD0F00006D983A /* misc.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A73111FD0EFF006D983A /* misc.c */; };
+		6575A78F11FD0F00006D983A /* move.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A73311FD0EFF006D983A /* move.c */; };
+		6575A79011FD0F00006D983A /* mtspace.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A73511FD0EFF006D983A /* mtspace.c */; };
+		6575A79111FD0F00006D983A /* mymem.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A73711FD0F00006D983A /* mymem.c */; };
+		6575A79211FD0F00006D983A /* netlist.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A73911FD0F00006D983A /* netlist.c */; };
+		6575A79311FD0F00006D983A /* parse_l.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A73A11FD0F00006D983A /* parse_l.c */; };
+		6575A79511FD0F00006D983A /* parse_y.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A73D11FD0F00006D983A /* parse_y.c */; };
+		6575A79711FD0F00006D983A /* polygon.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A74111FD0F00006D983A /* polygon.c */; };
+		6575A79811FD0F00006D983A /* polygon1.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A74311FD0F00006D983A /* polygon1.c */; };
+		6575A79911FD0F00006D983A /* print.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A74411FD0F00006D983A /* print.c */; };
+		6575A79A11FD0F00006D983A /* puller.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A74611FD0F00006D983A /* puller.c */; };
+		6575A79B11FD0F00006D983A /* rats.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A74711FD0F00006D983A /* rats.c */; };
+		6575A79C11FD0F00006D983A /* remove.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A74911FD0F00006D983A /* remove.c */; };
+		6575A79D11FD0F00006D983A /* report.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A74B11FD0F00006D983A /* report.c */; };
+		6575A79E11FD0F00006D983A /* res_lex.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A74D11FD0F00006D983A /* res_lex.c */; };
+		6575A7A011FD0F00006D983A /* res_parse.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A74F11FD0F00006D983A /* res_parse.c */; };
+		6575A7A211FD0F00006D983A /* rotate.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A75311FD0F00006D983A /* rotate.c */; };
+		6575A7A311FD0F00006D983A /* rtree.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A75511FD0F00006D983A /* rtree.c */; };
+		6575A7A411FD0F00006D983A /* rubberband.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A75711FD0F00006D983A /* rubberband.c */; };
+		6575A7A511FD0F00006D983A /* search.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A75911FD0F00006D983A /* search.c */; };
+		6575A7A611FD0F00006D983A /* select.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A75B11FD0F00006D983A /* select.c */; };
+		6575A7A711FD0F00006D983A /* set.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A75D11FD0F00006D983A /* set.c */; };
+		6575A7A811FD0F00006D983A /* strflags.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A75F11FD0F00006D983A /* strflags.c */; };
+		6575A7A911FD0F00006D983A /* thermal.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A76111FD0F00006D983A /* thermal.c */; };
+		6575A7AB11FD0F00006D983A /* undo.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A76511FD0F00006D983A /* undo.c */; };
+		6575A7AC11FD0F00006D983A /* vector.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A76711FD0F00006D983A /* vector.c */; };
+		6575A7AD11FD0F00006D983A /* vendor.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A76911FD0F00006D983A /* vendor.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6575A6CD11FCFCF0006D983A /* PCB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PCB.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6575A6D011FCFCF0006D983A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		6575A6D211FCFCF0006D983A /* PCB-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PCB-Info.plist"; sourceTree = "<group>"; };
+		6575A6D311FCFCF0006D983A /* PCB_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCB_Prefix.pch; sourceTree = "<group>"; };
+		6575A6D511FCFCF0006D983A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6575A6D711FCFCF0006D983A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6575A6DA11FCFCF0006D983A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		6575A6DD11FCFCF0006D983A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		6575A6DF11FCFCF0006D983A /* PCBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCBAppDelegate.h; sourceTree = "<group>"; };
+		6575A6E011FCFCF0006D983A /* PCBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCBAppDelegate.m; sourceTree = "<group>"; };
+		6575A6EB11FD0EFF006D983A /* action.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = action.c; path = "pcb-20091103/src/action.c"; sourceTree = "<group>"; };
+		6575A6EC11FD0EFF006D983A /* action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = action.h; path = "pcb-20091103/src/action.h"; sourceTree = "<group>"; };
+		6575A6ED11FD0EFF006D983A /* autoplace.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = autoplace.c; path = "pcb-20091103/src/autoplace.c"; sourceTree = "<group>"; };
+		6575A6EE11FD0EFF006D983A /* autoplace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = autoplace.h; path = "pcb-20091103/src/autoplace.h"; sourceTree = "<group>"; };
+		6575A6EF11FD0EFF006D983A /* autoroute.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = autoroute.c; path = "pcb-20091103/src/autoroute.c"; sourceTree = "<group>"; };
+		6575A6F011FD0EFF006D983A /* autoroute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = autoroute.h; path = "pcb-20091103/src/autoroute.h"; sourceTree = "<group>"; };
+		6575A6F111FD0EFF006D983A /* box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = box.h; path = "pcb-20091103/src/box.h"; sourceTree = "<group>"; };
+		6575A6F211FD0EFF006D983A /* buffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = buffer.c; path = "pcb-20091103/src/buffer.c"; sourceTree = "<group>"; };
+		6575A6F311FD0EFF006D983A /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = buffer.h; path = "pcb-20091103/src/buffer.h"; sourceTree = "<group>"; };
+		6575A6F411FD0EFF006D983A /* change.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = change.c; path = "pcb-20091103/src/change.c"; sourceTree = "<group>"; };
+		6575A6F511FD0EFF006D983A /* change.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = change.h; path = "pcb-20091103/src/change.h"; sourceTree = "<group>"; };
+		6575A6F611FD0EFF006D983A /* check_icon.data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = check_icon.data; path = "pcb-20091103/src/check_icon.data"; sourceTree = "<group>"; };
+		6575A6F711FD0EFF006D983A /* clip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = clip.c; path = "pcb-20091103/src/clip.c"; sourceTree = "<group>"; };
+		6575A6F811FD0EFF006D983A /* clip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = clip.h; path = "pcb-20091103/src/clip.h"; sourceTree = "<group>"; };
+		6575A6F911FD0EFF006D983A /* command.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = command.c; path = "pcb-20091103/src/command.c"; sourceTree = "<group>"; };
+		6575A6FA11FD0EFF006D983A /* command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = command.h; path = "pcb-20091103/src/command.h"; sourceTree = "<group>"; };
+		6575A6FB11FD0EFF006D983A /* compat.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = compat.c; path = "pcb-20091103/src/compat.c"; sourceTree = "<group>"; };
+		6575A6FC11FD0EFF006D983A /* compat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = compat.h; path = "pcb-20091103/src/compat.h"; sourceTree = "<group>"; };
+		6575A6FD11FD0EFF006D983A /* const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = const.h; path = "pcb-20091103/src/const.h"; sourceTree = "<group>"; };
+		6575A6FE11FD0EFF006D983A /* copy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = copy.c; path = "pcb-20091103/src/copy.c"; sourceTree = "<group>"; };
+		6575A6FF11FD0EFF006D983A /* copy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = copy.h; path = "pcb-20091103/src/copy.h"; sourceTree = "<group>"; };
+		6575A70011FD0EFF006D983A /* core_lists.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = core_lists.h; path = "pcb-20091103/src/core_lists.h"; sourceTree = "<group>"; };
+		6575A70111FD0EFF006D983A /* create.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = create.c; path = "pcb-20091103/src/create.c"; sourceTree = "<group>"; };
+		6575A70211FD0EFF006D983A /* create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = create.h; path = "pcb-20091103/src/create.h"; sourceTree = "<group>"; };
+		6575A70311FD0EFF006D983A /* crosshair.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crosshair.c; path = "pcb-20091103/src/crosshair.c"; sourceTree = "<group>"; };
+		6575A70411FD0EFF006D983A /* crosshair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = crosshair.h; path = "pcb-20091103/src/crosshair.h"; sourceTree = "<group>"; };
+		6575A70511FD0EFF006D983A /* data.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = data.c; path = "pcb-20091103/src/data.c"; sourceTree = "<group>"; };
+		6575A70611FD0EFF006D983A /* data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = data.h; path = "pcb-20091103/src/data.h"; sourceTree = "<group>"; };
+		6575A70C11FD0EFF006D983A /* default_font */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = default_font; path = "pcb-20091103/src/default_font"; sourceTree = "<group>"; };
+		6575A70D11FD0EFF006D983A /* djopt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = djopt.c; path = "pcb-20091103/src/djopt.c"; sourceTree = "<group>"; };
+		6575A70E11FD0EFF006D983A /* djopt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = djopt.h; path = "pcb-20091103/src/djopt.h"; sourceTree = "<group>"; };
+		6575A70F11FD0EFF006D983A /* dolists.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dolists.h; path = "pcb-20091103/src/dolists.h"; sourceTree = "<group>"; };
+		6575A71011FD0EFF006D983A /* draw.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = draw.c; path = "pcb-20091103/src/draw.c"; sourceTree = "<group>"; };
+		6575A71111FD0EFF006D983A /* draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = draw.h; path = "pcb-20091103/src/draw.h"; sourceTree = "<group>"; };
+		6575A71211FD0EFF006D983A /* drill.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = drill.c; path = "pcb-20091103/src/drill.c"; sourceTree = "<group>"; };
+		6575A71311FD0EFF006D983A /* drill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = drill.h; path = "pcb-20091103/src/drill.h"; sourceTree = "<group>"; };
+		6575A71411FD0EFF006D983A /* edif_parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = edif_parse.h; path = "pcb-20091103/src/edif_parse.h"; sourceTree = "<group>"; };
+		6575A71511FD0EFF006D983A /* edif.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = edif.c; path = "pcb-20091103/src/edif.c"; sourceTree = "<group>"; };
+		6575A71611FD0EFF006D983A /* edif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = edif.h; path = "pcb-20091103/src/edif.h"; sourceTree = "<group>"; };
+		6575A71811FD0EFF006D983A /* error.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = error.c; path = "pcb-20091103/src/error.c"; sourceTree = "<group>"; };
+		6575A71911FD0EFF006D983A /* error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = error.h; path = "pcb-20091103/src/error.h"; sourceTree = "<group>"; };
+		6575A71A11FD0EFF006D983A /* file.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = file.c; path = "pcb-20091103/src/file.c"; sourceTree = "<group>"; };
+		6575A71B11FD0EFF006D983A /* file.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = file.h; path = "pcb-20091103/src/file.h"; sourceTree = "<group>"; };
+		6575A71C11FD0EFF006D983A /* find.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = find.c; path = "pcb-20091103/src/find.c"; sourceTree = "<group>"; };
+		6575A71D11FD0EFF006D983A /* find.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = find.h; path = "pcb-20091103/src/find.h"; sourceTree = "<group>"; };
+		6575A71E11FD0EFF006D983A /* flags.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = flags.c; path = "pcb-20091103/src/flags.c"; sourceTree = "<group>"; };
+		6575A71F11FD0EFF006D983A /* fontmode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fontmode.c; path = "pcb-20091103/src/fontmode.c"; sourceTree = "<group>"; };
+		6575A72011FD0EFF006D983A /* global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = global.h; path = "pcb-20091103/src/global.h"; sourceTree = "<group>"; };
+		6575A72111FD0EFF006D983A /* gpcb-menu.res */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "gpcb-menu.res"; path = "pcb-20091103/src/gpcb-menu.res"; sourceTree = "<group>"; };
+		6575A72211FD0EFF006D983A /* heap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = heap.c; path = "pcb-20091103/src/heap.c"; sourceTree = "<group>"; };
+		6575A72311FD0EFF006D983A /* heap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = heap.h; path = "pcb-20091103/src/heap.h"; sourceTree = "<group>"; };
+		6575A72411FD0EFF006D983A /* hid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hid.h; path = "pcb-20091103/src/hid.h"; sourceTree = "<group>"; };
+		6575A72511FD0EFF006D983A /* insert.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = insert.c; path = "pcb-20091103/src/insert.c"; sourceTree = "<group>"; };
+		6575A72611FD0EFF006D983A /* insert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = insert.h; path = "pcb-20091103/src/insert.h"; sourceTree = "<group>"; };
+		6575A72711FD0EFF006D983A /* intersect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = intersect.c; path = "pcb-20091103/src/intersect.c"; sourceTree = "<group>"; };
+		6575A72811FD0EFF006D983A /* intersect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = intersect.h; path = "pcb-20091103/src/intersect.h"; sourceTree = "<group>"; };
+		6575A72911FD0EFF006D983A /* line.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = line.c; path = "pcb-20091103/src/line.c"; sourceTree = "<group>"; };
+		6575A72A11FD0EFF006D983A /* line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = line.h; path = "pcb-20091103/src/line.h"; sourceTree = "<group>"; };
+		6575A72B11FD0EFF006D983A /* lrealpath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lrealpath.c; path = "pcb-20091103/src/lrealpath.c"; sourceTree = "<group>"; };
+		6575A72C11FD0EFF006D983A /* lrealpath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lrealpath.h; path = "pcb-20091103/src/lrealpath.h"; sourceTree = "<group>"; };
+		6575A72D11FD0EFF006D983A /* macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = macro.h; path = "pcb-20091103/src/macro.h"; sourceTree = "<group>"; };
+		6575A72E11FD0EFF006D983A /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = "pcb-20091103/src/main.c"; sourceTree = "<group>"; };
+		6575A72F11FD0EFF006D983A /* mirror.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mirror.c; path = "pcb-20091103/src/mirror.c"; sourceTree = "<group>"; };
+		6575A73011FD0EFF006D983A /* mirror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mirror.h; path = "pcb-20091103/src/mirror.h"; sourceTree = "<group>"; };
+		6575A73111FD0EFF006D983A /* misc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = misc.c; path = "pcb-20091103/src/misc.c"; sourceTree = "<group>"; };
+		6575A73211FD0EFF006D983A /* misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = misc.h; path = "pcb-20091103/src/misc.h"; sourceTree = "<group>"; };
+		6575A73311FD0EFF006D983A /* move.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = move.c; path = "pcb-20091103/src/move.c"; sourceTree = "<group>"; };
+		6575A73411FD0EFF006D983A /* move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = move.h; path = "pcb-20091103/src/move.h"; sourceTree = "<group>"; };
+		6575A73511FD0EFF006D983A /* mtspace.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mtspace.c; path = "pcb-20091103/src/mtspace.c"; sourceTree = "<group>"; };
+		6575A73611FD0F00006D983A /* mtspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mtspace.h; path = "pcb-20091103/src/mtspace.h"; sourceTree = "<group>"; };
+		6575A73711FD0F00006D983A /* mymem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mymem.c; path = "pcb-20091103/src/mymem.c"; sourceTree = "<group>"; };
+		6575A73811FD0F00006D983A /* mymem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mymem.h; path = "pcb-20091103/src/mymem.h"; sourceTree = "<group>"; };
+		6575A73911FD0F00006D983A /* netlist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = netlist.c; path = "pcb-20091103/src/netlist.c"; sourceTree = "<group>"; };
+		6575A73A11FD0F00006D983A /* parse_l.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = parse_l.c; path = "pcb-20091103/src/parse_l.c"; sourceTree = "<group>"; };
+		6575A73B11FD0F00006D983A /* parse_l.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = parse_l.h; path = "pcb-20091103/src/parse_l.h"; sourceTree = "<group>"; };
+		6575A73D11FD0F00006D983A /* parse_y.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = parse_y.c; path = "pcb-20091103/src/parse_y.c"; sourceTree = "<group>"; };
+		6575A73E11FD0F00006D983A /* parse_y.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = parse_y.h; path = "pcb-20091103/src/parse_y.h"; sourceTree = "<group>"; };
+		6575A74011FD0F00006D983A /* polyarea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = polyarea.h; path = "pcb-20091103/src/polyarea.h"; sourceTree = "<group>"; };
+		6575A74111FD0F00006D983A /* polygon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = polygon.c; path = "pcb-20091103/src/polygon.c"; sourceTree = "<group>"; };
+		6575A74211FD0F00006D983A /* polygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = polygon.h; path = "pcb-20091103/src/polygon.h"; sourceTree = "<group>"; };
+		6575A74311FD0F00006D983A /* polygon1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = polygon1.c; path = "pcb-20091103/src/polygon1.c"; sourceTree = "<group>"; };
+		6575A74411FD0F00006D983A /* print.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = print.c; path = "pcb-20091103/src/print.c"; sourceTree = "<group>"; };
+		6575A74511FD0F00006D983A /* print.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = print.h; path = "pcb-20091103/src/print.h"; sourceTree = "<group>"; };
+		6575A74611FD0F00006D983A /* puller.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = puller.c; path = "pcb-20091103/src/puller.c"; sourceTree = "<group>"; };
+		6575A74711FD0F00006D983A /* rats.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = rats.c; path = "pcb-20091103/src/rats.c"; sourceTree = "<group>"; };
+		6575A74811FD0F00006D983A /* rats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rats.h; path = "pcb-20091103/src/rats.h"; sourceTree = "<group>"; };
+		6575A74911FD0F00006D983A /* remove.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = remove.c; path = "pcb-20091103/src/remove.c"; sourceTree = "<group>"; };
+		6575A74A11FD0F00006D983A /* remove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = remove.h; path = "pcb-20091103/src/remove.h"; sourceTree = "<group>"; };
+		6575A74B11FD0F00006D983A /* report.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = report.c; path = "pcb-20091103/src/report.c"; sourceTree = "<group>"; };
+		6575A74C11FD0F00006D983A /* report.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = report.h; path = "pcb-20091103/src/report.h"; sourceTree = "<group>"; };
+		6575A74D11FD0F00006D983A /* res_lex.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = res_lex.c; path = "pcb-20091103/src/res_lex.c"; sourceTree = "<group>"; };
+		6575A74F11FD0F00006D983A /* res_parse.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = res_parse.c; path = "pcb-20091103/src/res_parse.c"; sourceTree = "<group>"; };
+		6575A75011FD0F00006D983A /* res_parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = res_parse.h; path = "pcb-20091103/src/res_parse.h"; sourceTree = "<group>"; };
+		6575A75211FD0F00006D983A /* resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = resource.h; path = "pcb-20091103/src/resource.h"; sourceTree = "<group>"; };
+		6575A75311FD0F00006D983A /* rotate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = rotate.c; path = "pcb-20091103/src/rotate.c"; sourceTree = "<group>"; };
+		6575A75411FD0F00006D983A /* rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rotate.h; path = "pcb-20091103/src/rotate.h"; sourceTree = "<group>"; };
+		6575A75511FD0F00006D983A /* rtree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = rtree.c; path = "pcb-20091103/src/rtree.c"; sourceTree = "<group>"; };
+		6575A75611FD0F00006D983A /* rtree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rtree.h; path = "pcb-20091103/src/rtree.h"; sourceTree = "<group>"; };
+		6575A75711FD0F00006D983A /* rubberband.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = rubberband.c; path = "pcb-20091103/src/rubberband.c"; sourceTree = "<group>"; };
+		6575A75811FD0F00006D983A /* rubberband.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rubberband.h; path = "pcb-20091103/src/rubberband.h"; sourceTree = "<group>"; };
+		6575A75911FD0F00006D983A /* search.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = search.c; path = "pcb-20091103/src/search.c"; sourceTree = "<group>"; };
+		6575A75A11FD0F00006D983A /* search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = search.h; path = "pcb-20091103/src/search.h"; sourceTree = "<group>"; };
+		6575A75B11FD0F00006D983A /* select.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = select.c; path = "pcb-20091103/src/select.c"; sourceTree = "<group>"; };
+		6575A75C11FD0F00006D983A /* select.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = select.h; path = "pcb-20091103/src/select.h"; sourceTree = "<group>"; };
+		6575A75D11FD0F00006D983A /* set.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = set.c; path = "pcb-20091103/src/set.c"; sourceTree = "<group>"; };
+		6575A75E11FD0F00006D983A /* set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = set.h; path = "pcb-20091103/src/set.h"; sourceTree = "<group>"; };
+		6575A75F11FD0F00006D983A /* strflags.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = strflags.c; path = "pcb-20091103/src/strflags.c"; sourceTree = "<group>"; };
+		6575A76011FD0F00006D983A /* strflags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = strflags.h; path = "pcb-20091103/src/strflags.h"; sourceTree = "<group>"; };
+		6575A76111FD0F00006D983A /* thermal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = thermal.c; path = "pcb-20091103/src/thermal.c"; sourceTree = "<group>"; };
+		6575A76211FD0F00006D983A /* thermal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = thermal.h; path = "pcb-20091103/src/thermal.h"; sourceTree = "<group>"; };
+		6575A76511FD0F00006D983A /* undo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = undo.c; path = "pcb-20091103/src/undo.c"; sourceTree = "<group>"; };
+		6575A76611FD0F00006D983A /* undo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = undo.h; path = "pcb-20091103/src/undo.h"; sourceTree = "<group>"; };
+		6575A76711FD0F00006D983A /* vector.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vector.c; path = "pcb-20091103/src/vector.c"; sourceTree = "<group>"; };
+		6575A76811FD0F00006D983A /* vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vector.h; path = "pcb-20091103/src/vector.h"; sourceTree = "<group>"; };
+		6575A76911FD0F00006D983A /* vendor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vendor.c; path = "pcb-20091103/src/vendor.c"; sourceTree = "<group>"; };
+		6575A76A11FD0F00006D983A /* vendor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vendor.h; path = "pcb-20091103/src/vendor.h"; sourceTree = "<group>"; };
+		6575A7AF11FD2F88006D983A /* globalconst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = globalconst.h; path = "pcb-20091103/globalconst.h"; sourceTree = "<group>"; };
+		6575A7B411FD307F006D983A /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6575A6CA11FCFCF0006D983A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6575A6D111FCFCF0006D983A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6575A6BE11FCFCEF006D983A = {
+			isa = PBXGroup;
+			children = (
+				6575A6EA11FD0EA8006D983A /* PCB */,
+				6575A6C511FCFCEF006D983A /* Classes */,
+				6575A6C611FCFCF0006D983A /* Other Sources */,
+				6575A6C711FCFCF0006D983A /* Resources */,
+				6575A6C811FCFCF0006D983A /* Frameworks */,
+				6575A6CE11FCFCF0006D983A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6575A6C511FCFCEF006D983A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6575A6DF11FCFCF0006D983A /* PCBAppDelegate.h */,
+				6575A6E011FCFCF0006D983A /* PCBAppDelegate.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		6575A6C611FCFCF0006D983A /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				6575A6D311FCFCF0006D983A /* PCB_Prefix.pch */,
+				6575A6D711FCFCF0006D983A /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		6575A6C711FCFCF0006D983A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6575A6D211FCFCF0006D983A /* PCB-Info.plist */,
+				6575A6D411FCFCF0006D983A /* InfoPlist.strings */,
+				6575A6D911FCFCF0006D983A /* MainMenu.xib */,
+				6575A6DC11FCFCF0006D983A /* Credits.rtf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		6575A6C811FCFCF0006D983A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6575A6D011FCFCF0006D983A /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6575A6CE11FCFCF0006D983A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6575A6CD11FCFCF0006D983A /* PCB.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6575A6EA11FD0EA8006D983A /* PCB */ = {
+			isa = PBXGroup;
+			children = (
+				6575A7B411FD307F006D983A /* config.h */,
+				6575A7AF11FD2F88006D983A /* globalconst.h */,
+				6575A6EB11FD0EFF006D983A /* action.c */,
+				6575A6EC11FD0EFF006D983A /* action.h */,
+				6575A6ED11FD0EFF006D983A /* autoplace.c */,
+				6575A6EE11FD0EFF006D983A /* autoplace.h */,
+				6575A6EF11FD0EFF006D983A /* autoroute.c */,
+				6575A6F011FD0EFF006D983A /* autoroute.h */,
+				6575A6F111FD0EFF006D983A /* box.h */,
+				6575A6F211FD0EFF006D983A /* buffer.c */,
+				6575A6F311FD0EFF006D983A /* buffer.h */,
+				6575A6F411FD0EFF006D983A /* change.c */,
+				6575A6F511FD0EFF006D983A /* change.h */,
+				6575A6F611FD0EFF006D983A /* check_icon.data */,
+				6575A6F711FD0EFF006D983A /* clip.c */,
+				6575A6F811FD0EFF006D983A /* clip.h */,
+				6575A6F911FD0EFF006D983A /* command.c */,
+				6575A6FA11FD0EFF006D983A /* command.h */,
+				6575A6FB11FD0EFF006D983A /* compat.c */,
+				6575A6FC11FD0EFF006D983A /* compat.h */,
+				6575A6FD11FD0EFF006D983A /* const.h */,
+				6575A6FE11FD0EFF006D983A /* copy.c */,
+				6575A6FF11FD0EFF006D983A /* copy.h */,
+				6575A70011FD0EFF006D983A /* core_lists.h */,
+				6575A70111FD0EFF006D983A /* create.c */,
+				6575A70211FD0EFF006D983A /* create.h */,
+				6575A70311FD0EFF006D983A /* crosshair.c */,
+				6575A70411FD0EFF006D983A /* crosshair.h */,
+				6575A70511FD0EFF006D983A /* data.c */,
+				6575A70611FD0EFF006D983A /* data.h */,
+				6575A70C11FD0EFF006D983A /* default_font */,
+				6575A70D11FD0EFF006D983A /* djopt.c */,
+				6575A70E11FD0EFF006D983A /* djopt.h */,
+				6575A70F11FD0EFF006D983A /* dolists.h */,
+				6575A71011FD0EFF006D983A /* draw.c */,
+				6575A71111FD0EFF006D983A /* draw.h */,
+				6575A71211FD0EFF006D983A /* drill.c */,
+				6575A71311FD0EFF006D983A /* drill.h */,
+				6575A71411FD0EFF006D983A /* edif_parse.h */,
+				6575A71511FD0EFF006D983A /* edif.c */,
+				6575A71611FD0EFF006D983A /* edif.h */,
+				6575A71811FD0EFF006D983A /* error.c */,
+				6575A71911FD0EFF006D983A /* error.h */,
+				6575A71A11FD0EFF006D983A /* file.c */,
+				6575A71B11FD0EFF006D983A /* file.h */,
+				6575A71C11FD0EFF006D983A /* find.c */,
+				6575A71D11FD0EFF006D983A /* find.h */,
+				6575A71E11FD0EFF006D983A /* flags.c */,
+				6575A71F11FD0EFF006D983A /* fontmode.c */,
+				6575A72011FD0EFF006D983A /* global.h */,
+				6575A72111FD0EFF006D983A /* gpcb-menu.res */,
+				6575A72211FD0EFF006D983A /* heap.c */,
+				6575A72311FD0EFF006D983A /* heap.h */,
+				6575A72411FD0EFF006D983A /* hid.h */,
+				6575A72511FD0EFF006D983A /* insert.c */,
+				6575A72611FD0EFF006D983A /* insert.h */,
+				6575A72711FD0EFF006D983A /* intersect.c */,
+				6575A72811FD0EFF006D983A /* intersect.h */,
+				6575A72911FD0EFF006D983A /* line.c */,
+				6575A72A11FD0EFF006D983A /* line.h */,
+				6575A72B11FD0EFF006D983A /* lrealpath.c */,
+				6575A72C11FD0EFF006D983A /* lrealpath.h */,
+				6575A72D11FD0EFF006D983A /* macro.h */,
+				6575A72E11FD0EFF006D983A /* main.c */,
+				6575A72F11FD0EFF006D983A /* mirror.c */,
+				6575A73011FD0EFF006D983A /* mirror.h */,
+				6575A73111FD0EFF006D983A /* misc.c */,
+				6575A73211FD0EFF006D983A /* misc.h */,
+				6575A73311FD0EFF006D983A /* move.c */,
+				6575A73411FD0EFF006D983A /* move.h */,
+				6575A73511FD0EFF006D983A /* mtspace.c */,
+				6575A73611FD0F00006D983A /* mtspace.h */,
+				6575A73711FD0F00006D983A /* mymem.c */,
+				6575A73811FD0F00006D983A /* mymem.h */,
+				6575A73911FD0F00006D983A /* netlist.c */,
+				6575A73A11FD0F00006D983A /* parse_l.c */,
+				6575A73B11FD0F00006D983A /* parse_l.h */,
+				6575A73D11FD0F00006D983A /* parse_y.c */,
+				6575A73E11FD0F00006D983A /* parse_y.h */,
+				6575A74011FD0F00006D983A /* polyarea.h */,
+				6575A74111FD0F00006D983A /* polygon.c */,
+				6575A74211FD0F00006D983A /* polygon.h */,
+				6575A74311FD0F00006D983A /* polygon1.c */,
+				6575A74411FD0F00006D983A /* print.c */,
+				6575A74511FD0F00006D983A /* print.h */,
+				6575A74611FD0F00006D983A /* puller.c */,
+				6575A74711FD0F00006D983A /* rats.c */,
+				6575A74811FD0F00006D983A /* rats.h */,
+				6575A74911FD0F00006D983A /* remove.c */,
+				6575A74A11FD0F00006D983A /* remove.h */,
+				6575A74B11FD0F00006D983A /* report.c */,
+				6575A74C11FD0F00006D983A /* report.h */,
+				6575A74D11FD0F00006D983A /* res_lex.c */,
+				6575A74F11FD0F00006D983A /* res_parse.c */,
+				6575A75011FD0F00006D983A /* res_parse.h */,
+				6575A75211FD0F00006D983A /* resource.h */,
+				6575A75311FD0F00006D983A /* rotate.c */,
+				6575A75411FD0F00006D983A /* rotate.h */,
+				6575A75511FD0F00006D983A /* rtree.c */,
+				6575A75611FD0F00006D983A /* rtree.h */,
+				6575A75711FD0F00006D983A /* rubberband.c */,
+				6575A75811FD0F00006D983A /* rubberband.h */,
+				6575A75911FD0F00006D983A /* search.c */,
+				6575A75A11FD0F00006D983A /* search.h */,
+				6575A75B11FD0F00006D983A /* select.c */,
+				6575A75C11FD0F00006D983A /* select.h */,
+				6575A75D11FD0F00006D983A /* set.c */,
+				6575A75E11FD0F00006D983A /* set.h */,
+				6575A75F11FD0F00006D983A /* strflags.c */,
+				6575A76011FD0F00006D983A /* strflags.h */,
+				6575A76111FD0F00006D983A /* thermal.c */,
+				6575A76211FD0F00006D983A /* thermal.h */,
+				6575A76511FD0F00006D983A /* undo.c */,
+				6575A76611FD0F00006D983A /* undo.h */,
+				6575A76711FD0F00006D983A /* vector.c */,
+				6575A76811FD0F00006D983A /* vector.h */,
+				6575A76911FD0F00006D983A /* vendor.c */,
+				6575A76A11FD0F00006D983A /* vendor.h */,
+			);
+			name = PCB;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6575A6CC11FCFCF0006D983A /* PCB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6575A6E411FCFCF0006D983A /* Build configuration list for PBXNativeTarget "PCB" */;
+			buildPhases = (
+				6575A6C911FCFCF0006D983A /* Sources */,
+				6575A6CA11FCFCF0006D983A /* Frameworks */,
+				6575A6CB11FCFCF0006D983A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PCB;
+			productName = PCB;
+			productReference = 6575A6CD11FCFCF0006D983A /* PCB.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6575A6C011FCFCEF006D983A /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 6575A6C311FCFCEF006D983A /* Build configuration list for PBXProject "PCB" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6575A6BE11FCFCEF006D983A;
+			productRefGroup = 6575A6CE11FCFCF0006D983A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6575A6CC11FCFCF0006D983A /* PCB */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6575A6CB11FCFCF0006D983A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6575A6D611FCFCF0006D983A /* InfoPlist.strings in Resources */,
+				6575A6DB11FCFCF0006D983A /* MainMenu.xib in Resources */,
+				6575A6DE11FCFCF0006D983A /* Credits.rtf in Resources */,
+				6575A77011FD0F00006D983A /* check_icon.data in Resources */,
+				6575A77B11FD0F00006D983A /* default_font in Resources */,
+				6575A78611FD0F00006D983A /* gpcb-menu.res in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6575A6C911FCFCF0006D983A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6575A6D811FCFCF0006D983A /* main.m in Sources */,
+				6575A6E111FCFCF0006D983A /* PCBAppDelegate.m in Sources */,
+				6575A76B11FD0F00006D983A /* action.c in Sources */,
+				6575A76C11FD0F00006D983A /* autoplace.c in Sources */,
+				6575A76D11FD0F00006D983A /* autoroute.c in Sources */,
+				6575A76E11FD0F00006D983A /* buffer.c in Sources */,
+				6575A76F11FD0F00006D983A /* change.c in Sources */,
+				6575A77111FD0F00006D983A /* clip.c in Sources */,
+				6575A77211FD0F00006D983A /* command.c in Sources */,
+				6575A77311FD0F00006D983A /* compat.c in Sources */,
+				6575A77411FD0F00006D983A /* copy.c in Sources */,
+				6575A77511FD0F00006D983A /* create.c in Sources */,
+				6575A77611FD0F00006D983A /* crosshair.c in Sources */,
+				6575A77711FD0F00006D983A /* data.c in Sources */,
+				6575A77C11FD0F00006D983A /* djopt.c in Sources */,
+				6575A77D11FD0F00006D983A /* draw.c in Sources */,
+				6575A77E11FD0F00006D983A /* drill.c in Sources */,
+				6575A77F11FD0F00006D983A /* edif.c in Sources */,
+				6575A78111FD0F00006D983A /* error.c in Sources */,
+				6575A78211FD0F00006D983A /* file.c in Sources */,
+				6575A78311FD0F00006D983A /* find.c in Sources */,
+				6575A78411FD0F00006D983A /* flags.c in Sources */,
+				6575A78511FD0F00006D983A /* fontmode.c in Sources */,
+				6575A78711FD0F00006D983A /* heap.c in Sources */,
+				6575A78811FD0F00006D983A /* insert.c in Sources */,
+				6575A78911FD0F00006D983A /* intersect.c in Sources */,
+				6575A78A11FD0F00006D983A /* line.c in Sources */,
+				6575A78B11FD0F00006D983A /* lrealpath.c in Sources */,
+				6575A78C11FD0F00006D983A /* main.c in Sources */,
+				6575A78D11FD0F00006D983A /* mirror.c in Sources */,
+				6575A78E11FD0F00006D983A /* misc.c in Sources */,
+				6575A78F11FD0F00006D983A /* move.c in Sources */,
+				6575A79011FD0F00006D983A /* mtspace.c in Sources */,
+				6575A79111FD0F00006D983A /* mymem.c in Sources */,
+				6575A79211FD0F00006D983A /* netlist.c in Sources */,
+				6575A79311FD0F00006D983A /* parse_l.c in Sources */,
+				6575A79511FD0F00006D983A /* parse_y.c in Sources */,
+				6575A79711FD0F00006D983A /* polygon.c in Sources */,
+				6575A79811FD0F00006D983A /* polygon1.c in Sources */,
+				6575A79911FD0F00006D983A /* print.c in Sources */,
+				6575A79A11FD0F00006D983A /* puller.c in Sources */,
+				6575A79B11FD0F00006D983A /* rats.c in Sources */,
+				6575A79C11FD0F00006D983A /* remove.c in Sources */,
+				6575A79D11FD0F00006D983A /* report.c in Sources */,
+				6575A79E11FD0F00006D983A /* res_lex.c in Sources */,
+				6575A7A011FD0F00006D983A /* res_parse.c in Sources */,
+				6575A7A211FD0F00006D983A /* rotate.c in Sources */,
+				6575A7A311FD0F00006D983A /* rtree.c in Sources */,
+				6575A7A411FD0F00006D983A /* rubberband.c in Sources */,
+				6575A7A511FD0F00006D983A /* search.c in Sources */,
+				6575A7A611FD0F00006D983A /* select.c in Sources */,
+				6575A7A711FD0F00006D983A /* set.c in Sources */,
+				6575A7A811FD0F00006D983A /* strflags.c in Sources */,
+				6575A7A911FD0F00006D983A /* thermal.c in Sources */,
+				6575A7AB11FD0F00006D983A /* undo.c in Sources */,
+				6575A7AC11FD0F00006D983A /* vector.c in Sources */,
+				6575A7AD11FD0F00006D983A /* vendor.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6575A6D411FCFCF0006D983A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6575A6D511FCFCF0006D983A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6575A6D911FCFCF0006D983A /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6575A6DA11FCFCF0006D983A /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		6575A6DC11FCFCF0006D983A /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6575A6DD11FCFCF0006D983A /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6575A6E211FCFCF0006D983A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = HAVE_CONFIG_H;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		6575A6E311FCFCF0006D983A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = HAVE_CONFIG_H;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		6575A6E511FCFCF0006D983A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PCB_Prefix.pch;
+				INFOPLIST_FILE = "PCB-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = PCB;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6575A6E611FCFCF0006D983A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PCB_Prefix.pch;
+				INFOPLIST_FILE = "PCB-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = PCB;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6575A6C311FCFCEF006D983A /* Build configuration list for PBXProject "PCB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6575A6E211FCFCF0006D983A /* Debug */,
+				6575A6E311FCFCF0006D983A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6575A6E411FCFCF0006D983A /* Build configuration list for PBXNativeTarget "PCB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6575A6E511FCFCF0006D983A /* Debug */,
+				6575A6E611FCFCF0006D983A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6575A6C011FCFCEF006D983A /* Project object */;
+}

@@ -1,0 +1,53 @@
+// !$*UTF8*$!
+{
+	6575A6C011FCFCEF006D983A /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 6575A6CF11FCFCF0006D983A /* PCB */;
+		activeTarget = 6575A6CC11FCFCF0006D983A /* PCB */;
+		codeSenseManager = 6575A6C411FCFCEF006D983A /* Code sense */;
+		executables = (
+			6575A6CF11FCFCF0006D983A /* PCB */,
+		);
+		ignoreBreakpointsInProjectsDict = {
+		};
+		userBuildSettings = {
+		};
+	};
+	6575A6C411FCFCEF006D983A /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	6575A6CC11FCFCF0006D983A /* PCB */ = {
+		activeExec = 0;
+		executables = (
+			6575A6CF11FCFCF0006D983A /* PCB */,
+		);
+	};
+	6575A6CF11FCFCF0006D983A /* PCB */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = PCB;
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+}

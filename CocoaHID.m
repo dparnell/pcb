@@ -8,7 +8,6 @@
 
 #import "CocoaHID.h"
 
-#import "global.h"
 #import "hid/common/draw_helpers.h"
 #import "hidint.h"
 #import "data.h"
@@ -47,7 +46,7 @@ cocoa_get_export_options (int *n)
 static void
 cocoa_do_export (HID_Attr_Val * options)
 {
-	cocoa_main(nil, 0);
+	NSApplicationMain(0, nil);
 }
 
 static void
@@ -412,5 +411,9 @@ hid_cocoa_init ()
 
 
 @implementation CocoaHID
+
++(HID*) HID {
+	return &cocoa_gui;
+}
 
 @end

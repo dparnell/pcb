@@ -8,6 +8,7 @@
 
 
 #import "PCBAppDelegate.h"
+#import "CocoaLibrary.h"
 
 @implementation PCBAppDelegate
 
@@ -15,7 +16,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 
-    // Insert code here to initialize your application
+	[CocoaLibrary showLibrary];
 }
 
 @end

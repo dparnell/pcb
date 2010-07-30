@@ -9,16 +9,21 @@
 #import "CocoaLibrary.h"
 #import "global.h"
 #import "hid.h"
+#import "buffer.h"
+#import "data.h"
+#import "set.h"
 
 static int
 LibraryShow (int argc, char **argv, int x, int y)
 {
+	[CocoaLibrary showLibrary];
     return 0;
 }
 
 static int
 LibraryChanged (int argc, char **argv, int x, int y)
 {
+	
     return 0;
 }
 
@@ -37,9 +42,24 @@ HID_Action cocoa_library_action_list[] = {
 
 REGISTER_ACTIONS (cocoa_library_action_list)
 
+static CocoaLibrary* instance = nil;
+
 @implementation CocoaLibrary
 
-+ (void) initialize {
+@synthesize items;
+
++ (void) showLibrary {
+	if (instance==nil) {
+		instance = [[[CocoaLibrary alloc] initWithWindowNibName: @"LibraryWindow"] retain];
+	}
+	
+	[instance showWindow: nil];
+}
+
++ (void) libraryChanged {
+	if (instance) {
+		[instance updateLibraryModel];
+	}
 }
 
 - (id)initWithWindow:(NSWindow *)window {
@@ -59,7 +79,46 @@ REGISTER_ACTIONS (cocoa_library_action_list)
 - (void)windowDidLoad {
     [super windowDidLoad];
     
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+	[instance updateLibraryModel];
+}
+
+- (void) updateLibraryModel {
+	[self willChangeValueForKey: @"items"];
+	NSMutableArray* newItems = [NSMutableArray array];
+	
+	MENU_LOOP (&Library);
+	{
+		NSMutableArray* libItems = [NSMutableArray array];
+		if (!menu->directory)	/* Shouldn't happen */
+			menu->directory = strdup("???");
+		
+		NSLog(@"%s", menu->directory);
+		ENTRY_LOOP (menu);
+		{
+			NSLog(@"\t%s", entry->ListEntry);
+			[libItems addObject: [NSMutableDictionary dictionaryWithObjectsAndKeys:
+								  [NSString stringWithCString: entry->ListEntry 
+													 encoding: NSUTF8StringEncoding], @"name",
+								  [NSValue valueWithPointer: menu], @"menu",
+								  [NSValue valueWithPointer: entry], @"entry",
+								  nil
+								  ]];
+		}
+		END_LOOP;
+
+		[newItems addObject: [NSMutableDictionary dictionaryWithObjectsAndKeys: 
+							  [NSString stringWithCString: menu->directory 
+												 encoding: NSUTF8StringEncoding], @"name",
+							  libItems, @"children",
+							  nil
+							  ]];
+	}
+	END_LOOP;
+	
+	[items release];
+	items = [newItems retain];
+	
+	[self didChangeValueForKey: @"items"];
 }
 
 @end

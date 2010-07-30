@@ -35,7 +35,7 @@
 #define GETTEXT_PACKAGE "pcb"
 
 /* m4 program used by pcb */
-#define GNUM4 "/Users/jhbuild/gtk/inst/bin/m4"
+#define GNUM4 "/usr/bin/m4"
 
 /* Define to 1 if you have `alloca', as a function or macro. */
 #define HAVE_ALLOCA 1

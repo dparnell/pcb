@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "global.h"
 
 
 @interface CocoaHID : NSObject {
 
 }
+
++(HID*) HID;
 
 @end

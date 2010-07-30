@@ -11,7 +11,14 @@
 
 @interface CocoaLibrary : NSWindowController {
 @private
-    
+    NSArray* items;
 }
+
++ (void) showLibrary;
++ (void) libraryChanged;
+
+- (void) updateLibraryModel;
+
+@property(readonly) NSArray* items;
 
 @end

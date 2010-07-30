@@ -1917,6 +1917,7 @@ static void yy_fatal_error( msg )
 char msg[];
 #endif
 	{
+		stoppingHere();
 	(void) fprintf( stderr, "%s\n", msg );
 	exit( YY_EXIT_FAILURE );
 	}
@@ -2077,6 +2078,8 @@ static int Parse(char *Executable, char *Path, char *Filename, char *Parameter)
 		PopenErrorMessage(command);
 		return(1);
 	      }
+		  
+		  sleep(100);		  
 	  }
 
 #ifdef FLEX_SCANNER

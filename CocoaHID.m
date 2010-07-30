@@ -12,6 +12,10 @@
 #import "hidint.h"
 #import "data.h"
 
+static NSView* currentView = nil;
+static NSGraphicsContext *nsctx = nil;
+static CGContextRef context = nil;
+
 typedef struct hid_gc_struct
 {
     HID *me_pointer;
@@ -81,12 +85,17 @@ cocoa_parse_arguments (int *argc, char ***argv)
 		}
 	}
 	
-	Settings.verbose = 1;
+	Settings.verbose = 0;
+}
+
+void stoppingHere() {
+//	NSLog(@"STOPPING");
 }
 
 static void
 cocoa_invalidate_wh (int x, int y, int width, int height, int last)
 {
+//	NSLog(@"cocoa_invalidate_wh %d %d %d %d %d", x, y, width, height, last);
 }
 
 static void
@@ -98,12 +107,14 @@ cocoa_invalidate_lr (int l, int r, int t, int b, int last)
 void
 cocoa_invalidate_all (void)
 {
-//    cocoa_invalidate_wh (0, 0, PCB->MaxWidth, PCB->MaxHeight, 1);
+    cocoa_invalidate_wh (0, 0, PCB->MaxWidth, PCB->MaxHeight, 1);
 }
 
 static int
 cocoa_set_layer (const char *name, int group, int empty)
 {
+//	NSLog(@"cocoa_set_layer %s, %d %d", name, group, empty);
+	
     return 0;
 }
 
@@ -130,29 +141,36 @@ cocoa_use_mask (int use_it)
 static void
 cocoa_set_color (hidGC gc, const char *name)
 {
+//	NSLog(@"cocoa_set_color: %p %s", gc, name);
 }
 
 static void
 cocoa_set_line_cap (hidGC gc, EndCapStyle style)
 {
+//	NSLog(@"cocoa_set_line_cap: %p, %d", gc, style);
+	
     gc->cap = style;
 }
 
 static void
 cocoa_set_line_width (hidGC gc, int width)
 {
+//	NSLog(@"cocoa_set_line_width: %p %d", gc, width);
+	CGContextSetLineWidth(context, width);
     gc->width = width;
 }
 
 static void
 cocoa_set_draw_xor (hidGC gc, int xor)
 {
+//	NSLog(@"cocoa_set_draw_xor: %p %d", gc, xor);
     gc->xor = xor;
 }
 
 static void
 cocoa_set_draw_faded (hidGC gc, int faded)
 {
+//	NSLog(@"cocoa_set_draw_faded: %p %d", gc, faded);
     /* We don't use this */
 }
 
@@ -165,6 +183,16 @@ cocoa_set_line_cap_angle (hidGC gc, int x1, int y1, int x2, int y2)
 static void
 cocoa_draw_line (hidGC gc, int x1, int y1, int x2, int y2)
 {
+//	NSLog(@"cocoa_draw_line: %p %d %d %d %d", gc, x1, y1, x2, y2);
+
+	if(currentView) {
+		CGContextBeginPath(context);
+		CGContextMoveToPoint(context, x1, y1);
+		CGContextAddLineToPoint(context, x2, y2);
+		CGContextStrokePath(context);	
+	}
+	
+//	[NSBezierPath strokeLineFromPoint: NSMakePoint(x1/1000.0, y1/1000.0) toPoint: NSMakePoint(x2/1000.0, y2/1000.0)];
 }
 
 static void
@@ -414,6 +442,17 @@ hid_cocoa_init ()
 
 +(HID*) HID {
 	return &cocoa_gui;
+}
+
++(void) drawToView:(NSView*)aView {
+	currentView = aView;
+	nsctx = [NSGraphicsContext currentContext];
+    context = (CGContextRef)[nsctx graphicsPort];	
+}
+
++(void) finishedDrawing {
+	CGContextFlush(context);
+	currentView = nil;
 }
 
 @end

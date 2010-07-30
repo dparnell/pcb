@@ -7,7 +7,7 @@
 //
 
 #import "CocoaPCBView.h"
-
+#import "CocoaHID.h"
 
 @implementation CocoaPCBView
 
@@ -19,8 +19,17 @@
     return self;
 }
 
+- (void)drawWithHID:(NSRect)dirtyRect {
+}
+
+- (BOOL) isFlipped {
+	return YES;
+}
+
 - (void)drawRect:(NSRect)dirtyRect {
-    // Drawing code here.
+	[CocoaHID drawToView: self];
+	[self drawWithHID: dirtyRect];
+	[CocoaHID finishedDrawing];
 }
 
 @end

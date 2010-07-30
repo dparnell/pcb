@@ -10,7 +10,9 @@
 #import "CocoaPCBView.h"
 
 @interface LibraryPreviewView : CocoaPCBView {
-
+	ElementTypePtr element;
 }
+
+@property(assign) ElementTypePtr element;
 
 @end

@@ -7,11 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "LibraryPreviewView.h"
 
 @interface CocoaLibrary : NSWindowController {
 @private
     NSArray* items;
+	NSArray* selectedItem;
+	LibraryPreviewView* previewView;
 }
 
 + (void) showLibrary;
@@ -20,5 +22,7 @@
 - (void) updateLibraryModel;
 
 @property(readonly) NSArray* items;
+@property(retain) NSArray* selectedItem;
+@property(retain) IBOutlet LibraryPreviewView* previewView;
 
 @end

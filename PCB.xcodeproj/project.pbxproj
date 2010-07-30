@@ -146,6 +146,8 @@
 		654CE9B11202EECD0073C4A6 /* CocoaPCBView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaPCBView.m; sourceTree = "<group>"; };
 		654CE9B91202F0B10073C4A6 /* LibraryPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryPreviewView.h; sourceTree = "<group>"; };
 		654CE9BA1202F0B10073C4A6 /* LibraryPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryPreviewView.m; sourceTree = "<group>"; };
+		654CEABE120308C00073C4A6 /* parse_l.l */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; name = parse_l.l; path = "pcb-20091103/src/parse_l.l"; sourceTree = "<group>"; };
+		654CEABF120308C00073C4A6 /* parse_y.y */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; name = parse_y.y; path = "pcb-20091103/src/parse_y.y"; sourceTree = "<group>"; };
 		6575A6CD11FCFCF0006D983A /* PCB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PCB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6575A6D011FCFCF0006D983A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6575A6D211FCFCF0006D983A /* PCB-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PCB-Info.plist"; sourceTree = "<group>"; };
@@ -403,6 +405,8 @@
 		6575A6EA11FD0EA8006D983A /* PCB */ = {
 			isa = PBXGroup;
 			children = (
+				654CEABE120308C00073C4A6 /* parse_l.l */,
+				654CEABF120308C00073C4A6 /* parse_y.y */,
 				6522844B12024BC9009C97C5 /* hidint.h */,
 				65D3AD98120165B8001AAC1A /* bom */,
 				65D3AD9B120165B8001AAC1A /* gerber */,

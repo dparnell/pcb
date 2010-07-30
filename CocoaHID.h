@@ -15,5 +15,7 @@
 }
 
 +(HID*) HID;
++(void) drawToView:(NSView*)aView;
++(void) finishedDrawing;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "global.h"
 
 @interface CocoaPCBView : NSView {
 

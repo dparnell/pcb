@@ -138,10 +138,57 @@ cocoa_use_mask (int use_it)
 {
 }
 
+NSMutableDictionary* color_cache = nil;
+
 static void
 cocoa_set_color (hidGC gc, const char *name)
 {
 //	NSLog(@"cocoa_set_color: %p %s", gc, name);
+	if (strcmp (name, "erase") == 0)
+    {
+		[[NSColor whiteColor] set];
+    }
+	else if (strcmp (name, "drill") == 0)
+    {
+		[[NSColor whiteColor] set];
+    }
+	else {
+		if(name[0]=='#') {
+			if(color_cache==nil) {
+				color_cache = [[NSMutableDictionary dictionary] retain];
+			}
+			NSString* n = [NSString stringWithCString: name encoding: NSUTF8StringEncoding];
+			NSColor* color = [color_cache objectForKey: n];
+			if(color==nil) {
+				NSRange range;
+				range.location = 1;
+				range.length = 2;
+				NSString *rString = [n substringWithRange:range];
+				
+				range.location = 3;
+				NSString *gString = [n substringWithRange:range];
+				
+				range.location = 5;
+				NSString *bString = [n substringWithRange:range];
+				
+				// Scan values
+				unsigned int r, g, b;
+				[[NSScanner scannerWithString:rString] scanHexInt:&r];
+				[[NSScanner scannerWithString:gString] scanHexInt:&g];
+				[[NSScanner scannerWithString:bString] scanHexInt:&b];
+				
+				color = [NSColor colorWithDeviceRed:((float) r / 255.0f)
+											  green:((float) g / 255.0f)
+											   blue:((float) b / 255.0f)
+											  alpha:1.0f];
+				
+				[color_cache setObject: color forKey: n];
+			}
+			[color set];
+		} else {
+			[[NSColor blackColor] set];
+		}
+	}
 }
 
 static void
@@ -204,6 +251,7 @@ cocoa_draw_arc (hidGC gc, int cx, int cy, int width, int height,
 static void
 cocoa_draw_rect (hidGC gc, int x1, int y1, int x2, int y2)
 {
+	[NSBezierPath strokeRect: NSMakeRect(x1, y1, x2-x1, y2-y1)];
 }
 
 static void
@@ -219,6 +267,7 @@ cocoa_fill_polygon (hidGC gc, int n_coords, int *x, int *y)
 static void
 cocoa_fill_rect (hidGC gc, int x1, int y1, int x2, int y2)
 {
+	[NSBezierPath fillRect: NSMakeRect(x1, y1, x2-x1, y2-y1)];
 }
 
 static void

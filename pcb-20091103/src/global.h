@@ -66,7 +66,7 @@ typedef int BDimension;		/* big dimension */
 
 #ifndef XtSpecificationRelease
 typedef unsigned int Cardinal;
-typedef char Boolean;
+typedef unsigned char Boolean;
 /*typedef unsigned int	Pixel;*/
 typedef char *String;
 typedef short Position;

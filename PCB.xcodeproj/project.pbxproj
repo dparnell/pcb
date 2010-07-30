@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		652284421202458F009C97C5 /* CocoaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 652284411202458F009C97C5 /* CocoaLibrary.m */; };
 		6575A6D111FCFCF0006D983A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6575A6D011FCFCF0006D983A /* Cocoa.framework */; };
 		6575A6D611FCFCF0006D983A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6575A6D411FCFCF0006D983A /* InfoPlist.strings */; };
 		6575A6D811FCFCF0006D983A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6575A6D711FCFCF0006D983A /* main.m */; };
@@ -71,9 +72,25 @@
 		6575A7AB11FD0F00006D983A /* undo.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A76511FD0F00006D983A /* undo.c */; };
 		6575A7AC11FD0F00006D983A /* vector.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A76711FD0F00006D983A /* vector.c */; };
 		6575A7AD11FD0F00006D983A /* vendor.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A76911FD0F00006D983A /* vendor.c */; };
+		65D3AD7612014F46001AAC1A /* CocoaHID.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D3AD7512014F46001AAC1A /* CocoaHID.m */; };
+		65D3AD8D1201627C001AAC1A /* actions.c in Sources */ = {isa = PBXBuildFile; fileRef = 65D3AD841201627C001AAC1A /* actions.c */; };
+		65D3AD8E1201627C001AAC1A /* draw_helpers.c in Sources */ = {isa = PBXBuildFile; fileRef = 65D3AD851201627C001AAC1A /* draw_helpers.c */; };
+		65D3AD8F1201627C001AAC1A /* extents.c in Sources */ = {isa = PBXBuildFile; fileRef = 65D3AD871201627C001AAC1A /* extents.c */; };
+		65D3AD901201627C001AAC1A /* flags.c in Sources */ = {isa = PBXBuildFile; fileRef = 65D3AD881201627C001AAC1A /* flags.c */; };
+		65D3AD911201627C001AAC1A /* hid_resource.c in Sources */ = {isa = PBXBuildFile; fileRef = 65D3AD891201627C001AAC1A /* hid_resource.c */; };
+		65D3AD921201627C001AAC1A /* hidinit.c in Sources */ = {isa = PBXBuildFile; fileRef = 65D3AD8B1201627C001AAC1A /* hidinit.c */; };
+		65D3AD931201627C001AAC1A /* hidnogui.c in Sources */ = {isa = PBXBuildFile; fileRef = 65D3AD8C1201627C001AAC1A /* hidnogui.c */; };
+		65D3AD9E120165B8001AAC1A /* bom.c in Sources */ = {isa = PBXBuildFile; fileRef = 65D3AD99120165B8001AAC1A /* bom.c */; };
+		65D3AD9F120165B8001AAC1A /* hid.conf in Resources */ = {isa = PBXBuildFile; fileRef = 65D3AD9A120165B8001AAC1A /* hid.conf */; };
+		65D3ADA0120165B8001AAC1A /* gerber.c in Sources */ = {isa = PBXBuildFile; fileRef = 65D3AD9C120165B8001AAC1A /* gerber.c */; };
+		65D3ADA1120165B8001AAC1A /* hid.conf in Resources */ = {isa = PBXBuildFile; fileRef = 65D3AD9D120165B8001AAC1A /* hid.conf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6522843C1201A25E009C97C5 /* hidlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hidlist.h; path = pcb_extras/hid/common/hidlist.h; sourceTree = "<group>"; };
+		652284401202458F009C97C5 /* CocoaLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocoaLibrary.h; path = Classes/CocoaLibrary.h; sourceTree = "<group>"; };
+		652284411202458F009C97C5 /* CocoaLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CocoaLibrary.m; path = Classes/CocoaLibrary.m; sourceTree = "<group>"; };
+		6522844B12024BC9009C97C5 /* hidint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hidint.h; path = "pcb-20091103/src/hid/hidint.h"; sourceTree = "<group>"; };
 		6575A6CD11FCFCF0006D983A /* PCB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PCB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6575A6D011FCFCF0006D983A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6575A6D211FCFCF0006D983A /* PCB-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PCB-Info.plist"; sourceTree = "<group>"; };
@@ -202,6 +219,21 @@
 		6575A76A11FD0F00006D983A /* vendor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vendor.h; path = "pcb-20091103/src/vendor.h"; sourceTree = "<group>"; };
 		6575A7AF11FD2F88006D983A /* globalconst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = globalconst.h; path = "pcb-20091103/globalconst.h"; sourceTree = "<group>"; };
 		6575A7B411FD307F006D983A /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		65D3AD7412014F46001AAC1A /* CocoaHID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaHID.h; sourceTree = "<group>"; };
+		65D3AD7512014F46001AAC1A /* CocoaHID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaHID.m; sourceTree = "<group>"; };
+		65D3AD841201627C001AAC1A /* actions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = actions.c; sourceTree = "<group>"; };
+		65D3AD851201627C001AAC1A /* draw_helpers.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = draw_helpers.c; sourceTree = "<group>"; };
+		65D3AD861201627C001AAC1A /* draw_helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = draw_helpers.h; sourceTree = "<group>"; };
+		65D3AD871201627C001AAC1A /* extents.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = extents.c; sourceTree = "<group>"; };
+		65D3AD881201627C001AAC1A /* flags.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = flags.c; sourceTree = "<group>"; };
+		65D3AD891201627C001AAC1A /* hid_resource.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hid_resource.c; sourceTree = "<group>"; };
+		65D3AD8A1201627C001AAC1A /* hid_resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hid_resource.h; sourceTree = "<group>"; };
+		65D3AD8B1201627C001AAC1A /* hidinit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hidinit.c; sourceTree = "<group>"; };
+		65D3AD8C1201627C001AAC1A /* hidnogui.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hidnogui.c; sourceTree = "<group>"; };
+		65D3AD99120165B8001AAC1A /* bom.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bom.c; sourceTree = "<group>"; };
+		65D3AD9A120165B8001AAC1A /* hid.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hid.conf; sourceTree = "<group>"; };
+		65D3AD9C120165B8001AAC1A /* gerber.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gerber.c; sourceTree = "<group>"; };
+		65D3AD9D120165B8001AAC1A /* hid.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hid.conf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +251,7 @@
 		6575A6BE11FCFCEF006D983A = {
 			isa = PBXGroup;
 			children = (
+				65D3AD7312014F2A001AAC1A /* HID */,
 				6575A6EA11FD0EA8006D983A /* PCB */,
 				6575A6C511FCFCEF006D983A /* Classes */,
 				6575A6C611FCFCF0006D983A /* Other Sources */,
@@ -276,6 +309,10 @@
 		6575A6EA11FD0EA8006D983A /* PCB */ = {
 			isa = PBXGroup;
 			children = (
+				6522844B12024BC9009C97C5 /* hidint.h */,
+				65D3AD98120165B8001AAC1A /* bom */,
+				65D3AD9B120165B8001AAC1A /* gerber */,
+				65D3AD831201627C001AAC1A /* common */,
 				6575A7B411FD307F006D983A /* config.h */,
 				6575A7AF11FD2F88006D983A /* globalconst.h */,
 				6575A6EB11FD0EFF006D983A /* action.c */,
@@ -398,6 +435,55 @@
 			name = PCB;
 			sourceTree = "<group>";
 		};
+		65D3AD7312014F2A001AAC1A /* HID */ = {
+			isa = PBXGroup;
+			children = (
+				6522843C1201A25E009C97C5 /* hidlist.h */,
+				65D3AD7412014F46001AAC1A /* CocoaHID.h */,
+				65D3AD7512014F46001AAC1A /* CocoaHID.m */,
+				652284401202458F009C97C5 /* CocoaLibrary.h */,
+				652284411202458F009C97C5 /* CocoaLibrary.m */,
+			);
+			name = HID;
+			sourceTree = "<group>";
+		};
+		65D3AD831201627C001AAC1A /* common */ = {
+			isa = PBXGroup;
+			children = (
+				65D3AD841201627C001AAC1A /* actions.c */,
+				65D3AD851201627C001AAC1A /* draw_helpers.c */,
+				65D3AD861201627C001AAC1A /* draw_helpers.h */,
+				65D3AD871201627C001AAC1A /* extents.c */,
+				65D3AD881201627C001AAC1A /* flags.c */,
+				65D3AD891201627C001AAC1A /* hid_resource.c */,
+				65D3AD8A1201627C001AAC1A /* hid_resource.h */,
+				65D3AD8B1201627C001AAC1A /* hidinit.c */,
+				65D3AD8C1201627C001AAC1A /* hidnogui.c */,
+			);
+			name = common;
+			path = "pcb-20091103/src/hid/common";
+			sourceTree = "<group>";
+		};
+		65D3AD98120165B8001AAC1A /* bom */ = {
+			isa = PBXGroup;
+			children = (
+				65D3AD99120165B8001AAC1A /* bom.c */,
+				65D3AD9A120165B8001AAC1A /* hid.conf */,
+			);
+			name = bom;
+			path = "pcb-20091103/src/hid/bom";
+			sourceTree = "<group>";
+		};
+		65D3AD9B120165B8001AAC1A /* gerber */ = {
+			isa = PBXGroup;
+			children = (
+				65D3AD9C120165B8001AAC1A /* gerber.c */,
+				65D3AD9D120165B8001AAC1A /* hid.conf */,
+			);
+			name = gerber;
+			path = "pcb-20091103/src/hid/gerber";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -425,7 +511,6 @@
 			isa = PBXProject;
 			buildConfigurationList = 6575A6C311FCFCEF006D983A /* Build configuration list for PBXProject "PCB" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -451,6 +536,8 @@
 				6575A77011FD0F00006D983A /* check_icon.data in Resources */,
 				6575A77B11FD0F00006D983A /* default_font in Resources */,
 				6575A78611FD0F00006D983A /* gpcb-menu.res in Resources */,
+				65D3AD9F120165B8001AAC1A /* hid.conf in Resources */,
+				65D3ADA1120165B8001AAC1A /* hid.conf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +605,17 @@
 				6575A7AB11FD0F00006D983A /* undo.c in Sources */,
 				6575A7AC11FD0F00006D983A /* vector.c in Sources */,
 				6575A7AD11FD0F00006D983A /* vendor.c in Sources */,
+				65D3AD7612014F46001AAC1A /* CocoaHID.m in Sources */,
+				65D3AD8D1201627C001AAC1A /* actions.c in Sources */,
+				65D3AD8E1201627C001AAC1A /* draw_helpers.c in Sources */,
+				65D3AD8F1201627C001AAC1A /* extents.c in Sources */,
+				65D3AD901201627C001AAC1A /* flags.c in Sources */,
+				65D3AD911201627C001AAC1A /* hid_resource.c in Sources */,
+				65D3AD921201627C001AAC1A /* hidinit.c in Sources */,
+				65D3AD931201627C001AAC1A /* hidnogui.c in Sources */,
+				65D3AD9E120165B8001AAC1A /* bom.c in Sources */,
+				65D3ADA0120165B8001AAC1A /* gerber.c in Sources */,
+				652284421202458F009C97C5 /* CocoaLibrary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +659,10 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					pcb_extras,
+					pcb/src,
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
@@ -572,10 +674,17 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = HAVE_CONFIG_H;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					HAVE_CONFIG_H,
+					DEBUG,
+				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					pcb_extras,
+					pcb/src,
+				);
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
 			};

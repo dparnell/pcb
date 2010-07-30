@@ -1,0 +1,388 @@
+//
+//  CocoaHID.m
+//  PCB
+//
+//  Created by Daniel Parnell on 29/07/10.
+//  Copyright (c) 2010 __MyCompanyName__. All rights reserved.
+//
+
+#import "CocoaHID.h"
+
+#import "global.h"
+#import "hid/common/draw_helpers.h"
+#import "hidint.h"
+
+typedef struct hid_gc_struct
+{
+    HID *me_pointer;
+    int color;
+    const char *colorname;
+    int width;
+    EndCapStyle cap;
+    char xor;
+    char erase;
+} hid_gc_struct;
+
+extern HID cocoa_gui;
+
+void register_toporouter_action_list() {
+    // do nothing
+}
+
+void bindtextdomain (char* package, char* locale_dir) {
+    // do nothing
+}
+
+void bind_textdomain_codeset(char* package, char* encoding) {
+    // do nothing
+}
+
+static HID_Attribute *
+cocoa_get_export_options (int *n)
+{
+    return 0;
+}
+
+static void
+cocoa_do_export (HID_Attr_Val * options)
+{
+}
+
+static void
+cocoa_parse_arguments (int *argc, char ***argv)
+{
+
+}
+static void
+cocoa_invalidate_wh (int x, int y, int width, int height, int last)
+{
+}
+
+static void
+cocoa_invalidate_lr (int l, int r, int t, int b, int last)
+{
+    cocoa_invalidate_wh (l, t, r - l + 1, b - t + 1, last);
+}
+
+void
+cocoa_invalidate_all (void)
+{
+//    cocoa_invalidate_wh (0, 0, PCB->MaxWidth, PCB->MaxHeight, 1);
+}
+
+static int
+cocoa_set_layer (const char *name, int group, int empty)
+{
+    return 0;
+}
+
+static hidGC
+cocoa_make_gc (void)
+{
+    hidGC rv = malloc (sizeof (hid_gc_struct));
+    memset (rv, 0, sizeof (hid_gc_struct));
+    rv->me_pointer = &cocoa_gui;
+    return rv;
+}
+
+static void
+cocoa_destroy_gc (hidGC gc)
+{
+    free (gc);
+}
+
+static void
+cocoa_use_mask (int use_it)
+{
+}
+
+static void
+cocoa_set_color (hidGC gc, const char *name)
+{
+}
+
+static void
+cocoa_set_line_cap (hidGC gc, EndCapStyle style)
+{
+    gc->cap = style;
+}
+
+static void
+cocoa_set_line_width (hidGC gc, int width)
+{
+    gc->width = width;
+}
+
+static void
+cocoa_set_draw_xor (hidGC gc, int xor)
+{
+    gc->xor = xor;
+}
+
+static void
+cocoa_set_draw_faded (hidGC gc, int faded)
+{
+    /* We don't use this */
+}
+
+static void
+cocoa_set_line_cap_angle (hidGC gc, int x1, int y1, int x2, int y2)
+{
+//    CRASH;
+}
+
+static void
+cocoa_draw_line (hidGC gc, int x1, int y1, int x2, int y2)
+{
+}
+
+static void
+cocoa_draw_arc (hidGC gc, int cx, int cy, int width, int height,
+                  int start_angle, int delta_angle)
+{
+}
+
+static void
+cocoa_draw_rect (hidGC gc, int x1, int y1, int x2, int y2)
+{
+}
+
+static void
+cocoa_fill_circle (hidGC gc, int cx, int cy, int radius)
+{
+}
+
+static void
+cocoa_fill_polygon (hidGC gc, int n_coords, int *x, int *y)
+{
+}
+
+static void
+cocoa_fill_rect (hidGC gc, int x1, int y1, int x2, int y2)
+{
+}
+
+static void
+cocoa_calibrate (double xval, double yval)
+{
+//    CRASH;
+}
+
+static int
+cocoa_shift_is_pressed (void)
+{
+    return 0;
+}
+
+static int
+cocoa_control_is_pressed (void)
+{
+    return 0;
+}
+
+static int
+cocoa_mod1_is_pressed (void)
+{
+    return 0;
+}
+
+void cocoa_get_coords (const char *msg, int *x, int *y) {
+    
+}
+
+static void
+cocoa_set_crosshair (int x, int y, int action)
+{
+}
+
+static hidval
+cocoa_add_timer (void (*func) (hidval user_data),
+                   unsigned long milliseconds, hidval user_data)
+{
+    
+}
+
+static void
+cocoa_stop_timer (hidval hv)
+{
+}
+
+hidval
+cocoa_watch_file (int fd, unsigned int condition, void (*func) (hidval watch, int fd, unsigned int condition, hidval user_data),
+                    hidval user_data)
+{
+}
+
+void
+cocoa_unwatch_file (hidval data)
+{
+}
+
+static hidval
+cocoa_add_block_hook (void (*func) (hidval data), hidval user_data )
+{
+}
+
+static void
+cocoa_stop_block_hook (hidval mlpoll)
+{
+}
+
+void cocoa_logv (const char *fmt, va_list ap) {
+    printf(fmt, ap);    
+}
+
+void
+cocoa_log (const char *fmt, ...)
+{
+    va_list ap;
+    va_start (ap, fmt);
+    cocoa_logv (fmt, ap);
+    va_end (ap);
+}
+
+int
+cocoa_confirm_dialog (char *msg, ...)
+{
+    return 0;
+}
+
+int
+cocoa_close_confirm_dialog ()
+{
+    return cocoa_confirm_dialog ("OK to lose data ?", NULL);
+}
+
+void
+cocoa_report_dialog (char *title, char *msg)
+{
+}
+
+char *
+cocoa_prompt_for (char *msg, char *default_string)
+{
+    return default_string;
+}
+
+char *
+cocoa_fileselect (const char *title, const char *descr,
+                    char *default_file, char *default_ext,
+                    const char *history_tag, int flags)
+{
+    
+    return cocoa_prompt_for ((char *)title, default_file);
+}
+
+int
+cocoa_attribute_dialog (HID_Attribute * attrs,
+                          int n_attrs, HID_Attr_Val * results,
+                          const char * title, const char * descr)
+{
+}
+
+static void
+cocoa_show_item (void *item)
+{
+}
+
+static void
+cocoa_beep (void)
+{
+}
+
+static int
+cocoa_progress (int so_far, int total, const char *message)
+{
+    return 0;
+}
+
+HID cocoa_gui = {
+    sizeof (HID),
+    "cocoa",
+    "cocoa - a Motif clone for X/Unix",
+    1,				/* gui */
+    0,				/* printer */
+    0,				/* exporter */
+    1,				/* poly before */
+    0,				/* poly after */
+    0,				/* poly dicer */
+    
+    cocoa_get_export_options,
+    cocoa_do_export,
+    cocoa_parse_arguments,
+    
+    cocoa_invalidate_wh,
+    cocoa_invalidate_lr,
+    cocoa_invalidate_all,
+    cocoa_set_layer,
+    cocoa_make_gc,
+    cocoa_destroy_gc,
+    cocoa_use_mask,
+    cocoa_set_color,
+    cocoa_set_line_cap,
+    cocoa_set_line_width,
+    cocoa_set_draw_xor,
+    cocoa_set_draw_faded,
+    cocoa_set_line_cap_angle,
+    cocoa_draw_line,
+    cocoa_draw_arc,
+    cocoa_draw_rect,
+    cocoa_fill_circle,
+    cocoa_fill_polygon,
+    common_fill_pcb_polygon,
+    common_thindraw_pcb_polygon,
+    cocoa_fill_rect,
+    
+    cocoa_calibrate,
+    cocoa_shift_is_pressed,
+    cocoa_control_is_pressed,
+    cocoa_mod1_is_pressed,
+    cocoa_get_coords,
+    cocoa_set_crosshair,
+    cocoa_add_timer,
+    cocoa_stop_timer,
+    cocoa_watch_file,
+    cocoa_unwatch_file,
+    cocoa_add_block_hook,
+    cocoa_stop_block_hook,
+    
+    cocoa_log,
+    cocoa_logv,
+    cocoa_confirm_dialog,
+    cocoa_close_confirm_dialog,
+    cocoa_report_dialog,
+    cocoa_prompt_for,
+    cocoa_fileselect,
+    cocoa_attribute_dialog,
+    cocoa_show_item,
+    cocoa_beep,
+    cocoa_progress,
+    0 /* cocoa_drc_gui */
+};
+
+#include "dolists.h"
+
+void
+hid_cocoa_init ()
+{
+    hid_register_hid (&cocoa_gui);
+
+    REGISTER_ACTIONS (cocoa_library_action_list)
+
+/*
+ REGISTER_ACTIONS (cocoa_dialog_action_list)
+ REGISTER_ACTIONS (cocoa_library_action_list)
+ REGISTER_FLAGS (cocoa_main_flag_list)
+ REGISTER_ATTRIBUTES (cocoa_attribute_list)
+ REGISTER_ACTIONS (cocoa_main_action_list)
+ REGISTER_ACTIONS (cocoa_menu_action_list)
+ REGISTER_ATTRIBUTES(pcbmenu_attr)
+ REGISTER_ACTIONS (cocoa_netlist_action_list)
+ REGISTER_ACTIONS (cocoa_styles_action_list)
+*/
+}
+
+
+@implementation CocoaHID
+
+@end

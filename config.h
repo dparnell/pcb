@@ -8,6 +8,7 @@
 #define PCBTREEPATH "/Library/Application Support/PCB"
 #define BINDIR "/Applications/PCB.app/Contents/MacOS"
 #define LOCALEDIR "/Library/Application Support/PCB/Locale"
+#define HOST "host"
 
 /* Relative path from bindir to pcblibdir */
 #define BINDIR_TO_PCBLIBDIR "../Reources/pcb"

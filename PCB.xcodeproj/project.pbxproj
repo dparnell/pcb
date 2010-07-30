@@ -28,6 +28,8 @@
 		651D36CC12028309000FAA99 /* refcard.ps in Resources */ = {isa = PBXBuildFile; fileRef = 651D36AD12028309000FAA99 /* refcard.ps */; };
 		651D36CD12028309000FAA99 /* tools in Resources */ = {isa = PBXBuildFile; fileRef = 651D36AE12028309000FAA99 /* tools */; };
 		651D36CE12028309000FAA99 /* tutorial in Resources */ = {isa = PBXBuildFile; fileRef = 651D36B712028309000FAA99 /* tutorial */; };
+		651D37231202B01D000FAA99 /* CocoaMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 651D37221202B01D000FAA99 /* CocoaMenu.m */; };
+		651D372E1202B14C000FAA99 /* CocoaStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = 651D372D1202B14C000FAA99 /* CocoaStyles.m */; };
 		652284421202458F009C97C5 /* CocoaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 652284411202458F009C97C5 /* CocoaLibrary.m */; };
 		6575A6D111FCFCF0006D983A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6575A6D011FCFCF0006D983A /* Cocoa.framework */; };
 		6575A6D611FCFCF0006D983A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6575A6D411FCFCF0006D983A /* InfoPlist.strings */; };
@@ -129,6 +131,10 @@
 		651D36AD12028309000FAA99 /* refcard.ps */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = refcard.ps; path = lib/refcard.ps; sourceTree = "<group>"; };
 		651D36AE12028309000FAA99 /* tools */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tools; path = lib/tools; sourceTree = "<group>"; };
 		651D36B712028309000FAA99 /* tutorial */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tutorial; path = lib/tutorial; sourceTree = "<group>"; };
+		651D37211202B01D000FAA99 /* CocoaMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaMenu.h; sourceTree = "<group>"; };
+		651D37221202B01D000FAA99 /* CocoaMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaMenu.m; sourceTree = "<group>"; };
+		651D372C1202B14C000FAA99 /* CocoaStyles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaStyles.h; sourceTree = "<group>"; };
+		651D372D1202B14C000FAA99 /* CocoaStyles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaStyles.m; sourceTree = "<group>"; };
 		6522843C1201A25E009C97C5 /* hidlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hidlist.h; path = pcb_extras/hid/common/hidlist.h; sourceTree = "<group>"; };
 		652284401202458F009C97C5 /* CocoaLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocoaLibrary.h; path = Classes/CocoaLibrary.h; sourceTree = "<group>"; };
 		652284411202458F009C97C5 /* CocoaLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CocoaLibrary.m; path = Classes/CocoaLibrary.m; sourceTree = "<group>"; };
@@ -506,6 +512,10 @@
 				65D3AD7512014F46001AAC1A /* CocoaHID.m */,
 				652284401202458F009C97C5 /* CocoaLibrary.h */,
 				652284411202458F009C97C5 /* CocoaLibrary.m */,
+				651D37211202B01D000FAA99 /* CocoaMenu.h */,
+				651D37221202B01D000FAA99 /* CocoaMenu.m */,
+				651D372C1202B14C000FAA99 /* CocoaStyles.h */,
+				651D372D1202B14C000FAA99 /* CocoaStyles.m */,
 			);
 			name = HID;
 			sourceTree = "<group>";
@@ -700,6 +710,8 @@
 				65D3AD9E120165B8001AAC1A /* bom.c in Sources */,
 				65D3ADA0120165B8001AAC1A /* gerber.c in Sources */,
 				652284421202458F009C97C5 /* CocoaLibrary.m in Sources */,
+				651D37231202B01D000FAA99 /* CocoaMenu.m in Sources */,
+				651D372E1202B14C000FAA99 /* CocoaStyles.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

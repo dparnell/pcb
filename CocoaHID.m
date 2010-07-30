@@ -47,6 +47,7 @@ cocoa_get_export_options (int *n)
 static void
 cocoa_do_export (HID_Attr_Val * options)
 {
+	cocoa_main(nil, 0);
 }
 
 static void
@@ -80,6 +81,8 @@ cocoa_parse_arguments (int *argc, char ***argv)
 			}
 		}
 	}
+	
+	Settings.verbose = 1;
 }
 
 static void
@@ -393,22 +396,18 @@ HID cocoa_gui = {
 
 void
 hid_cocoa_init ()
-{
+{	
     hid_register_hid (&cocoa_gui);
 
-    REGISTER_ACTIONS (cocoa_library_action_list)
-
-/*
- REGISTER_ACTIONS (cocoa_dialog_action_list)
+// REGISTER_ACTIONS (cocoa_dialog_action_list)
  REGISTER_ACTIONS (cocoa_library_action_list)
- REGISTER_FLAGS (cocoa_main_flag_list)
- REGISTER_ATTRIBUTES (cocoa_attribute_list)
- REGISTER_ACTIONS (cocoa_main_action_list)
+// REGISTER_FLAGS (cocoa_main_flag_list)
+// REGISTER_ATTRIBUTES (cocoa_attribute_list)
+// REGISTER_ACTIONS (cocoa_main_action_list)
  REGISTER_ACTIONS (cocoa_menu_action_list)
  REGISTER_ATTRIBUTES(pcbmenu_attr)
- REGISTER_ACTIONS (cocoa_netlist_action_list)
+// REGISTER_ACTIONS (cocoa_netlist_action_list)
  REGISTER_ACTIONS (cocoa_styles_action_list)
-*/
 }
 
 

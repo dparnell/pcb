@@ -11,10 +11,10 @@
 #define HOST "host"
 
 /* Relative path from bindir to pcblibdir */
-#define BINDIR_TO_PCBLIBDIR "../Reources"
+#define BINDIR_TO_PCBLIBDIR "../Resources"
 
 /* Relative path from bindir to pcbtreedir */
-#define BINDIR_TO_PCBTREEDIR "../Resources/newlib"
+#define BINDIR_TO_PCBTREEDIR "../Resources"
 
 /* Define to one of `_getb67', `GETB67', `getb67' for Cray-2 and Cray-YMP
    systems. This function is required for `alloca.c' support on those systems.

@@ -71,6 +71,7 @@
 
 RCSID ("$Id$");
 
+#define DEBUG
 
 #define PCBLIBPATH ".:" PCBLIBDIR
 

@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		651D36BA12028309000FAA99 /* CreateLibrary.sh in Resources */ = {isa = PBXBuildFile; fileRef = 651D35F312028309000FAA99 /* CreateLibrary.sh */; };
+		651D36BB12028309000FAA99 /* CreateLibraryContents.sh in Resources */ = {isa = PBXBuildFile; fileRef = 651D35F412028309000FAA99 /* CreateLibraryContents.sh */; };
+		651D36BC12028309000FAA99 /* default_font in Resources */ = {isa = PBXBuildFile; fileRef = 651D35F512028309000FAA99 /* default_font */; };
+		651D36BD12028309000FAA99 /* examples in Resources */ = {isa = PBXBuildFile; fileRef = 651D35F612028309000FAA99 /* examples */; };
+		651D36BE12028309000FAA99 /* gpcb-menu.res in Resources */ = {isa = PBXBuildFile; fileRef = 651D360012028309000FAA99 /* gpcb-menu.res */; };
+		651D36BF12028309000FAA99 /* ListLibraryContents.sh in Resources */ = {isa = PBXBuildFile; fileRef = 651D360112028309000FAA99 /* ListLibraryContents.sh */; };
+		651D36C012028309000FAA99 /* m4 in Resources */ = {isa = PBXBuildFile; fileRef = 651D360212028309000FAA99 /* m4 */; };
+		651D36C112028309000FAA99 /* newlib in Resources */ = {isa = PBXBuildFile; fileRef = 651D365012028309000FAA99 /* newlib */; };
+		651D36C212028309000FAA99 /* Pcb in Resources */ = {isa = PBXBuildFile; fileRef = 651D36A312028309000FAA99 /* Pcb */; };
+		651D36C312028309000FAA99 /* pcb-menu.res in Resources */ = {isa = PBXBuildFile; fileRef = 651D36A412028309000FAA99 /* pcb-menu.res */; };
+		651D36C412028309000FAA99 /* pcb.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 651D36A512028309000FAA99 /* pcb.pdf */; };
+		651D36C512028309000FAA99 /* pcb.ps in Resources */ = {isa = PBXBuildFile; fileRef = 651D36A612028309000FAA99 /* pcb.ps */; };
+		651D36C612028309000FAA99 /* pcblib in Resources */ = {isa = PBXBuildFile; fileRef = 651D36A712028309000FAA99 /* pcblib */; };
+		651D36C712028309000FAA99 /* pcblib.contents in Resources */ = {isa = PBXBuildFile; fileRef = 651D36A812028309000FAA99 /* pcblib.contents */; };
+		651D36C812028309000FAA99 /* qfp-ui in Resources */ = {isa = PBXBuildFile; fileRef = 651D36A912028309000FAA99 /* qfp-ui */; };
+		651D36C912028309000FAA99 /* qfp.dat in Resources */ = {isa = PBXBuildFile; fileRef = 651D36AA12028309000FAA99 /* qfp.dat */; };
+		651D36CA12028309000FAA99 /* QueryLibrary.sh in Resources */ = {isa = PBXBuildFile; fileRef = 651D36AB12028309000FAA99 /* QueryLibrary.sh */; };
+		651D36CB12028309000FAA99 /* refcard.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 651D36AC12028309000FAA99 /* refcard.pdf */; };
+		651D36CC12028309000FAA99 /* refcard.ps in Resources */ = {isa = PBXBuildFile; fileRef = 651D36AD12028309000FAA99 /* refcard.ps */; };
+		651D36CD12028309000FAA99 /* tools in Resources */ = {isa = PBXBuildFile; fileRef = 651D36AE12028309000FAA99 /* tools */; };
+		651D36CE12028309000FAA99 /* tutorial in Resources */ = {isa = PBXBuildFile; fileRef = 651D36B712028309000FAA99 /* tutorial */; };
 		652284421202458F009C97C5 /* CocoaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 652284411202458F009C97C5 /* CocoaLibrary.m */; };
 		6575A6D111FCFCF0006D983A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6575A6D011FCFCF0006D983A /* Cocoa.framework */; };
 		6575A6D611FCFCF0006D983A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6575A6D411FCFCF0006D983A /* InfoPlist.strings */; };
@@ -87,6 +108,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		651D35F312028309000FAA99 /* CreateLibrary.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = CreateLibrary.sh; path = lib/CreateLibrary.sh; sourceTree = "<group>"; };
+		651D35F412028309000FAA99 /* CreateLibraryContents.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = CreateLibraryContents.sh; path = lib/CreateLibraryContents.sh; sourceTree = "<group>"; };
+		651D35F512028309000FAA99 /* default_font */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = default_font; path = lib/default_font; sourceTree = "<group>"; };
+		651D35F612028309000FAA99 /* examples */ = {isa = PBXFileReference; lastKnownFileType = folder; name = examples; path = lib/examples; sourceTree = "<group>"; };
+		651D360012028309000FAA99 /* gpcb-menu.res */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "gpcb-menu.res"; path = "lib/gpcb-menu.res"; sourceTree = "<group>"; };
+		651D360112028309000FAA99 /* ListLibraryContents.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = ListLibraryContents.sh; path = lib/ListLibraryContents.sh; sourceTree = "<group>"; };
+		651D360212028309000FAA99 /* m4 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = m4; path = lib/m4; sourceTree = "<group>"; };
+		651D365012028309000FAA99 /* newlib */ = {isa = PBXFileReference; lastKnownFileType = folder; name = newlib; path = lib/newlib; sourceTree = "<group>"; };
+		651D36A312028309000FAA99 /* Pcb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Pcb; path = lib/Pcb; sourceTree = "<group>"; };
+		651D36A412028309000FAA99 /* pcb-menu.res */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "pcb-menu.res"; path = "lib/pcb-menu.res"; sourceTree = "<group>"; };
+		651D36A512028309000FAA99 /* pcb.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = pcb.pdf; path = lib/pcb.pdf; sourceTree = "<group>"; };
+		651D36A612028309000FAA99 /* pcb.ps */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = pcb.ps; path = lib/pcb.ps; sourceTree = "<group>"; };
+		651D36A712028309000FAA99 /* pcblib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = pcblib; path = lib/pcblib; sourceTree = "<group>"; };
+		651D36A812028309000FAA99 /* pcblib.contents */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = pcblib.contents; path = lib/pcblib.contents; sourceTree = "<group>"; };
+		651D36A912028309000FAA99 /* qfp-ui */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "qfp-ui"; path = "lib/qfp-ui"; sourceTree = "<group>"; };
+		651D36AA12028309000FAA99 /* qfp.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = qfp.dat; path = lib/qfp.dat; sourceTree = "<group>"; };
+		651D36AB12028309000FAA99 /* QueryLibrary.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = QueryLibrary.sh; path = lib/QueryLibrary.sh; sourceTree = "<group>"; };
+		651D36AC12028309000FAA99 /* refcard.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = refcard.pdf; path = lib/refcard.pdf; sourceTree = "<group>"; };
+		651D36AD12028309000FAA99 /* refcard.ps */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = refcard.ps; path = lib/refcard.ps; sourceTree = "<group>"; };
+		651D36AE12028309000FAA99 /* tools */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tools; path = lib/tools; sourceTree = "<group>"; };
+		651D36B712028309000FAA99 /* tutorial */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tutorial; path = lib/tutorial; sourceTree = "<group>"; };
 		6522843C1201A25E009C97C5 /* hidlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hidlist.h; path = pcb_extras/hid/common/hidlist.h; sourceTree = "<group>"; };
 		652284401202458F009C97C5 /* CocoaLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocoaLibrary.h; path = Classes/CocoaLibrary.h; sourceTree = "<group>"; };
 		652284411202458F009C97C5 /* CocoaLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CocoaLibrary.m; path = Classes/CocoaLibrary.m; sourceTree = "<group>"; };
@@ -282,6 +324,27 @@
 		6575A6C711FCFCF0006D983A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				651D35F312028309000FAA99 /* CreateLibrary.sh */,
+				651D35F412028309000FAA99 /* CreateLibraryContents.sh */,
+				651D35F512028309000FAA99 /* default_font */,
+				651D35F612028309000FAA99 /* examples */,
+				651D360012028309000FAA99 /* gpcb-menu.res */,
+				651D360112028309000FAA99 /* ListLibraryContents.sh */,
+				651D360212028309000FAA99 /* m4 */,
+				651D365012028309000FAA99 /* newlib */,
+				651D36A312028309000FAA99 /* Pcb */,
+				651D36A412028309000FAA99 /* pcb-menu.res */,
+				651D36A512028309000FAA99 /* pcb.pdf */,
+				651D36A612028309000FAA99 /* pcb.ps */,
+				651D36A712028309000FAA99 /* pcblib */,
+				651D36A812028309000FAA99 /* pcblib.contents */,
+				651D36A912028309000FAA99 /* qfp-ui */,
+				651D36AA12028309000FAA99 /* qfp.dat */,
+				651D36AB12028309000FAA99 /* QueryLibrary.sh */,
+				651D36AC12028309000FAA99 /* refcard.pdf */,
+				651D36AD12028309000FAA99 /* refcard.ps */,
+				651D36AE12028309000FAA99 /* tools */,
+				651D36B712028309000FAA99 /* tutorial */,
 				6575A6D211FCFCF0006D983A /* PCB-Info.plist */,
 				6575A6D411FCFCF0006D983A /* InfoPlist.strings */,
 				6575A6D911FCFCF0006D983A /* MainMenu.xib */,
@@ -313,7 +376,6 @@
 				65D3AD98120165B8001AAC1A /* bom */,
 				65D3AD9B120165B8001AAC1A /* gerber */,
 				65D3AD831201627C001AAC1A /* common */,
-				6575A7B411FD307F006D983A /* config.h */,
 				6575A7AF11FD2F88006D983A /* globalconst.h */,
 				6575A6EB11FD0EFF006D983A /* action.c */,
 				6575A6EC11FD0EFF006D983A /* action.h */,
@@ -438,6 +500,7 @@
 		65D3AD7312014F2A001AAC1A /* HID */ = {
 			isa = PBXGroup;
 			children = (
+				6575A7B411FD307F006D983A /* config.h */,
 				6522843C1201A25E009C97C5 /* hidlist.h */,
 				65D3AD7412014F46001AAC1A /* CocoaHID.h */,
 				65D3AD7512014F46001AAC1A /* CocoaHID.m */,
@@ -538,6 +601,27 @@
 				6575A78611FD0F00006D983A /* gpcb-menu.res in Resources */,
 				65D3AD9F120165B8001AAC1A /* hid.conf in Resources */,
 				65D3ADA1120165B8001AAC1A /* hid.conf in Resources */,
+				651D36BA12028309000FAA99 /* CreateLibrary.sh in Resources */,
+				651D36BB12028309000FAA99 /* CreateLibraryContents.sh in Resources */,
+				651D36BC12028309000FAA99 /* default_font in Resources */,
+				651D36BD12028309000FAA99 /* examples in Resources */,
+				651D36BE12028309000FAA99 /* gpcb-menu.res in Resources */,
+				651D36BF12028309000FAA99 /* ListLibraryContents.sh in Resources */,
+				651D36C012028309000FAA99 /* m4 in Resources */,
+				651D36C112028309000FAA99 /* newlib in Resources */,
+				651D36C212028309000FAA99 /* Pcb in Resources */,
+				651D36C312028309000FAA99 /* pcb-menu.res in Resources */,
+				651D36C412028309000FAA99 /* pcb.pdf in Resources */,
+				651D36C512028309000FAA99 /* pcb.ps in Resources */,
+				651D36C612028309000FAA99 /* pcblib in Resources */,
+				651D36C712028309000FAA99 /* pcblib.contents in Resources */,
+				651D36C812028309000FAA99 /* qfp-ui in Resources */,
+				651D36C912028309000FAA99 /* qfp.dat in Resources */,
+				651D36CA12028309000FAA99 /* QueryLibrary.sh in Resources */,
+				651D36CB12028309000FAA99 /* refcard.pdf in Resources */,
+				651D36CC12028309000FAA99 /* refcard.ps in Resources */,
+				651D36CD12028309000FAA99 /* tools in Resources */,
+				651D36CE12028309000FAA99 /* tutorial in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

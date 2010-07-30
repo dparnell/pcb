@@ -11,6 +11,7 @@
 #import "global.h"
 #import "hid/common/draw_helpers.h"
 #import "hidint.h"
+#import "data.h"
 
 typedef struct hid_gc_struct
 {
@@ -51,8 +52,36 @@ cocoa_do_export (HID_Attr_Val * options)
 static void
 cocoa_parse_arguments (int *argc, char ***argv)
 {
-
+	HID_AttrNode *ha;
+	int i;
+	
+	for (ha = hid_attr_nodes; ha; ha = ha->next) {
+		for (i = 0; i < ha->n; i++) {
+			HID_Attribute *a = ha->attributes + i;
+			switch (a->type)
+			{
+				case HID_Integer:
+					*(int*)a->value = a->default_val.int_value;
+					break;
+				case HID_Real:
+					*(float*)a->value = a->default_val.real_value;
+					break;
+				case HID_String:
+					*(char**)a->value = a->default_val.str_value;
+					break;
+				case HID_Path:
+					*(char**)a->value = a->default_val.str_value;
+					break;
+				case HID_Boolean:
+					*(int*)a->value = a->default_val.int_value;
+					break;
+				default:
+					break;
+			}
+		}
+	}
 }
+
 static void
 cocoa_invalidate_wh (int x, int y, int width, int height, int last)
 {
@@ -299,7 +328,7 @@ cocoa_progress (int so_far, int total, const char *message)
 HID cocoa_gui = {
     sizeof (HID),
     "cocoa",
-    "cocoa - a Motif clone for X/Unix",
+    "cocoa - The MacOS X GUI of choice",
     1,				/* gui */
     0,				/* printer */
     0,				/* exporter */

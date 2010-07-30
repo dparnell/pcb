@@ -19,15 +19,23 @@ static CGContextRef context = nil;
 typedef struct hid_gc_struct
 {
     HID *me_pointer;
-    int color;
-    const char *colorname;
-    int width;
-    EndCapStyle cap;
-    char xor;
-    char erase;
+	int width;
+	NSColor* color;
+	
 } hid_gc_struct;
 
 extern HID cocoa_gui;
+
+static hidGC currentContext = nil;
+
+static void setupGraphicsContext(hidGC gc) {
+	if(gc!=currentContext) {
+		currentContext = gc;
+		
+		[gc->color set];
+		CGContextSetLineWidth(context, gc->width);
+	}
+}
 
 void register_toporouter_action_list() {
     // do nothing
@@ -124,12 +132,19 @@ cocoa_make_gc (void)
     hidGC rv = malloc (sizeof (hid_gc_struct));
     memset (rv, 0, sizeof (hid_gc_struct));
     rv->me_pointer = &cocoa_gui;
+	rv->width = 1;
+	rv->color = [NSColor blackColor];
+	
     return rv;
 }
 
 static void
 cocoa_destroy_gc (hidGC gc)
 {
+	if(currentContext==gc) {
+		currentContext = nil;
+	}
+	
     free (gc);
 }
 
@@ -146,11 +161,11 @@ cocoa_set_color (hidGC gc, const char *name)
 //	NSLog(@"cocoa_set_color: %p %s", gc, name);
 	if (strcmp (name, "erase") == 0)
     {
-		[[NSColor whiteColor] set];
+		gc->color = [NSColor whiteColor];
     }
 	else if (strcmp (name, "drill") == 0)
     {
-		[[NSColor whiteColor] set];
+		gc->color = [NSColor whiteColor];
     }
 	else {
 		if(name[0]=='#') {
@@ -184,10 +199,14 @@ cocoa_set_color (hidGC gc, const char *name)
 				
 				[color_cache setObject: color forKey: n];
 			}
-			[color set];
+			gc->color = color;
 		} else {
-			[[NSColor blackColor] set];
+			gc->color = [NSColor blackColor];
 		}
+	}
+	
+	if(currentContext==gc) {
+		[gc->color set];
 	}
 }
 
@@ -195,23 +214,22 @@ static void
 cocoa_set_line_cap (hidGC gc, EndCapStyle style)
 {
 //	NSLog(@"cocoa_set_line_cap: %p, %d", gc, style);
-	
-    gc->cap = style;
 }
 
 static void
 cocoa_set_line_width (hidGC gc, int width)
 {
 //	NSLog(@"cocoa_set_line_width: %p %d", gc, width);
-	CGContextSetLineWidth(context, width);
-    gc->width = width;
+	gc->width = width;
+	if(currentContext==gc) {
+		CGContextSetLineWidth(context, width);
+	}
 }
 
 static void
 cocoa_set_draw_xor (hidGC gc, int xor)
 {
 //	NSLog(@"cocoa_set_draw_xor: %p %d", gc, xor);
-    gc->xor = xor;
 }
 
 static void
@@ -231,32 +249,36 @@ static void
 cocoa_draw_line (hidGC gc, int x1, int y1, int x2, int y2)
 {
 //	NSLog(@"cocoa_draw_line: %p %d %d %d %d", gc, x1, y1, x2, y2);
-
-	if(currentView) {
-		CGContextBeginPath(context);
-		CGContextMoveToPoint(context, x1, y1);
-		CGContextAddLineToPoint(context, x2, y2);
-		CGContextStrokePath(context);	
-	}
+	setupGraphicsContext(gc);
 	
-//	[NSBezierPath strokeLineFromPoint: NSMakePoint(x1/1000.0, y1/1000.0) toPoint: NSMakePoint(x2/1000.0, y2/1000.0)];
+	CGContextBeginPath(context);
+	CGContextMoveToPoint(context, x1, y1);
+	CGContextAddLineToPoint(context, x2, y2);
+	CGContextStrokePath(context);	
 }
 
 static void
 cocoa_draw_arc (hidGC gc, int cx, int cy, int width, int height,
                   int start_angle, int delta_angle)
 {
+	setupGraphicsContext(gc);
+	
 }
 
 static void
 cocoa_draw_rect (hidGC gc, int x1, int y1, int x2, int y2)
 {
+	setupGraphicsContext(gc);
+	
 	[NSBezierPath strokeRect: NSMakeRect(x1, y1, x2-x1, y2-y1)];
 }
 
 static void
 cocoa_fill_circle (hidGC gc, int cx, int cy, int radius)
 {
+	setupGraphicsContext(gc);
+	
+	CGContextFillEllipseInRect(context, NSMakeRect(cx-radius, cy-radius, radius*2, radius*2));
 }
 
 static void
@@ -267,6 +289,8 @@ cocoa_fill_polygon (hidGC gc, int n_coords, int *x, int *y)
 static void
 cocoa_fill_rect (hidGC gc, int x1, int y1, int x2, int y2)
 {
+	setupGraphicsContext(gc);
+	
 	[NSBezierPath fillRect: NSMakeRect(x1, y1, x2-x1, y2-y1)];
 }
 

@@ -26,7 +26,7 @@
 		float sx = r.size.width/width;
 		float sy = r.size.height/height;
 
-		NSLog(@"sx = %f, sy = %f", sx, sy);
+//		NSLog(@"sx = %f, sy = %f", sx, sy);
 		
 		NSAffineTransform* transform = [NSAffineTransform transform];
 		[transform scaleXBy: sx yBy: sy];

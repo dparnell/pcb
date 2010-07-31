@@ -129,48 +129,49 @@ static CocoaLibrary* instance = nil;
 }
 
 - (void) setSelectedItem:(NSArray *)paths {
-	NSIndexPath* path = [paths objectAtIndex: 0];
-	NSArray* current = items;
-	NSDictionary* item = nil;
-	int L = [path length];
 	
 	[paths retain];
 	[selectedItem release];
 	selectedItem = paths;
 	
-	for(int i=0; i<L; i++) {
-		item = [current objectAtIndex: [path indexAtPosition: i]];
-		current = [item objectForKey: @"children"];
-	}
 	
-	if (item && current==nil) {
-		// we've found a leaf node
-		LibraryEntryType *entry = (LibraryEntryType *)[[item objectForKey: @"entry"] pointerValue];
+	if ([paths count]>0) {
+		NSIndexPath* path = [paths objectAtIndex: 0];
+		NSArray* current = items;
+		NSDictionary* item = nil;
+		int L = [path length];
+		for(int i=0; i<L; i++) {
+			item = [current objectAtIndex: [path indexAtPosition: i]];
+			current = [item objectForKey: @"children"];
+		}
 		
-		if(entry) {
-			if (entry->Template == (char *) -1)
-			{
-				if (LoadElementToBuffer (PASTEBUFFER, entry->AllocatedMemory, True)) {
-					SetMode (PASTEBUFFER_MODE);
-				}
-			} else {
-				/* Otherwise, it's a m4 element and we need to create a string of
-				 |  macro arguments to be passed to the library command in
-				 |  LoadElementToBuffer()
-				 */
-				NSString* m4_args = [NSString stringWithFormat: @"'%s' '%s' '%s'", EMPTY (entry->Template),
-									 EMPTY (entry->Value), EMPTY (entry->Package)];;
-				
-				if (LoadElementToBuffer (PASTEBUFFER, (char*)[m4_args cStringUsingEncoding: NSUTF8StringEncoding], False))
-					SetMode (PASTEBUFFER_MODE);
-			}
+		if (item && current==nil) {
+			// we've found a leaf node
+			LibraryEntryType *entry = (LibraryEntryType *)[[item objectForKey: @"entry"] pointerValue];
 			
-			previewView.element = PASTEBUFFER->Data->Element;
+			if(entry) {
+				if (entry->Template == (char *) -1)
+				{
+					if (LoadElementToBuffer (PASTEBUFFER, entry->AllocatedMemory, True)) {
+						SetMode (PASTEBUFFER_MODE);
+					}
+				} else {
+					/* Otherwise, it's a m4 element and we need to create a string of
+					 |  macro arguments to be passed to the library command in
+					 |  LoadElementToBuffer()
+					 */
+					NSString* m4_args = [NSString stringWithFormat: @"'%s' '%s' '%s'", EMPTY (entry->Template),
+										 EMPTY (entry->Value), EMPTY (entry->Package)];;
+					
+					if (LoadElementToBuffer (PASTEBUFFER, (char*)[m4_args cStringUsingEncoding: NSUTF8StringEncoding], False))
+						SetMode (PASTEBUFFER_MODE);
+				}
+				
+				previewView.element = PASTEBUFFER->Data->Element;
+			}		
 		}		
+		
 	}
-
-	
-	
 }
 
 @end

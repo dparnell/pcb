@@ -30,6 +30,7 @@
 		651D36CE12028309000FAA99 /* tutorial in Resources */ = {isa = PBXBuildFile; fileRef = 651D36B712028309000FAA99 /* tutorial */; };
 		651D37231202B01D000FAA99 /* CocoaMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 651D37221202B01D000FAA99 /* CocoaMenu.m */; };
 		651D372E1202B14C000FAA99 /* CocoaStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = 651D372D1202B14C000FAA99 /* CocoaStyles.m */; };
+		651D37A71203D49D000FAA99 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 651D37A61203D49D000FAA99 /* Icon.icns */; };
 		652284421202458F009C97C5 /* CocoaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 652284411202458F009C97C5 /* CocoaLibrary.m */; };
 		654CE9961202EC5F0073C4A6 /* LibraryWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 654CE9951202EC5F0073C4A6 /* LibraryWindow.xib */; };
 		654CE9B21202EECD0073C4A6 /* CocoaPCBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CE9B11202EECD0073C4A6 /* CocoaPCBView.m */; };
@@ -137,6 +138,7 @@
 		651D37221202B01D000FAA99 /* CocoaMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaMenu.m; sourceTree = "<group>"; };
 		651D372C1202B14C000FAA99 /* CocoaStyles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaStyles.h; sourceTree = "<group>"; };
 		651D372D1202B14C000FAA99 /* CocoaStyles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaStyles.m; sourceTree = "<group>"; };
+		651D37A61203D49D000FAA99 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Images/Icon.icns; sourceTree = "<group>"; };
 		6522843C1201A25E009C97C5 /* hidlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hidlist.h; path = pcb_extras/hid/common/hidlist.h; sourceTree = "<group>"; };
 		652284401202458F009C97C5 /* CocoaLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocoaLibrary.h; path = Classes/CocoaLibrary.h; sourceTree = "<group>"; };
 		652284411202458F009C97C5 /* CocoaLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CocoaLibrary.m; path = Classes/CocoaLibrary.m; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 		6575A6C711FCFCF0006D983A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				651D37A61203D49D000FAA99 /* Icon.icns */,
 				654CE9911202D07B0073C4A6 /* PCB Resources */,
 				6575A6D211FCFCF0006D983A /* PCB-Info.plist */,
 				6575A6D411FCFCF0006D983A /* InfoPlist.strings */,
@@ -663,6 +666,7 @@
 				651D36CD12028309000FAA99 /* tools in Resources */,
 				651D36CE12028309000FAA99 /* tutorial in Resources */,
 				654CE9961202EC5F0073C4A6 /* LibraryWindow.xib in Resources */,
+				651D37A71203D49D000FAA99 /* Icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

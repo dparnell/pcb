@@ -31,6 +31,7 @@
 		651D37231202B01D000FAA99 /* CocoaMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 651D37221202B01D000FAA99 /* CocoaMenu.m */; };
 		651D372E1202B14C000FAA99 /* CocoaStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = 651D372D1202B14C000FAA99 /* CocoaStyles.m */; };
 		651D37A71203D49D000FAA99 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 651D37A61203D49D000FAA99 /* Icon.icns */; };
+		651D37E6120523AF000FAA99 /* MainPCBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 651D37E5120523AF000FAA99 /* MainPCBView.m */; };
 		652284421202458F009C97C5 /* CocoaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 652284411202458F009C97C5 /* CocoaLibrary.m */; };
 		654CE9961202EC5F0073C4A6 /* LibraryWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 654CE9951202EC5F0073C4A6 /* LibraryWindow.xib */; };
 		654CE9B21202EECD0073C4A6 /* CocoaPCBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CE9B11202EECD0073C4A6 /* CocoaPCBView.m */; };
@@ -139,6 +140,8 @@
 		651D372C1202B14C000FAA99 /* CocoaStyles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaStyles.h; sourceTree = "<group>"; };
 		651D372D1202B14C000FAA99 /* CocoaStyles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaStyles.m; sourceTree = "<group>"; };
 		651D37A61203D49D000FAA99 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = Images/Icon.icns; sourceTree = "<group>"; };
+		651D37E4120523AF000FAA99 /* MainPCBView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPCBView.h; sourceTree = "<group>"; };
+		651D37E5120523AF000FAA99 /* MainPCBView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPCBView.m; sourceTree = "<group>"; };
 		6522843C1201A25E009C97C5 /* hidlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hidlist.h; path = pcb_extras/hid/common/hidlist.h; sourceTree = "<group>"; };
 		652284401202458F009C97C5 /* CocoaLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocoaLibrary.h; path = Classes/CocoaLibrary.h; sourceTree = "<group>"; };
 		652284411202458F009C97C5 /* CocoaLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CocoaLibrary.m; path = Classes/CocoaLibrary.m; sourceTree = "<group>"; };
@@ -341,6 +344,8 @@
 				654CE9B11202EECD0073C4A6 /* CocoaPCBView.m */,
 				654CE9B91202F0B10073C4A6 /* LibraryPreviewView.h */,
 				654CE9BA1202F0B10073C4A6 /* LibraryPreviewView.m */,
+				651D37E4120523AF000FAA99 /* MainPCBView.h */,
+				651D37E5120523AF000FAA99 /* MainPCBView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -748,6 +753,7 @@
 				651D372E1202B14C000FAA99 /* CocoaStyles.m in Sources */,
 				654CE9B21202EECD0073C4A6 /* CocoaPCBView.m in Sources */,
 				654CE9BB1202F0B10073C4A6 /* LibraryPreviewView.m in Sources */,
+				651D37E6120523AF000FAA99 /* MainPCBView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

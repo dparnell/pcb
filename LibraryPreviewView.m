@@ -31,8 +31,6 @@
 		[transform translateXBy: -Settings.PinoutOffsetX-element->BoundingBox.X1  yBy: -Settings.PinoutOffsetY-element->BoundingBox.Y1];
 		[transform concat];
 
-		[[NSColor blackColor] set];
-		
 		hid_expose_callback ([CocoaHID HID], NULL, element);
 		
 	}

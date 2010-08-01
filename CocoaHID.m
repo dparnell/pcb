@@ -21,7 +21,7 @@ typedef struct hid_gc_struct
     HID *me_pointer;
 	int width;
 	NSColor* color;
-	
+	CGLineCap cap;
 } hid_gc_struct;
 
 extern HID cocoa_gui;
@@ -34,6 +34,7 @@ static void setupGraphicsContext(hidGC gc) {
 		
 		[gc->color set];
 		CGContextSetLineWidth(context, gc->width);
+		CGContextSetLineCap(context, gc->cap);
 	}
 }
 
@@ -104,6 +105,9 @@ static void
 cocoa_invalidate_wh (int x, int y, int width, int height, int last)
 {
 //	NSLog(@"cocoa_invalidate_wh %d %d %d %d %d", x, y, width, height, last);
+	if(currentView) {
+		[currentView setNeedsDisplay: YES];
+	}
 }
 
 static void
@@ -134,7 +138,7 @@ cocoa_make_gc (void)
     rv->me_pointer = &cocoa_gui;
 	rv->width = 1;
 	rv->color = [NSColor blackColor];
-	
+	rv->cap = kCGLineCapButt;
     return rv;
 }
 
@@ -214,6 +218,29 @@ static void
 cocoa_set_line_cap (hidGC gc, EndCapStyle style)
 {
 //	NSLog(@"cocoa_set_line_cap: %p, %d", gc, style);
+	CGLineCap cap;
+	
+	switch (style) {
+		case Round_Cap:
+		case Trace_Cap:
+			cap = kCGLineCapRound;
+			break;
+		case Square_Cap:
+			cap = kCGLineCapSquare;
+			break;
+		case Beveled_Cap:
+			cap = kCGLineCapButt;
+			break;
+			
+		default:
+			cap = kCGLineCapButt;
+			break;
+	}
+	
+	gc->cap = cap;
+	if(gc==currentContext) {
+		CGContextSetLineCap(context, cap);
+	}
 }
 
 static void
@@ -284,6 +311,16 @@ cocoa_fill_circle (hidGC gc, int cx, int cy, int radius)
 static void
 cocoa_fill_polygon (hidGC gc, int n_coords, int *x, int *y)
 {
+	setupGraphicsContext(gc);
+	
+	if (n_coords>0) {
+		CGContextBeginPath(context);
+		CGContextMoveToPoint(context, x[0], y[0]);
+		for(int i=1; i<n_coords; i++) {
+			CGContextAddLineToPoint(context, x[i], y[i]);
+		}
+		CGContextFillPath(context);
+	}
 }
 
 static void

@@ -125,9 +125,36 @@ cocoa_invalidate_all (void)
 static int
 cocoa_set_layer (const char *name, int group, int empty)
 {
-//	NSLog(@"cocoa_set_layer %s, %d %d", name, group, empty);
-	
-    return 0;
+	int idx = group;
+	if (idx >= 0 && idx < max_layer)
+    {
+		idx = PCB->LayerGroups.Entries[idx][0];
+    }
+
+	if (idx >= 0 && idx < max_layer + 2)
+		return PCB->Data->Layer[idx].On;
+	if (idx < 0)
+    {
+		switch (SL_TYPE (idx))
+		{
+			case SL_INVISIBLE:
+				return PCB->InvisibleObjectsOn;
+			case SL_MASK:
+				if (SL_MYSIDE (idx))
+					return TEST_FLAG (SHOWMASKFLAG, PCB);
+				return 0;
+			case SL_SILK:
+				if (SL_MYSIDE (idx))
+					return PCB->ElementOn;
+				return 0;
+			case SL_ASSY:
+				return 0;
+			case SL_UDRILL:
+			case SL_PDRILL:
+				return 1;
+		}
+    }
+	return 0;
 }
 
 static hidGC
@@ -297,9 +324,6 @@ cocoa_draw_arc (hidGC gc, int cx, int cy, int width, int height,
 	r = (width>height) ? width : height;
 	/* make sure we fall in the -180 to +180 range */
 	start_angle = (start_angle + 360 + 180) % 360 - 180;
-	
-	NSLog(@"%d %d %f %d %d", cx, cy, r, start_angle, delta_angle);
-	
 	
 	setupGraphicsContext(gc);
 	CGContextBeginPath(context);
@@ -544,7 +568,46 @@ HID cocoa_gui = {
     0 /* cocoa_drc_gui */
 };
 
+static int
+PCBChanged (int argc, char **argv, int x, int y)
+{
+	hid_action ("NetlistChanged");
+	hid_action ("LayersChanged");
+	hid_action ("RouteStylesChanged");
+
+	[[CocoaHID instance] PCBChanged];
+	
+	return 0;
+}
+
+HID_Action cocoa_main_action_list[] = {
+	{"PCBChanged", 0, PCBChanged,
+		pcbchanged_help, pcbchanged_syntax},
+/*	
+	{"SetUnits", 0, SetUnits,
+		setunits_help, setunits_syntax},
+	{"Zoom", "Click on a place to zoom in", ZoomAction,
+		zoom_help, zoom_syntax},
+	{"Pan", "Click on a place to pan", PanAction,
+		zoom_help, zoom_syntax},
+	{"SwapSides", 0, SwapSides,
+		swapsides_help, swapsides_syntax},
+	{"Command", 0, Command,
+		command_help, command_syntax},
+	{"Benchmark", 0, Benchmark,
+		benchmark_help, benchmark_syntax},
+	{"PointCursor", 0, PointCursor},
+	{"Center", "Click on a location to center", Center},
+	{"Busy", 0, Busy},
+	{"Cursor", 0, CursorAction,
+		cursor_help, cursor_syntax},
+*/ 
+};
+
+REGISTER_ACTIONS (cocoa_main_action_list)
+
 #include "dolists.h"
+
 
 void
 hid_cocoa_init ()
@@ -555,7 +618,7 @@ hid_cocoa_init ()
  REGISTER_ACTIONS (cocoa_library_action_list)
 // REGISTER_FLAGS (cocoa_main_flag_list)
 // REGISTER_ATTRIBUTES (cocoa_attribute_list)
-// REGISTER_ACTIONS (cocoa_main_action_list)
+ REGISTER_ACTIONS (cocoa_main_action_list)
  REGISTER_ACTIONS (cocoa_menu_action_list)
  REGISTER_ATTRIBUTES(pcbmenu_attr)
 // REGISTER_ACTIONS (cocoa_netlist_action_list)
@@ -563,7 +626,11 @@ hid_cocoa_init ()
 }
 
 
+static CocoaHID* instance = nil;
+
 @implementation CocoaHID
+
+@synthesize mainView;
 
 +(HID*) HID {
 	return &cocoa_gui;
@@ -578,6 +645,18 @@ hid_cocoa_init ()
 +(void) finishedDrawing {
 	CGContextFlush(context);
 	currentView = nil;
+}
+
++(CocoaHID*) instance {
+	return instance;
+}
+
+- (void) awakeFromNib {
+	instance = self;
+}
+
+- (void) PCBChanged {
+	[mainView setNeedsDisplay: YES];
 }
 
 @end

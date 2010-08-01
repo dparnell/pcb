@@ -14,11 +14,18 @@
 - (void)drawWithHID:(NSRect)dirtyRect {
 	BoxType region;
 
+	[[NSColor windowBackgroundColor] set];
+	[NSBezierPath fillRect: dirtyRect];
+	
 	NSAffineTransform* transform = [NSAffineTransform transform];
 	[transform scaleXBy: 0.001 yBy: 0.001];
 	[transform concat];
 
-	NSRect r = [self convertRectFromBase: dirtyRect];
+	[transform invert];
+	
+	NSRect r;	
+	r.origin = [transform transformPoint: dirtyRect.origin];
+	r.size = [transform transformSize: dirtyRect.size];
 	
 	region.X1 = r.origin.x;
 	region.Y1 = r.origin.y;

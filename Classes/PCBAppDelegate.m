@@ -9,14 +9,18 @@
 
 #import "PCBAppDelegate.h"
 #import "CocoaLibrary.h"
+#import "file.h"
 
 @implementation PCBAppDelegate
 
 @synthesize window;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-
 	[CocoaLibrary showLibrary];
+
+	NSString* tut = [NSString stringWithFormat: @"%@/tutorial/tut1.pcb", [[NSBundle mainBundle] resourcePath]];
+
+	LoadPCB([tut cStringUsingEncoding: NSUTF8StringEncoding]);
 }
 
 @end

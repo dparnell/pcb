@@ -8,14 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import "global.h"
-
+#import "MainPCBView.h"
 
 @interface CocoaHID : NSObject {
-
+@private
+	MainPCBView* mainView;
 }
 
 +(HID*) HID;
 +(void) drawToView:(NSView*)aView;
 +(void) finishedDrawing;
++(CocoaHID*) instance;
+
+- (void) PCBChanged;
+
+@property(retain) IBOutlet MainPCBView* mainView;
 
 @end

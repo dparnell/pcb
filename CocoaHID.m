@@ -284,12 +284,27 @@ cocoa_draw_line (hidGC gc, int x1, int y1, int x2, int y2)
 	CGContextStrokePath(context);	
 }
 
+#define PI 3.14159265358979323846
+
+static inline double radians(double degrees) { return degrees * PI / 180; }
+
 static void
 cocoa_draw_arc (hidGC gc, int cx, int cy, int width, int height,
                   int start_angle, int delta_angle)
 {
-	setupGraphicsContext(gc);
+	CGFloat r;
 	
+	r = (width>height) ? width : height;
+	/* make sure we fall in the -180 to +180 range */
+	start_angle = (start_angle + 360 + 180) % 360 - 180;
+	
+	NSLog(@"%d %d %f %d %d", cx, cy, r, start_angle, delta_angle);
+	
+	
+	setupGraphicsContext(gc);
+	CGContextBeginPath(context);
+	CGContextAddArc(context, cx, cy, r, radians(start_angle), radians(start_angle+delta_angle), 0);
+	CGContextStrokePath(context);		
 }
 
 static void

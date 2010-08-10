@@ -89,23 +89,50 @@ static CocoaLibrary* instance = nil;
 	
 	MENU_LOOP (&Library);
 	{
+		NSMutableDictionary* dir = nil;
+		NSMutableArray* dirItems = nil;
+		
+		NSString* dirName = [NSString stringWithCString: menu->directory encoding: NSUTF8StringEncoding];
+		for(NSMutableDictionary* d in newItems) {
+			if ([dirName isEqualToString: [d objectForKey: @"name"]]) {
+				dir = d;
+				break;
+			}
+		}
+		
+		if (dir==nil) {
+			dirItems = [NSMutableArray array];
+			dir = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+				   [NSString stringWithCString: menu->directory 
+									  encoding: NSUTF8StringEncoding], @"name",
+				   dirItems, @"children",
+				   nil
+				   ];
+			
+			[newItems insertObject: dir atIndex: 0];
+		} else {
+			dirItems = [dir objectForKey: @"children"];
+		}
+
+		
 		NSMutableArray* libItems = [NSMutableArray array];
 		if (!menu->directory)	/* Shouldn't happen */
 			menu->directory = strdup("???");
 		
 		ENTRY_LOOP (menu);
 		{
-			[libItems addObject: [NSMutableDictionary dictionaryWithObjectsAndKeys:
-								  [NSString stringWithCString: entry->ListEntry 
-													 encoding: NSUTF8StringEncoding], @"name",
-								  [NSValue valueWithPointer: menu], @"menu",
-								  [NSValue valueWithPointer: entry], @"entry",
-								  nil
-								  ]];
+			[libItems insertObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:
+									[NSString stringWithCString: entry->ListEntry 
+													   encoding: NSUTF8StringEncoding], @"name",
+									[NSValue valueWithPointer: menu], @"menu",
+									[NSValue valueWithPointer: entry], @"entry",
+									nil
+									]
+						   atIndex: 0];
 		}
 		END_LOOP;
 
-		[newItems addObject: [NSMutableDictionary dictionaryWithObjectsAndKeys: 
+		[dirItems addObject: [NSMutableDictionary dictionaryWithObjectsAndKeys: 
 							  [NSString stringWithCString: menu->Name 
 												 encoding: NSUTF8StringEncoding], @"name",
 							  libItems, @"children",

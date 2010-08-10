@@ -19,16 +19,23 @@
 	[[NSColor whiteColor] set];
 	[NSBezierPath fillRect: r];
 	
-	if(element) {		
+	if(element) {
 		float width = element->BoundingBox.X2 - element->BoundingBox.X1;
 		float height = element->BoundingBox.Y2 - element->BoundingBox.Y1;
 		
-		float sx = r.size.width/width;
-		float sy = r.size.height/height;
-	
+		float sx = r.size.width/(width*2);
+		float sy = r.size.height/(height*2);
+		float scale;
+		
+		if(sx>sy) {
+			scale = sy;
+		} else {
+			scale = sx;
+		}
+		
 		NSAffineTransform* transform = [NSAffineTransform transform];
-		[transform scaleXBy: sx yBy: sy];
-		[transform translateXBy: -Settings.PinoutOffsetX-element->BoundingBox.X1  yBy: -Settings.PinoutOffsetY-element->BoundingBox.Y1];
+		[transform scaleXBy: scale yBy: scale];		
+		[transform translateXBy: -Settings.PinoutOffsetX-element->BoundingBox.X1+width/2.0  yBy: -Settings.PinoutOffsetY-element->BoundingBox.Y1+height/2.0];
 		[transform concat];
 
 		hid_expose_callback ([CocoaHID HID], NULL, element);

@@ -18,7 +18,7 @@
 	[NSBezierPath fillRect: dirtyRect];
 	
 	NSAffineTransform* transform = [NSAffineTransform transform];
-	[transform scaleXBy: 0.001 yBy: 0.001];
+	[transform scaleXBy: 0.002 yBy: 0.002];
 	[transform concat];
 
 	[transform invert];

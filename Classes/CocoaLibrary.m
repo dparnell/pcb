@@ -3,7 +3,7 @@
 //  PCB
 //
 //  Created by Daniel Parnell on 30/07/10.
-//  Copyright (c) 2010 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2010 Automagic Software Pty Ltd. All rights reserved.
 //
 
 #import "CocoaLibrary.h"

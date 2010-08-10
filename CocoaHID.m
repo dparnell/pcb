@@ -319,15 +319,14 @@ static void
 cocoa_draw_arc (hidGC gc, int cx, int cy, int width, int height,
                   int start_angle, int delta_angle)
 {
-	CGFloat r;
-	
-	r = (width>height) ? width : height;
-	/* make sure we fall in the -180 to +180 range */
-	start_angle = (start_angle + 360 + 180) % 360 - 180;
 	
 	setupGraphicsContext(gc);
+	
+	// because the view is "flipped" the angles need to be adjusted so they are correct in the flipped context
+	start_angle = 180 - start_angle;
+	
 	CGContextBeginPath(context);
-	CGContextAddArc(context, cx, cy, r, radians(start_angle), radians(start_angle+delta_angle), 0);
+	CGContextAddArc(context, cx, cy, width, radians(start_angle), radians(start_angle-delta_angle), delta_angle>0);
 	CGContextStrokePath(context);		
 }
 

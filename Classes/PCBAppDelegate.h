@@ -7,7 +7,7 @@
 //
 
 
-@interface PCBAppDelegate : NSObject <NSApplicationDelegate> {
+@interface PCBAppDelegate : NSObject {
 
     NSWindow *window;
 }

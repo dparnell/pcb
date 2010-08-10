@@ -832,7 +832,7 @@
 					pcb/src,
 				);
 				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.5;
 			};
 			name = Release;
 		};

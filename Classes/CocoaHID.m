@@ -579,9 +579,16 @@ PCBChanged (int argc, char **argv, int x, int y)
 	return 0;
 }
 
+static int
+PointCursor (int argc, char **argv, int x, int y)
+{
+	[[CocoaHID instance] pointCursor];
+}
+
 HID_Action cocoa_main_action_list[] = {
 	{"PCBChanged", 0, PCBChanged,
 		pcbchanged_help, pcbchanged_syntax},
+	{"PointCursor", 0, PointCursor},
 /*	
 	{"SetUnits", 0, SetUnits,
 		setunits_help, setunits_syntax},
@@ -595,7 +602,6 @@ HID_Action cocoa_main_action_list[] = {
 		command_help, command_syntax},
 	{"Benchmark", 0, Benchmark,
 		benchmark_help, benchmark_syntax},
-	{"PointCursor", 0, PointCursor},
 	{"Center", "Click on a location to center", Center},
 	{"Busy", 0, Busy},
 	{"Cursor", 0, CursorAction,
@@ -630,6 +636,7 @@ static CocoaHID* instance = nil;
 @implementation CocoaHID
 
 @synthesize mainView;
+@synthesize scrollView;
 
 +(HID*) HID {
 	return &cocoa_gui;
@@ -652,10 +659,59 @@ static CocoaHID* instance = nil;
 
 - (void) awakeFromNib {
 	instance = self;
+	[[mainView window] setAcceptsMouseMovedEvents: YES];
+	[mainView setPostsBoundsChangedNotifications: YES];
+	[mainView setPostsFrameChangedNotifications: YES];
+	[scrollView setDocumentView: mainView];
+
+//	[mainView scaleUnitSquareToSize: NSMakeSize(0.002, 0.002)];
 }
 
+static const NSSize unitSize = {1.0, 1.0};
+
 - (void) PCBChanged {
+	float zoom = PCB->Zoom/1000.0;
+
+//	NSRect r;
+//	r = [mainView convertRect: [mainView bounds] toView: nil];
+	NSSize newFrame = NSMakeSize(PCB->MaxWidth*zoom, PCB->MaxHeight*zoom);
+	NSRect scrollFrame = [scrollView frame];
+	
+	if(newFrame.width<scrollFrame.size.width) {
+		newFrame.width = scrollFrame.size.width;
+	}
+	
+	if(newFrame.height<scrollFrame.size.height) {
+		newFrame.height = scrollFrame.size.height;
+	}
+	
+	[mainView setFrameSize: newFrame];
+//	[mainView setBoundsSize: NSMakeSize(PCB->MaxWidth*zoom, PCB->MaxHeight*zoom)];
+	 
+	// reset the scaling
+	[mainView scaleUnitSquareToSize: [mainView convertSize:unitSize fromView:nil]];
+	[mainView scaleUnitSquareToSize: NSMakeSize(zoom, zoom)];
 	[mainView setNeedsDisplay: YES];
+}
+
+- (void) pointCursor {
+	[scrollView setDocumentCursor: [NSCursor crosshairCursor]];
+}
+
+#pragma mark -
+#pragma mark Actions
+#pragma mark -
+
+- (IBAction) zoomIn:(id)sender {
+	// TODO: make the zoom centered
+	
+	PCB->Zoom *= 1.25;
+	[self PCBChanged];
+}
+
+- (IBAction) zoomOut:(id)sender {
+	PCB->Zoom /= 1.25;
+	[self PCBChanged];
 }
 
 @end

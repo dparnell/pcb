@@ -13,6 +13,7 @@
 @interface CocoaHID : NSObject {
 @private
 	MainPCBView* mainView;
+	NSScrollView* scrollView;	
 }
 
 +(HID*) HID;
@@ -21,7 +22,12 @@
 +(CocoaHID*) instance;
 
 - (void) PCBChanged;
+- (void) pointCursor;
+
+- (IBAction) zoomIn:(id)sender;
+- (IBAction) zoomOut:(id)sender;
 
 @property(retain) IBOutlet MainPCBView* mainView;
+@property(retain) IBOutlet NSScrollView* scrollView;
 
 @end

@@ -9,6 +9,9 @@
 #import "MainPCBView.h"
 #import "CocoaHID.h"
 
+#import "action.h"
+#import "crosshair.h"
+
 @implementation MainPCBView
 
 - (void)drawWithHID:(NSRect)dirtyRect {
@@ -16,23 +19,40 @@
 
 	[[NSColor windowBackgroundColor] set];
 	[NSBezierPath fillRect: dirtyRect];
-	
-	NSAffineTransform* transform = [NSAffineTransform transform];
-	[transform scaleXBy: 0.002 yBy: 0.002];
-	[transform concat];
 
-	[transform invert];
-	
-	NSRect r;	
-	r.origin = [transform transformPoint: dirtyRect.origin];
-	r.size = [transform transformSize: dirtyRect.size];
-	
-	region.X1 = r.origin.x;
-	region.Y1 = r.origin.y;
-	region.X2 = r.origin.x+r.size.width;
-	region.Y2 = r.origin.y+r.size.height;
+	region.X1 = dirtyRect.origin.x;
+	region.Y1 = dirtyRect.origin.y;
+	region.X2 = dirtyRect.origin.x+dirtyRect.size.width;
+	region.Y2 = dirtyRect.origin.y+dirtyRect.size.height;
 	
 	hid_expose_callback ([CocoaHID HID], &region, 0);	
+}
+
+- (BOOL) acceptsFirstResponder {
+	return YES;
+}
+
+- (void)mouseEntered:(NSEvent *)theEvent {
+	NSPoint where = [NSEvent mouseLocation];
+	where = [[self window] convertScreenToBase: where];
+	where = [self convertPointFromBase: where];
+	
+	EventMoveCrosshair (where.x, where.y);	
+	RestoreCrosshair(YES); 
+}
+
+- (void)mouseExited:(NSEvent *)theEvent {
+	HideCrosshair(YES);
+}
+
+- (void)mouseMoved:(NSEvent *)theEvent {
+	NSPoint where = [NSEvent mouseLocation];
+	where = [[self window] convertScreenToBase: where];
+	where = [self convertPointFromBase: where];
+	
+	NSLog(@"%f %f", where.x, where.y);
+	
+	EventMoveCrosshair (where.x, where.y);	
 }
 
 @end

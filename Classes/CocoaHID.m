@@ -118,9 +118,7 @@ static void
 cocoa_invalidate_wh (int x, int y, int width, int height, int last)
 {
 //	NSLog(@"cocoa_invalidate_wh %d %d %d %d %d", x, y, width, height, last);
-	if(currentView) {
-		[currentView setNeedsDisplay: YES];
-	}
+	[[[CocoaHID instance] mainView] setNeedsDisplay: YES];
 }
 
 static void

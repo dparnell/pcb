@@ -11,6 +11,7 @@
 
 #import "action.h"
 #import "crosshair.h"
+#import "hid_resource.h"
 
 @implementation MainPCBView
 
@@ -50,9 +51,44 @@
 	where = [[self window] convertScreenToBase: where];
 	where = [self convertPointFromBase: where];
 	
-	NSLog(@"%f %f", where.x, where.y);
+//	NSLog(@"%f %f", where.x, where.y);
 	
 	EventMoveCrosshair (where.x, where.y);	
 }
+
+- (int) modsForEvent:(NSEvent*) theEvent {
+	int mods = 0;
+	
+	int flags = [theEvent modifierFlags];
+	
+	if(flags & NSShiftKeyMask) {
+		mods |= M_Shift;
+	}
+	if(flags & NSControlKeyMask) {
+		mods |= M_Ctrl;
+	}
+	if(flags & NSCommandKeyMask) {
+		mods |= M_Alt;
+	}
+
+	return mods;
+}
+
+- (void)mouseDown:(NSEvent *)theEvent {
+	int mods = [self modsForEvent: theEvent];
+	
+	HideCrosshair (YES);
+	do_mouse_action([theEvent buttonNumber]+1, mods);	
+	RestoreCrosshair(YES);
+}
+
+- (void)mouseUp:(NSEvent *)theEvent {
+	int mods = [self modsForEvent: theEvent];
+	
+	HideCrosshair (YES);
+	do_mouse_action([theEvent buttonNumber]+1, mods | M_Release);	
+	RestoreCrosshair(YES);
+}
+
 
 @end

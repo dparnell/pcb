@@ -12,6 +12,10 @@
 #import "hidint.h"
 #import "data.h"
 
+#pragma mark -
+#pragma mark global variables
+#pragma mark -
+
 static NSView* currentView = nil;
 static NSGraphicsContext *nsctx = nil;
 static CGContextRef context = nil;
@@ -37,6 +41,10 @@ static void setupGraphicsContext(hidGC gc) {
 		CGContextSetLineCap(context, gc->cap);
 	}
 }
+
+#pragma mark -
+#pragma mark Unimplemented functions
+#pragma mark -
 
 void register_toporouter_action_list() {
     // do nothing
@@ -100,6 +108,10 @@ cocoa_parse_arguments (int *argc, char ***argv)
 void stoppingHere() {
 //	NSLog(@"STOPPING");
 }
+
+#pragma mark -
+#pragma mark Drawing functions
+#pragma mark -
 
 static void
 cocoa_invalidate_wh (int x, int y, int width, int height, int last)
@@ -666,6 +678,10 @@ static CocoaHID* instance = nil;
 
 //	[mainView scaleUnitSquareToSize: NSMakeSize(0.002, 0.002)];
 }
+
+#pragma mark -
+#pragma mark Cocoa <-> PCB functions
+#pragma mark -
 
 static const NSSize unitSize = {1.0, 1.0};
 

@@ -11,6 +11,11 @@
 #import "global.h"
 #import "hidint.h"
 
+#include "hid_resource.h"
+#include "resource.h"
+#include "misc.h"
+#include "error.h"
+
 static char *pcbmenu_path = "pcb-menu.res";
 
 static HID_Attribute pcbmenu_attr[] = {
@@ -107,5 +112,65 @@ REGISTER_ACTIONS (cocoa_menu_action_list)
 
 
 @implementation CocoaMenu
+
++ (void) installMenus {
+	char *filename;
+	Resource *r = 0, *bir;
+	char *home_pcbmenu, *home;
+	Resource *mr;
+	
+	
+	/* homedir is set by the core */
+	home = homedir;
+	home_pcbmenu = NULL;
+	if (home == NULL)
+    {
+		Message ("Warning:  could not determine home directory (from HOME)\n");
+    }
+	else 
+    {
+		home_pcbmenu = Concat (home, PCB_DIR_SEPARATOR_S, ".pcb", 
+							   PCB_DIR_SEPARATOR_S, "pcb-menu.res", NULL);
+    }
+	
+	if (access ("pcb-menu.res", R_OK) == 0)
+		filename = "pcb-menu.res";
+	else if (home_pcbmenu != NULL && (access (home_pcbmenu, R_OK) == 0))
+		filename = home_pcbmenu;
+	else if (access (pcbmenu_path, R_OK) == 0)
+		filename = pcbmenu_path;
+	else
+		filename = 0;
+	
+	bir = resource_parse ((char*)[[[NSBundle mainBundle] pathForResource: @"gpcb-menu" ofType: @"res"] cStringUsingEncoding: NSUTF8StringEncoding], 0);
+	if (!bir)
+    {
+		fprintf (stderr, "Error: internal menu resource didn't parse\n");
+		exit(1);
+    }
+	
+	if (filename)
+		r = resource_parse (filename, 0);
+	
+	if (!r)
+		r = bir;
+	
+	if (home_pcbmenu != NULL)
+    {
+		free (home_pcbmenu);
+    }
+	
+	mr = resource_subres (r, "MainMenu");
+	if (!mr)
+		mr = resource_subres (bir, "MainMenu");
+//	if (mr)
+//		add_resource_to_menu (mb, mr, (XtCallbackProc) callback);
+	
+	mr = resource_subres (r, "Mouse");
+	if (!mr)
+		mr = resource_subres (bir, "Mouse");
+	if (mr)
+		load_mouse_resource (mr);
+}
 
 @end

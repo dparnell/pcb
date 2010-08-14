@@ -10,6 +10,7 @@
 #import "PCBAppDelegate.h"
 #import "CocoaLibrary.h"
 #import "file.h"
+#import "CocoaMenu.h"
 
 @implementation PCBAppDelegate
 
@@ -17,7 +18,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	[CocoaLibrary showLibrary];
-
+	[CocoaMenu installMenus];
+	
 	NSString* tut = [NSString stringWithFormat: @"%@/tutorial/tut1.pcb", [[NSBundle mainBundle] resourcePath]];
 	LoadPCB((char*)[tut cStringUsingEncoding: NSUTF8StringEncoding]);
 }

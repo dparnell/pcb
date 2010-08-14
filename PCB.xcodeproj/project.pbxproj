@@ -153,6 +153,8 @@
 		654CE9BA1202F0B10073C4A6 /* LibraryPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LibraryPreviewView.m; path = Classes/LibraryPreviewView.m; sourceTree = "<group>"; };
 		654CEABE120308C00073C4A6 /* parse_l.l */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; name = parse_l.l; path = "pcb-20091103/src/parse_l.l"; sourceTree = "<group>"; };
 		654CEABF120308C00073C4A6 /* parse_y.y */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; name = parse_y.y; path = "pcb-20091103/src/parse_y.y"; sourceTree = "<group>"; };
+		6570870B12156A4D00D925AB /* res_lex.l */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; name = res_lex.l; path = "pcb-20091103/src/res_lex.l"; sourceTree = "<group>"; };
+		6570870C12156A4D00D925AB /* res_parse.y */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; name = res_parse.y; path = "pcb-20091103/src/res_parse.y"; sourceTree = "<group>"; };
 		6575A6CD11FCFCF0006D983A /* PCB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PCB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6575A6D011FCFCF0006D983A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		6575A6D211FCFCF0006D983A /* PCB-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PCB-Info.plist"; sourceTree = "<group>"; };
@@ -413,6 +415,8 @@
 		6575A6EA11FD0EA8006D983A /* PCB */ = {
 			isa = PBXGroup;
 			children = (
+				6570870B12156A4D00D925AB /* res_lex.l */,
+				6570870C12156A4D00D925AB /* res_parse.y */,
 				654CEABE120308C00073C4A6 /* parse_l.l */,
 				654CEABF120308C00073C4A6 /* parse_y.y */,
 				6522844B12024BC9009C97C5 /* hidint.h */,

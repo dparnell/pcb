@@ -16,6 +16,7 @@
 #pragma mark global variables
 #pragma mark -
 
+int lastModifierFlags = 0;
 static NSView* currentView = nil;
 static NSGraphicsContext *nsctx = nil;
 static CGContextRef context = nil;
@@ -295,13 +296,13 @@ cocoa_set_line_width (hidGC gc, int width)
 static void
 cocoa_set_draw_xor (hidGC gc, int xor)
 {
-//	NSLog(@"cocoa_set_draw_xor: %p %d", gc, xor);
+	NSLog(@"cocoa_set_draw_xor: %p %d", gc, xor);
 }
 
 static void
 cocoa_set_draw_faded (hidGC gc, int faded)
 {
-//	NSLog(@"cocoa_set_draw_faded: %p %d", gc, faded);
+	NSLog(@"cocoa_set_draw_faded: %p %d", gc, faded);
     /* We don't use this */
 }
 
@@ -390,61 +391,77 @@ cocoa_calibrate (double xval, double yval)
 static int
 cocoa_shift_is_pressed (void)
 {
-    return 0;
+	return (lastModifierFlags & NSShiftKeyMask) ? 1 : 0;
 }
 
 static int
 cocoa_control_is_pressed (void)
 {
-    return 0;
+	return (lastModifierFlags & NSControlKeyMask) ? 1 : 0;
 }
 
 static int
 cocoa_mod1_is_pressed (void)
 {
-    return 0;
+	return (lastModifierFlags & NSCommandKeyMask) ? 1 : 0;
 }
 
 void cocoa_get_coords (const char *msg, int *x, int *y) {
-    
+    NSLog(@"UNIMPLEMENTED: cocoa_get_coords");
 }
 
 static void
 cocoa_set_crosshair (int x, int y, int action)
 {
+//	NSLog(@"UNIMPLEMENTED: cocoa_set_crosshair: %d %d %d", x, y, action);
 }
+
+#pragma mark -
+#pragma mark utility functions
+#pragma mark -
 
 static hidval
 cocoa_add_timer (void (*func) (hidval user_data),
                    unsigned long milliseconds, hidval user_data)
 {
-    
+	[[CocoaHID instance] scheduleTimerFor: func withInterval: milliseconds andUserData: user_data];
+
+	hidval result;
+	result.lval = 0;
+	result.ptr = nil;
+	
+	return result;
 }
 
 static void
 cocoa_stop_timer (hidval hv)
 {
+	NSLog(@"UNIMPLEMENTED: cocoa_stop_timer: %d %p", hv.lval, hv.ptr);	
 }
 
 hidval
 cocoa_watch_file (int fd, unsigned int condition, void (*func) (hidval watch, int fd, unsigned int condition, hidval user_data),
                     hidval user_data)
 {
+	NSLog(@"UNIMPLEMENTED: cocoa_watch_file");
 }
 
 void
 cocoa_unwatch_file (hidval data)
 {
+	NSLog(@"UNIMPLEMENTED: cocoa_unwatch_file");
 }
 
 static hidval
 cocoa_add_block_hook (void (*func) (hidval data), hidval user_data )
 {
+	NSLog(@"UNIMPLEMENTED: cocoa_add_block_hook");
 }
 
 static void
 cocoa_stop_block_hook (hidval mlpoll)
 {
+	NSLog(@"UNIMPLEMENTED: cocoa_stop_block_hook");
 }
 
 void cocoa_logv (const char *fmt, va_list ap) {
@@ -463,6 +480,8 @@ cocoa_log (const char *fmt, ...)
 int
 cocoa_confirm_dialog (char *msg, ...)
 {
+	NSLog(@"UNIMPLEMENTED: cocoa_stop_block_hook");
+
     return 0;
 }
 
@@ -475,11 +494,13 @@ cocoa_close_confirm_dialog ()
 void
 cocoa_report_dialog (char *title, char *msg)
 {
+	NSLog(@"UNIMPLEMENTED: cocoa_stop_block_hook");
 }
 
 char *
 cocoa_prompt_for (char *msg, char *default_string)
 {
+	NSLog(@"UNIMPLEMENTED: cocoa_stop_block_hook");
     return default_string;
 }
 
@@ -497,21 +518,25 @@ cocoa_attribute_dialog (HID_Attribute * attrs,
                           int n_attrs, HID_Attr_Val * results,
                           const char * title, const char * descr)
 {
+	NSLog(@"UNIMPLEMENTED: cocoa_stop_block_hook");
 }
 
 static void
 cocoa_show_item (void *item)
 {
+	NSLog(@"UNIMPLEMENTED: cocoa_stop_block_hook");
 }
 
 static void
 cocoa_beep (void)
 {
+	NSLog(@"UNIMPLEMENTED: cocoa_stop_block_hook");
 }
 
 static int
 cocoa_progress (int so_far, int total, const char *message)
 {
+	NSLog(@"UNIMPLEMENTED: cocoa_stop_block_hook");
     return 0;
 }
 
@@ -712,6 +737,29 @@ static const NSSize unitSize = {1.0, 1.0};
 
 - (void) pointCursor {
 	[scrollView setDocumentCursor: [NSCursor crosshairCursor]];
+}
+
+- (void) timerCallback:(NSTimer*)timer {
+	NSDictionary* dict;
+	void (*func) (hidval);
+	hidval user_data;
+
+	dict = [timer userInfo];
+	func = [[dict objectForKey: @"callback"] pointerValue];
+	user_data.lval = [[dict objectForKey: @"lvar"] longValue];
+	user_data.ptr = [[dict objectForKey: @"ptr"] pointerValue];
+	
+	func(user_data);
+	
+}
+
+- (NSTimer*) scheduleTimerFor:(void*)callback withInterval:(unsigned long) milliseconds andUserData:(hidval)data {
+	NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:
+						  [NSValue valueWithPointer: callback], @"callback",
+						  [NSNumber numberWithLong: data.lval], @"lvar",
+						  [NSValue valueWithPointer: data.ptr], @"ptr",
+						  nil];
+	return [NSTimer scheduledTimerWithTimeInterval: milliseconds/1000.0 target: self selector: @selector(timerCallback:) userInfo: dict repeats: NO];
 }
 
 #pragma mark -

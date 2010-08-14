@@ -59,15 +59,15 @@
 - (int) modsForEvent:(NSEvent*) theEvent {
 	int mods = 0;
 	
-	int flags = [theEvent modifierFlags];
+	lastModifierFlags = [theEvent modifierFlags];
 	
-	if(flags & NSShiftKeyMask) {
+	if(lastModifierFlags & NSShiftKeyMask) {
 		mods |= M_Shift;
 	}
-	if(flags & NSControlKeyMask) {
+	if(lastModifierFlags & NSControlKeyMask) {
 		mods |= M_Ctrl;
 	}
-	if(flags & NSCommandKeyMask) {
+	if(lastModifierFlags & NSCommandKeyMask) {
 		mods |= M_Alt;
 	}
 
@@ -90,5 +90,8 @@
 	RestoreCrosshair(YES);
 }
 
+- (void) mouseDragged:(NSEvent *)theEvent {
+	[self mouseMoved: theEvent];
+}
 
 @end

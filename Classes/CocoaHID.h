@@ -10,6 +10,8 @@
 #import "global.h"
 #import "MainPCBView.h"
 
+extern int lastModifierFlags;
+
 @interface CocoaHID : NSObject {
 @private
 	MainPCBView* mainView;
@@ -23,6 +25,7 @@
 
 - (void) PCBChanged;
 - (void) pointCursor;
+- (NSTimer*) scheduleTimerFor:(void*)callback withInterval:(unsigned long) milliseconds andUserData:(hidval)data;
 
 - (IBAction) zoomIn:(id)sender;
 - (IBAction) zoomOut:(id)sender;

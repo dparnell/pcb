@@ -9,8 +9,8 @@
 #import <Cocoa/Cocoa.h>
 #import "CocoaPCBView.h"
 
-@interface MainPCBView : CocoaPCBView {
 
+@interface MainPCBView : CocoaPCBView {
 }
 
 @end

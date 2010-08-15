@@ -27,6 +27,7 @@
 	region.Y2 = dirtyRect.origin.y+dirtyRect.size.height;
 	
 	hid_expose_callback ([CocoaHID HID], &region, 0);	
+	DrawMark(YES);
 }
 
 - (BOOL) acceptsFirstResponder {
@@ -38,12 +39,20 @@
 	where = [[self window] convertScreenToBase: where];
 	where = [self convertPointFromBase: where];
 	
+	[self lockFocus];
+	[CocoaHID drawToView: self];
 	EventMoveCrosshair (where.x, where.y);	
 	RestoreCrosshair(YES); 
+	[CocoaHID finishedDrawing];
+	[self unlockFocus];
 }
 
 - (void)mouseExited:(NSEvent *)theEvent {
+	[self lockFocus];
+	[CocoaHID drawToView: self];
 	HideCrosshair(YES);
+	[CocoaHID finishedDrawing];
+	[self unlockFocus];
 }
 
 - (void)mouseMoved:(NSEvent *)theEvent {
@@ -53,7 +62,11 @@
 	
 //	NSLog(@"%f %f", where.x, where.y);
 	
+	[self lockFocus];
+	[CocoaHID drawToView: self];
 	EventMoveCrosshair (where.x, where.y);	
+	[CocoaHID finishedDrawing];
+	[self unlockFocus];
 }
 
 - (int) modsForEvent:(NSEvent*) theEvent {
@@ -77,17 +90,25 @@
 - (void)mouseDown:(NSEvent *)theEvent {
 	int mods = [self modsForEvent: theEvent];
 	
+	[self lockFocus];
+	[CocoaHID drawToView: self];
 	HideCrosshair (YES);
 	do_mouse_action([theEvent buttonNumber]+1, mods);	
 	RestoreCrosshair(YES);
+	[CocoaHID finishedDrawing];
+	[self unlockFocus];
 }
 
 - (void)mouseUp:(NSEvent *)theEvent {
 	int mods = [self modsForEvent: theEvent];
 	
+	[self lockFocus];
+	[CocoaHID drawToView: self];
 	HideCrosshair (YES);
 	do_mouse_action([theEvent buttonNumber]+1, mods | M_Release);	
 	RestoreCrosshair(YES);
+	[CocoaHID finishedDrawing];
+	[self unlockFocus];
 }
 
 - (void) mouseDragged:(NSEvent *)theEvent {

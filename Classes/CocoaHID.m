@@ -34,7 +34,14 @@ extern HID cocoa_gui;
 static hidGC currentContext = nil;
 
 static void setupGraphicsContext(hidGC gc) {
+	NSLog(@"setupGraphicsContext: gc = %p", gc);
+	
+	if(currentView==nil) {
+		NSLog(@"HERE!");		
+	}
+	
 	if(gc!=currentContext) {
+		NSLog(@"gc = %p", gc);
 		currentContext = gc;
 		
 		[gc->color set];
@@ -680,12 +687,14 @@ static CocoaHID* instance = nil;
 +(void) drawToView:(NSView*)aView {
 	currentView = aView;
 	nsctx = [NSGraphicsContext currentContext];
-    context = (CGContextRef)[nsctx graphicsPort];	
+    context = (CGContextRef)[nsctx graphicsPort];		
 }
 
 +(void) finishedDrawing {
 	CGContextFlush(context);
+	context = nil;
 	currentView = nil;
+	currentContext = nil;
 }
 
 +(CocoaHID*) instance {
@@ -699,6 +708,7 @@ static CocoaHID* instance = nil;
 	[mainView setPostsFrameChangedNotifications: YES];
 	[scrollView setDocumentView: mainView];
 
+//	CrosshairOn(YES);
 //	[mainView scaleUnitSquareToSize: NSMakeSize(0.002, 0.002)];
 }
 
@@ -747,7 +757,12 @@ static const NSSize unitSize = {1.0, 1.0};
 	user_data.lval = [[dict objectForKey: @"lvar"] longValue];
 	user_data.ptr = [[dict objectForKey: @"ptr"] pointerValue];
 	
+	// set things up so that the callback function can perform drawing operations
+	[mainView lockFocus];
+	[CocoaHID drawToView: mainView];
 	func(user_data);
+	[CocoaHID finishedDrawing];
+	[mainView unlockFocus];
 	
 }
 

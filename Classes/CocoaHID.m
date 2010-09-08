@@ -294,6 +294,7 @@ cocoa_set_line_width (hidGC gc, int width)
 {
 //	NSLog(@"cocoa_set_line_width: %p %d", gc, width);
 	if (gc->xor) {
+		// TODO: change this to always draw 1 pixel wide
 		width = 500;
 	}
 	

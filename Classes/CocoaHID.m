@@ -294,7 +294,7 @@ cocoa_set_line_width (hidGC gc, int width)
 {
 //	NSLog(@"cocoa_set_line_width: %p %d", gc, width);
 	if (gc->xor) {
-		width = 1000;
+		width = 500;
 	}
 	
 	gc->width = width;

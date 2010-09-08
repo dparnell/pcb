@@ -10,7 +10,14 @@
 #import "CocoaPCBView.h"
 
 
-@interface MainPCBView : CocoaPCBView {
+@interface MainPCBView : CocoaPCBView {	
+	BOOL mouseMoved;
+	NSPoint where;
+	
+	int mods;
+	int button;
+	BOOL mouseUp;
+	BOOL mouseDown;
 }
 
 @end

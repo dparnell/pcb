@@ -27,6 +27,7 @@ typedef struct hid_gc_struct
 	int width;
 	NSColor* color;
 	CGLineCap cap;
+	BOOL xor;
 } hid_gc_struct;
 
 extern HID cocoa_gui;
@@ -34,14 +35,14 @@ extern HID cocoa_gui;
 static hidGC currentContext = nil;
 
 static void setupGraphicsContext(hidGC gc) {
-	NSLog(@"setupGraphicsContext: gc = %p", gc);
+//	NSLog(@"setupGraphicsContext: gc = %p", gc);
 	
 	if(currentView==nil) {
 		NSLog(@"HERE!");		
 	}
 	
 	if(gc!=currentContext) {
-		NSLog(@"gc = %p", gc);
+//		NSLog(@"gc = %p", gc);
 		currentContext = gc;
 		
 		[gc->color set];
@@ -292,8 +293,12 @@ static void
 cocoa_set_line_width (hidGC gc, int width)
 {
 //	NSLog(@"cocoa_set_line_width: %p %d", gc, width);
+	if (gc->xor) {
+		width = 1000;
+	}
+	
 	gc->width = width;
-	if(currentContext==gc) {
+	if(currentContext==gc) {		
 		CGContextSetLineWidth(context, width);
 	}
 }
@@ -301,7 +306,12 @@ cocoa_set_line_width (hidGC gc, int width)
 static void
 cocoa_set_draw_xor (hidGC gc, int xor)
 {
-	NSLog(@"cocoa_set_draw_xor: %p %d", gc, xor);
+//	NSLog(@"cocoa_set_draw_xor: %p %d", gc, xor);
+	gc->xor = xor;
+	if(currentContext==gc) {
+		
+//		CGContextSetLineWidth(context, width);
+	}
 }
 
 static void
@@ -352,8 +362,10 @@ static void
 cocoa_draw_rect (hidGC gc, int x1, int y1, int x2, int y2)
 {
 	setupGraphicsContext(gc);
-	
-	[NSBezierPath strokeRect: NSMakeRect(x1, y1, x2-x1, y2-y1)];
+
+	CGContextBeginPath(context);
+	CGContextAddRect(context, CGRectMake(x1, y1, x2-x1, y2-y1));
+	CGContextStrokePath(context);	
 }
 
 static void

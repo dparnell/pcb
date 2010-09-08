@@ -28,6 +28,8 @@
 	
 	hid_expose_callback ([CocoaHID HID], &region, 0);	
 	DrawMark(YES);
+//	DrawAttached(NO);
+	CrosshairOn(YES);
 }
 
 - (BOOL) acceptsFirstResponder {
@@ -64,7 +66,9 @@
 	
 	[self lockFocus];
 	[CocoaHID drawToView: self];
+	CrosshairOff(YES);
 	EventMoveCrosshair (where.x, where.y);	
+	CrosshairOn(YES);
 	[CocoaHID finishedDrawing];
 	[self unlockFocus];
 }
@@ -113,6 +117,34 @@
 
 - (void) mouseDragged:(NSEvent *)theEvent {
 	[self mouseMoved: theEvent];
+	
+	BoxType region;
+	NSRect dirtyRect = [self bounds];
+	
+//	NSLog(@"%f %f %f %f", dirtyRect.origin.x, dirtyRect.origin.y, dirtyRect.size.width, dirtyRect.size.height);
+	
+	[[NSColor windowBackgroundColor] set];
+	[NSBezierPath fillRect: dirtyRect];
+	
+	region.X1 = dirtyRect.origin.x;
+	region.Y1 = dirtyRect.origin.y;
+	region.X2 = dirtyRect.origin.x+dirtyRect.size.width;
+	region.Y2 = dirtyRect.origin.y+dirtyRect.size.height;
+		
+	NSPoint where = [NSEvent mouseLocation];
+	where = [[self window] convertScreenToBase: where];
+	where = [self convertPointFromBase: where];
+	
+	//	NSLog(@"%f %f", where.x, where.y);
+	
+	[self lockFocus];
+	[CocoaHID drawToView: self];
+	CrosshairOff(YES);
+	EventMoveCrosshair (where.x, where.y);	
+	hid_expose_callback ([CocoaHID HID], &region, 0);	
+	CrosshairOn(YES);
+	[CocoaHID finishedDrawing];
+	[self unlockFocus];
 }
 
 @end

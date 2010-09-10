@@ -171,6 +171,8 @@ REGISTER_ACTIONS (cocoa_menu_action_list)
 		mr = resource_subres (bir, "Mouse");
 	if (mr)
 		load_mouse_resource (mr);
+	
+	
 }
 
 @end

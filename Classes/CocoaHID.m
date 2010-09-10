@@ -35,19 +35,15 @@ extern HID cocoa_gui;
 static hidGC currentContext = nil;
 
 static void setupGraphicsContext(hidGC gc) {
-//	NSLog(@"setupGraphicsContext: gc = %p", gc);
+	if(currentView) {
 	
-	if(currentView==nil) {
-		NSLog(@"HERE!");		
-	}
-	
-	if(gc!=currentContext) {
-//		NSLog(@"gc = %p", gc);
-		currentContext = gc;
+		if(gc!=currentContext) {
+			currentContext = gc;
 		
-		[gc->color set];
-		CGContextSetLineWidth(context, gc->width);
-		CGContextSetLineCap(context, gc->cap);
+			[gc->color set];
+			CGContextSetLineWidth(context, gc->width);
+			CGContextSetLineCap(context, gc->cap);
+		}
 	}
 }
 
@@ -266,7 +262,7 @@ cocoa_set_color (hidGC gc, const char *name)
 		}
 	}
 	
-	if(currentContext==gc) {
+	if(currentView && currentContext==gc) {
 		[gc->color set];
 	}
 }
@@ -295,7 +291,7 @@ cocoa_set_line_cap (hidGC gc, EndCapStyle style)
 	}
 	
 	gc->cap = cap;
-	if(gc==currentContext) {
+	if(currentView && gc==currentContext) {
 		CGContextSetLineCap(context, cap);
 	}
 }
@@ -310,7 +306,7 @@ cocoa_set_line_width (hidGC gc, int width)
 	}
 	
 	gc->width = width;
-	if(currentContext==gc) {		
+	if(currentView && currentContext==gc) {		
 		CGContextSetLineWidth(context, width);
 	}
 }
@@ -343,12 +339,14 @@ static void
 cocoa_draw_line (hidGC gc, int x1, int y1, int x2, int y2)
 {
 //	NSLog(@"cocoa_draw_line: %p %d %d %d %d", gc, x1, y1, x2, y2);
-	setupGraphicsContext(gc);
+	if(currentView) {
+		setupGraphicsContext(gc);
 	
-	CGContextBeginPath(context);
-	CGContextMoveToPoint(context, x1, y1);
-	CGContextAddLineToPoint(context, x2, y2);
-	CGContextStrokePath(context);	
+		CGContextBeginPath(context);
+		CGContextMoveToPoint(context, x1, y1);
+		CGContextAddLineToPoint(context, x2, y2);
+		CGContextStrokePath(context);	
+	}
 }
 
 #define PI 3.14159265358979323846
@@ -359,56 +357,65 @@ static void
 cocoa_draw_arc (hidGC gc, int cx, int cy, int width, int height,
                   int start_angle, int delta_angle)
 {
+	if(currentView) {	
+		setupGraphicsContext(gc);
 	
-	setupGraphicsContext(gc);
+		// because the view is "flipped" the angles need to be adjusted so they are correct in the flipped context
+		start_angle = 180 - start_angle;
 	
-	// because the view is "flipped" the angles need to be adjusted so they are correct in the flipped context
-	start_angle = 180 - start_angle;
-	
-	CGContextBeginPath(context);
-	CGContextAddArc(context, cx, cy, width, radians(start_angle), radians(start_angle-delta_angle), delta_angle>0);
-	CGContextStrokePath(context);		
+		CGContextBeginPath(context);
+		CGContextAddArc(context, cx, cy, width, radians(start_angle), radians(start_angle-delta_angle), delta_angle>0);
+		CGContextStrokePath(context);		
+	}
 }
 
 static void
 cocoa_draw_rect (hidGC gc, int x1, int y1, int x2, int y2)
 {
-	setupGraphicsContext(gc);
+	if(currentView) {
+		setupGraphicsContext(gc);
 
-	CGContextBeginPath(context);
-	CGContextAddRect(context, CGRectMake(x1, y1, x2-x1, y2-y1));
-	CGContextStrokePath(context);	
+		CGContextBeginPath(context);
+		CGContextAddRect(context, CGRectMake(x1, y1, x2-x1, y2-y1));
+		CGContextStrokePath(context);	
+	}
 }
 
 static void
 cocoa_fill_circle (hidGC gc, int cx, int cy, int radius)
 {
-	setupGraphicsContext(gc);
+	if(currentView) {
+		setupGraphicsContext(gc);
 	
-	CGContextFillEllipseInRect(context, NSMakeRect(cx-radius, cy-radius, radius*2, radius*2));
+		CGContextFillEllipseInRect(context, NSMakeRect(cx-radius, cy-radius, radius*2, radius*2));
+	}
 }
 
 static void
 cocoa_fill_polygon (hidGC gc, int n_coords, int *x, int *y)
 {
-	setupGraphicsContext(gc);
+	if(currentView) {
+		setupGraphicsContext(gc);
 	
-	if (n_coords>0) {
-		CGContextBeginPath(context);
-		CGContextMoveToPoint(context, x[0], y[0]);
-		for(int i=1; i<n_coords; i++) {
-			CGContextAddLineToPoint(context, x[i], y[i]);
+		if (n_coords>0) {
+			CGContextBeginPath(context);
+			CGContextMoveToPoint(context, x[0], y[0]);
+			for(int i=1; i<n_coords; i++) {
+				CGContextAddLineToPoint(context, x[i], y[i]);
+			}
+			CGContextFillPath(context);
 		}
-		CGContextFillPath(context);
 	}
 }
 
 static void
 cocoa_fill_rect (hidGC gc, int x1, int y1, int x2, int y2)
 {
-	setupGraphicsContext(gc);
+	if(currentView) {
+		setupGraphicsContext(gc);
 	
-	[NSBezierPath fillRect: NSMakeRect(x1, y1, x2-x1, y2-y1)];
+		[NSBezierPath fillRect: NSMakeRect(x1, y1, x2-x1, y2-y1)];
+	}
 }
 
 static void

@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
 		<string key="IBDocument.SystemVersion">10F569</string>
-		<string key="IBDocument.InterfaceBuilderVersion">789</string>
+		<string key="IBDocument.InterfaceBuilderVersion">788</string>
 		<string key="IBDocument.AppKitVersion">1038.29</string>
 		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">789</string>
+			<string key="NS.object.0">788</string>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -39,14 +39,14 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSWindowTemplate" id="830201428">
-				<int key="NSWindowStyleMask">31</int>
+				<int key="NSWindowStyleMask">159</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{140, 84}, {415, 374}}</string>
 				<int key="NSWTFlags">-1535638528</int>
 				<string key="NSWindowTitle">Library</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<nil key="NSViewClass"/>
-				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
+				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<object class="NSView" key="NSWindowView" id="760090199">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
@@ -197,7 +197,7 @@
 																	<string key="NSColorName">controlBackgroundColor</string>
 																	<object class="NSColor" key="NSColor">
 																		<int key="NSColorSpace">3</int>
-																		<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
+																		<bytes key="NSWhite">MC42NjY2NjY2ODY1AA</bytes>
 																	</object>
 																</object>
 																<reference key="NSTextColor" ref="1067769243"/>
@@ -244,7 +244,7 @@
 											<reference key="NSSuperview" ref="1015730017"/>
 											<reference key="NSTarget" ref="1015730017"/>
 											<string key="NSAction">_doScroller:</string>
-											<double key="NSPercent">0.9971509971509972</double>
+											<double key="NSPercent">0.99715101718902588</double>
 										</object>
 										<object class="NSScroller" id="566662977">
 											<reference key="NSNextResponder" ref="1015730017"/>
@@ -254,7 +254,7 @@
 											<int key="NSsFlags">1</int>
 											<reference key="NSTarget" ref="1015730017"/>
 											<string key="NSAction">_doScroller:</string>
-											<double key="NSPercent">0.99543378995433784</double>
+											<double key="NSPercent">0.99543380737304688</double>
 										</object>
 									</object>
 									<string key="NSFrameSize">{218, 350}</string>
@@ -320,7 +320,7 @@
 					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
-				<string key="NSMaxSize">{1.79769e+308, 1.79769e+308}</string>
+				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<string key="NSFrameAutosaveName">Library</string>
 			</object>
 			<object class="NSTreeController" id="446258646">

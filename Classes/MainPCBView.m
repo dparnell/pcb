@@ -25,10 +25,9 @@
 	region.Y1 = dirtyRect.origin.y;
 	region.X2 = dirtyRect.origin.x+dirtyRect.size.width;
 	region.Y2 = dirtyRect.origin.y+dirtyRect.size.height;
+	
+	hid_expose_callback ([CocoaHID HID], &region, 0);	
 
-	if (mouseMoved) {
-		EventMoveCrosshair (where.x, where.y);	
-	}
 	if(mouseDown) {
 		mouseDown = NO;
 		do_mouse_action(button, mods);			
@@ -37,14 +36,13 @@
 		mouseUp = NO;
 		do_mouse_action(button, mods | M_Release);	
 	}
-	
-	hid_expose_callback ([CocoaHID HID], &region, 0);	
-	
+		
 	if(mouseMoved) {
 		mouseMoved = NO;
-//		DrawMark(YES);
-		CrosshairOn(YES);		
+		EventMoveCrosshair (where.x, where.y);	
 	}
+	DrawMark(YES);
+	CrosshairOn(YES);		
 }
 
 - (BOOL) acceptsFirstResponder {
@@ -94,6 +92,11 @@
 
 - (void) mouseDragged:(NSEvent *)theEvent {
 	[self mouseMoved: theEvent];
+	[self autoscroll: theEvent];
+}
+
+- (BOOL)acceptsFirstMouse:(NSEvent *)theEvent {
+	return YES;
 }
 
 @end

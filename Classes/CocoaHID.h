@@ -27,6 +27,8 @@ extern int lastModifierFlags;
 - (void) pointCursor;
 - (NSTimer*) scheduleTimerFor:(void*)callback withInterval:(unsigned long) milliseconds andUserData:(hidval)data;
 
+- (IBAction) needsRedraw:(id)sender;
+
 - (IBAction) zoomIn:(id)sender;
 - (IBAction) zoomOut:(id)sender;
 

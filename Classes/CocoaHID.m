@@ -135,7 +135,9 @@ static void
 cocoa_invalidate_wh (int x, int y, int width, int height, int last)
 {
 //	NSLog(@"cocoa_invalidate_wh %d %d %d %d %d", x, y, width, height, last);
-	[[[CocoaHID instance] mainView] setNeedsDisplay: YES];
+//	[[[CocoaHID instance] mainView] setNeedsDisplay: YES];
+	
+	[NSTimer scheduledTimerWithTimeInterval: 0.01 target: [CocoaHID instance] selector: @selector(needsRedraw:) userInfo: nil repeats: NO];
 }
 
 static void
@@ -800,6 +802,11 @@ static const NSSize unitSize = {1.0, 1.0};
 #pragma mark -
 #pragma mark Actions
 #pragma mark -
+
+- (IBAction) needsRedraw:(id)sender {
+	[mainView setNeedsDisplay: YES];
+}
+
 
 - (IBAction) zoomIn:(id)sender {
 	// TODO: make the zoom centered

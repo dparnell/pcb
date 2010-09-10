@@ -18,6 +18,8 @@
 - (void)drawWithHID:(NSRect)dirtyRect {
 	BoxType region;
 
+	CrosshairOff(YES);
+	
 	[[NSColor windowBackgroundColor] set];
 	[NSBezierPath fillRect: dirtyRect];
 
@@ -36,11 +38,11 @@
 		mouseUp = NO;
 		do_mouse_action(button, mods | M_Release);	
 	}
-		
 	if(mouseMoved) {
 		mouseMoved = NO;
 		EventMoveCrosshair (where.x, where.y);	
 	}
+	
 	DrawMark(YES);
 	CrosshairOn(YES);		
 }

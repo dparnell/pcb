@@ -538,8 +538,26 @@ cocoa_fileselect (const char *title, const char *descr,
                     char *default_file, char *default_ext,
                     const char *history_tag, int flags)
 {
-    
-    return cocoa_prompt_for ((char *)title, default_file);
+    if(flags & HID_FILESELECT_READ) {
+		NSOpenPanel* openPanel = [NSOpenPanel openPanel];
+		
+		[openPanel setTitle: [NSString stringWithCString: title encoding: NSUTF8StringEncoding]];
+		[openPanel setMessage: [NSString stringWithCString: descr encoding: NSUTF8StringEncoding]];
+		
+		if([openPanel runModal]==NSFileHandlingPanelOKButton) {
+			return (char*)[[openPanel filename] cStringUsingEncoding: NSUTF8StringEncoding];
+		}
+	} else {
+		NSSavePanel* savePanel = [NSSavePanel savePanel];
+		[savePanel setTitle: [NSString stringWithCString: title encoding: NSUTF8StringEncoding]];
+		[savePanel setMessage: [NSString stringWithCString: descr encoding: NSUTF8StringEncoding]];
+		
+		if([savePanel runModal]==NSFileHandlingPanelOKButton) {
+			return (char*)[[savePanel filename] cStringUsingEncoding: NSUTF8StringEncoding];
+		}
+	}
+	
+    return nil;
 }
 
 int

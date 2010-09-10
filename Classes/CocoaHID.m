@@ -112,6 +112,15 @@ cocoa_parse_arguments (int *argc, char ***argv)
 	}
 	
 	Settings.verbose = 0;
+	
+	int c = *argc;
+	char** args = *argv;
+	
+	for(i=0; i<c; i++) {
+		if (strncmp(args[i], "-psn_", 5)==0) {
+			args[i][0] = 0;
+		}
+	}
 }
 
 void stoppingHere() {

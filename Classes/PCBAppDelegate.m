@@ -24,5 +24,11 @@
 	LoadPCB((char*)[tut cStringUsingEncoding: NSUTF8StringEncoding]);
 }
 
+
+- (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename {
+	LoadPCB((char*)[filename cStringUsingEncoding: NSUTF8StringEncoding]);
+	return YES;
+}
+
 @end
 

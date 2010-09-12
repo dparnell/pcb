@@ -9,9 +9,12 @@
 #import <Cocoa/Cocoa.h>
 
 @interface CocoaMenu : NSObject {
-
+	NSMenu* mainMenu;
 }
 
 +(void) installMenus;
++(CocoaMenu*) instance;
+
+@property(retain) IBOutlet NSMenu* mainMenu;
 
 @end

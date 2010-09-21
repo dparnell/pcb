@@ -20,8 +20,8 @@
 	[CocoaLibrary showLibrary];
 	[CocoaMenu installMenus];
 	
-	NSString* tut = [NSString stringWithFormat: @"%@/tutorial/tut1.pcb", [[NSBundle mainBundle] resourcePath]];
-	LoadPCB((char*)[tut cStringUsingEncoding: NSUTF8StringEncoding]);
+//	NSString* tut = [NSString stringWithFormat: @"%@/tutorial/tut1.pcb", [[NSBundle mainBundle] resourcePath]];
+//	LoadPCB((char*)[tut cStringUsingEncoding: NSUTF8StringEncoding]);
 }
 
 

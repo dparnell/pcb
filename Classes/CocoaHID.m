@@ -216,6 +216,8 @@ static void
 cocoa_set_color (hidGC gc, const char *name)
 {
 //	NSLog(@"cocoa_set_color: %p %s", gc, name);
+	NSAutoreleasePool* pool = [NSAutoreleasePool new];
+	
 	if (strcmp (name, "erase") == 0)
     {
 		gc->color = [NSColor whiteColor];
@@ -265,6 +267,7 @@ cocoa_set_color (hidGC gc, const char *name)
 	if(currentView && currentContext==gc) {
 		[gc->color set];
 	}
+	[pool release];
 }
 
 static void
@@ -709,8 +712,7 @@ void
 hid_cocoa_init ()
 {	
     hid_register_hid (&cocoa_gui);
-
-// REGISTER_ACTIONS (cocoa_dialog_action_list)
+ REGISTER_ACTIONS (cocoa_dialog_action_list)
  REGISTER_ACTIONS (cocoa_library_action_list)
 // REGISTER_FLAGS (cocoa_main_flag_list)
 // REGISTER_ATTRIBUTES (cocoa_attribute_list)

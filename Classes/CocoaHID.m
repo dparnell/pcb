@@ -551,6 +551,10 @@ cocoa_fileselect (const char *title, const char *descr,
     if(flags & HID_FILESELECT_READ) {
 		NSOpenPanel* openPanel = [NSOpenPanel openPanel];
 		
+		if(default_ext) {
+			[openPanel setAllowedFileTypes: [NSArray arrayWithObject: [NSString stringWithFormat: @"*.%s", default_ext]]];
+		}
+		
 		[openPanel setTitle: [NSString stringWithCString: title encoding: NSUTF8StringEncoding]];
 		[openPanel setMessage: [NSString stringWithCString: descr encoding: NSUTF8StringEncoding]];
 		

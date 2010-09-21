@@ -60,8 +60,6 @@ Load (int argc, char **argv, int x, int y)
 		hid_actionl ("LoadFrom", function, name, NULL);
 	}
 	
-	
-	
 	return 0;
 }
 

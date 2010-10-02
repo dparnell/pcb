@@ -1,0 +1,7 @@
+REGISTER_ACTIONS (ghid_main_action_list)
+REGISTER_FLAGS (ghid_main_flag_list)
+REGISTER_ACTIONS (ghid_log_action_list)
+REGISTER_ACTIONS (ghid_netlist_action_list)
+REGISTER_ATTRIBUTES (ghid_attribute_list)
+REGISTER_ACTIONS (gtk_topwindow_action_list)
+REGISTER_ACTIONS (ghid_menu_action_list)

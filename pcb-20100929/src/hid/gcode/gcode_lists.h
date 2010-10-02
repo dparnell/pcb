@@ -1,0 +1,1 @@
+REGISTER_ATTRIBUTES (gcode_attribute_list)

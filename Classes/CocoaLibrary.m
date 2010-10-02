@@ -179,7 +179,7 @@ static CocoaLibrary* instance = nil;
 			if(entry) {
 				if (entry->Template == (char *) -1)
 				{
-					if (LoadElementToBuffer (PASTEBUFFER, entry->AllocatedMemory, True)) {
+					if (LoadElementToBuffer (PASTEBUFFER, entry->AllocatedMemory, YES)) {
 						SetMode (PASTEBUFFER_MODE);
 					}
 				} else {
@@ -190,7 +190,7 @@ static CocoaLibrary* instance = nil;
 					NSString* m4_args = [NSString stringWithFormat: @"'%s' '%s' '%s'", EMPTY (entry->Template),
 										 EMPTY (entry->Value), EMPTY (entry->Package)];;
 					
-					if (LoadElementToBuffer (PASTEBUFFER, (char*)[m4_args cStringUsingEncoding: NSUTF8StringEncoding], False))
+					if (LoadElementToBuffer (PASTEBUFFER, (char*)[m4_args cStringUsingEncoding: NSUTF8StringEncoding], NO))
 						SetMode (PASTEBUFFER_MODE);
 				}
 				

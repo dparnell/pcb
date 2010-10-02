@@ -55,9 +55,11 @@ void register_toporouter_action_list() {
     // do nothing
 }
 
+/*
 void bindtextdomain (char* package, char* locale_dir) {
     // do nothing
 }
+*/
 
 void bind_textdomain_codeset(char* package, char* encoding) {
     // do nothing
@@ -137,9 +139,9 @@ cocoa_invalidate_wh (int x, int y, int width, int height, int last)
 }
 
 static void
-cocoa_invalidate_lr (int l, int r, int t, int b, int last)
+cocoa_invalidate_lr (int l, int r, int t, int b)
 {
-    cocoa_invalidate_wh (l, t, r - l + 1, b - t + 1, last);
+    cocoa_invalidate_wh (l, t, r - l + 1, b - t + 1, YES);
 }
 
 void
@@ -152,12 +154,12 @@ static int
 cocoa_set_layer (const char *name, int group, int empty)
 {
 	int idx = group;
-	if (idx >= 0 && idx < max_layer)
+	if (idx >= 0 && idx < MAX_LAYER)
     {
 		idx = PCB->LayerGroups.Entries[idx][0];
     }
 
-	if (idx >= 0 && idx < max_layer + 2)
+	if (idx >= 0 && idx < MAX_LAYER + 2)
 		return PCB->Data->Layer[idx].On;
 	if (idx < 0)
     {
@@ -616,7 +618,6 @@ HID cocoa_gui = {
     cocoa_do_export,
     cocoa_parse_arguments,
     
-    cocoa_invalidate_wh,
     cocoa_invalidate_lr,
     cocoa_invalidate_all,
     cocoa_set_layer,
@@ -662,7 +663,8 @@ HID cocoa_gui = {
     cocoa_show_item,
     cocoa_beep,
     cocoa_progress,
-    0 /* cocoa_drc_gui */
+    0, /* cocoa_drc_gui */
+	0 /* cocoa_attributes */
 };
 
 static int

@@ -412,13 +412,13 @@
 #define PACKAGE_NAME "pcb"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "pcb 20091103"
+#define PACKAGE_STRING "pcb 20100929"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "pcb"
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "20091103"
+#define PACKAGE_VERSION "20100929"
 
 /* Directory separator char */
 #define PCB_DIR_SEPARATOR_C '/'
@@ -451,7 +451,7 @@
 #define TOPO_OUTPUT_ENABLED 0
 
 /* Version number of package */
-#define VERSION "20091103"
+#define VERSION "20100929"
 
 /* Define to 1 if the X Window System is missing or not being used. */
 /* #undef X_DISPLAY_MISSING */

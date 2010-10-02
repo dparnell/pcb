@@ -1,0 +1,8 @@
+REGISTER_ACTIONS (lesstif_dialog_action_list)
+REGISTER_ACTIONS (lesstif_library_action_list)
+REGISTER_FLAGS (lesstif_main_flag_list)
+REGISTER_ATTRIBUTES (lesstif_attribute_list)
+REGISTER_ACTIONS (lesstif_main_action_list)
+REGISTER_ACTIONS (lesstif_menu_action_list)
+REGISTER_ACTIONS (lesstif_netlist_action_list)
+REGISTER_ACTIONS (lesstif_styles_action_list)

@@ -117,11 +117,10 @@ cocoa_call_action (const char *aname, int argc, char **argv)
 {
 	int px, py, ret;
 	HID_Action *a;
-	void *context, *old_context;
-	
+
 	if (!aname)
 		return 1;
-	a = hid_find_action (aname, &context);
+	a = hid_find_action (aname);
 	if (!a)
     {
 		int i;
@@ -151,10 +150,7 @@ cocoa_call_action (const char *aname, int argc, char **argv)
 			printf ("%s%s", i ? "," : "", argv[i]);
 		printf (")\033[0m\n");
     }
-	old_context = hid_action_context;
-	hid_action_context = context;
 	ret = a->trigger_cb (argc, argv, px, py);
-	hid_action_context = old_context;
 	return ret;
 }
 
@@ -254,7 +250,7 @@ static CocoaMenu* instance = nil;
 				
 		for (vi = 1; vi < node->c; vi++)
 			if (resource_type (node->v[vi]) == 10)
-				if (hid_parse_actions (node->v[vi].value, cocoa_call_action))
+				if (hid_parse_actions (node->v[vi].value))
 					return;
 					
 	}
@@ -301,13 +297,11 @@ static CocoaMenu* instance = nil;
 			}
 			if ((r = resource_subres (node->v[i].subres, "a")))
 			{
-/*				
-				XmString as = XmStringCreateLocalized (r->v[0].value);
-				stdarg (XmNacceleratorText, as);
-				//stdarg(XmNaccelerator, r->v[1].value);
-				note_accelerator (r->v[1].value, node->v[i].subres);
- */
+				accelerator = [NSString stringWithCString: r->v[0].value encoding: NSUTF8StringEncoding];
+			} else {
+				accelerator = nil;
 			}
+			
 			v = "button";
 			for (j = 0; j < node->v[i].subres->c; j++)
 				if (resource_type (node->v[i].subres->v[j]) == 10)
@@ -336,6 +330,10 @@ static CocoaMenu* instance = nil;
 				[item setRepresentedObject: [NSValue valueWithPointer: node->v[i].subres]];
 				[item setTarget: self];
 				[menu addItem: item];
+				
+				if(accelerator) {
+					[item setKeyEquivalent: accelerator];
+				}
 				
 				if (radio)
 				{

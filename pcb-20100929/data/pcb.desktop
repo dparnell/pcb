@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=PCB Designer
+Name[ru]=Редактор PCB
+GenericName=PCB Design
+GenericName[ru]=Проект PCB
+Comment=Create and edit printed circuit board designs
+Comment[ru]=Создание и редактирование проектов печатных плат
+Type=Application
+Exec=pcb %f
+Icon=pcb
+MimeType=application/x-pcb-layout;application/x-pcb-footprint;
+Categories=Engineering;Electronics;

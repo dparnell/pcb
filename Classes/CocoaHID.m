@@ -683,12 +683,21 @@ static int
 PointCursor (int argc, char **argv, int x, int y)
 {
 	[[CocoaHID instance] pointCursor];
+	return 0;
+}
+
+static int
+Busy (int argc, char **argv, int x, int y)
+{
+//	ghid_watch_cursor ();
+	return 0;
 }
 
 HID_Action cocoa_main_action_list[] = {
 	{"PCBChanged", 0, PCBChanged,
 		pcbchanged_help, pcbchanged_syntax},
 	{"PointCursor", 0, PointCursor},
+	{"Busy", 0, Busy},
 /*	
 	{"SetUnits", 0, SetUnits,
 		setunits_help, setunits_syntax},
@@ -703,7 +712,6 @@ HID_Action cocoa_main_action_list[] = {
 	{"Benchmark", 0, Benchmark,
 		benchmark_help, benchmark_syntax},
 	{"Center", "Click on a location to center", Center},
-	{"Busy", 0, Busy},
 	{"Cursor", 0, CursorAction,
 		cursor_help, cursor_syntax},
 */ 

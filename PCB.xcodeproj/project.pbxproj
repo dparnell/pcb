@@ -100,6 +100,7 @@
 		6575A7AB11FD0F00006D983A /* undo.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A76511FD0F00006D983A /* undo.c */; };
 		6575A7AC11FD0F00006D983A /* vector.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A76711FD0F00006D983A /* vector.c */; };
 		6575A7AD11FD0F00006D983A /* vendor.c in Sources */ = {isa = PBXBuildFile; fileRef = 6575A76911FD0F00006D983A /* vendor.c */; };
+		65BCDFE51286479E00AE3B0B /* CocoaNetList.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BCDFE41286479E00AE3B0B /* CocoaNetList.m */; };
 		65D3AD7612014F46001AAC1A /* CocoaHID.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D3AD7512014F46001AAC1A /* CocoaHID.m */; };
 		65D3AD8D1201627C001AAC1A /* actions.c in Sources */ = {isa = PBXBuildFile; fileRef = 65D3AD841201627C001AAC1A /* actions.c */; };
 		65D3AD8E1201627C001AAC1A /* draw_helpers.c in Sources */ = {isa = PBXBuildFile; fileRef = 65D3AD851201627C001AAC1A /* draw_helpers.c */; };
@@ -285,6 +286,8 @@
 		6575A76A11FD0F00006D983A /* vendor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vendor.h; sourceTree = "<group>"; };
 		6575A7AF11FD2F88006D983A /* globalconst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globalconst.h; sourceTree = "<group>"; };
 		6575A7B411FD307F006D983A /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		65BCDFE31286479E00AE3B0B /* CocoaNetList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaNetList.h; sourceTree = "<group>"; };
+		65BCDFE41286479E00AE3B0B /* CocoaNetList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaNetList.m; sourceTree = "<group>"; };
 		65D3AD7412014F46001AAC1A /* CocoaHID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocoaHID.h; path = Classes/CocoaHID.h; sourceTree = "<group>"; };
 		65D3AD7512014F46001AAC1A /* CocoaHID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CocoaHID.m; path = Classes/CocoaHID.m; sourceTree = "<group>"; };
 		65D3AD841201627C001AAC1A /* actions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = actions.c; sourceTree = "<group>"; };
@@ -579,6 +582,8 @@
 				651D37221202B01D000FAA99 /* CocoaMenu.m */,
 				651D372C1202B14C000FAA99 /* CocoaStyles.h */,
 				651D372D1202B14C000FAA99 /* CocoaStyles.m */,
+				65BCDFE31286479E00AE3B0B /* CocoaNetList.h */,
+				65BCDFE41286479E00AE3B0B /* CocoaNetList.m */,
 			);
 			name = HID;
 			sourceTree = "<group>";
@@ -780,6 +785,7 @@
 				654CE9BB1202F0B10073C4A6 /* LibraryPreviewView.m in Sources */,
 				651D37E6120523AF000FAA99 /* MainPCBView.m in Sources */,
 				650F2CED1256F88B00805503 /* CocoaDialogs.m in Sources */,
+				65BCDFE51286479E00AE3B0B /* CocoaNetList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

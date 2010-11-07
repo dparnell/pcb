@@ -521,9 +521,36 @@ cocoa_log (const char *fmt, ...)
 int
 cocoa_confirm_dialog (char *msg, ...)
 {
-	NSLog(@"UNIMPLEMENTED: cocoa_stop_block_hook");
+	va_list ap;
+	char *cancelmsg = NULL, *okmsg = NULL;
+	NSString* cancelString;
+	NSString* okString;
+	NSAlert* alert;
+	
+	va_start (ap, msg);
+	cancelmsg = va_arg (ap, char *);
+	okmsg = va_arg (ap, char *);
+	va_end (ap);
+	
+	if (!cancelmsg)		
+    {
+		cancelString = NSLocalizedString(@"Cancel", @"Cancel button");
+		okString = NSLocalizedString(@"OK", @"OK button");
+	} else {
+		cancelString = [NSString stringWithUTF8String: cancelmsg];
+		okString = [NSString stringWithUTF8String: okmsg];
+	}
 
-    return 0;
+	alert = [NSAlert alertWithMessageText: NSLocalizedString(@"Confirm", @"Confirm") 
+							defaultButton: cancelString 
+						  alternateButton: okString 
+							  otherButton: nil 
+				informativeTextWithFormat: [NSString stringWithUTF8String: msg]];
+	
+	if ([alert runModal]==NSAlertFirstButtonReturn) {
+		return 0;
+	}
+    return 1;
 }
 
 int
@@ -535,13 +562,13 @@ cocoa_close_confirm_dialog ()
 void
 cocoa_report_dialog (char *title, char *msg)
 {
-	NSLog(@"UNIMPLEMENTED: cocoa_stop_block_hook");
+	NSLog(@"UNIMPLEMENTED: cocoa_report_dialog");
 }
 
 char *
 cocoa_prompt_for (char *msg, char *default_string)
 {
-	NSLog(@"UNIMPLEMENTED: cocoa_stop_block_hook");
+	NSLog(@"UNIMPLEMENTED: cocoa_prompt_for");
     return default_string;
 }
 
@@ -581,25 +608,26 @@ cocoa_attribute_dialog (HID_Attribute * attrs,
                           int n_attrs, HID_Attr_Val * results,
                           const char * title, const char * descr)
 {
-	NSLog(@"UNIMPLEMENTED: cocoa_stop_block_hook");
+	NSLog(@"UNIMPLEMENTED: cocoa_attribute_dialog");
+	return 0;
 }
 
 static void
 cocoa_show_item (void *item)
 {
-	NSLog(@"UNIMPLEMENTED: cocoa_stop_block_hook");
+	NSLog(@"UNIMPLEMENTED: cocoa_show_item");
 }
 
 static void
 cocoa_beep (void)
 {
-	NSLog(@"UNIMPLEMENTED: cocoa_stop_block_hook");
+	NSLog(@"UNIMPLEMENTED: cocoa_beep");
 }
 
 static int
 cocoa_progress (int so_far, int total, const char *message)
 {
-	NSLog(@"UNIMPLEMENTED: cocoa_stop_block_hook");
+	NSLog(@"cocoa_progress %d of %d - %s", so_far, total, message);
     return 0;
 }
 
@@ -733,7 +761,7 @@ hid_cocoa_init ()
  REGISTER_ACTIONS (cocoa_main_action_list)
  REGISTER_ACTIONS (cocoa_menu_action_list)
  REGISTER_ATTRIBUTES(pcbmenu_attr)
-// REGISTER_ACTIONS (cocoa_netlist_action_list)
+ REGISTER_ACTIONS (cocoa_netlist_action_list)
  REGISTER_ACTIONS (cocoa_styles_action_list)
 }
 

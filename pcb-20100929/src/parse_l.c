@@ -2250,7 +2250,7 @@ static int Parse(char *Executable, char *Path, char *Filename, char *Parameter)
 {
 	static	char	*command = NULL;
 	int		returncode;
-	int		used_popen = 0;
+	char* temp_file_name = NULL;
 	char *tmps;
 	size_t l;
 #ifdef FLEX_SCANNER
@@ -2288,18 +2288,28 @@ static int Parse(char *Executable, char *Path, char *Filename, char *Parameter)
 	  }
 	else
 	  {
-	    used_popen = 1;
+	    temp_file_name = malloc(100);
+        sprintf(temp_file_name, "/tmp/pcb.%d.tmp", getpid());
+          
 	    /* release old command and create new from template */
 	    if (command)
 	      MYFREE (command);
 	    command = EvaluateFilename(Executable, Path, Filename, Parameter);
 
+          char* new_command = malloc(strlen(command)+100);
+          strcpy(new_command, command);
+          MYFREE(command);
+          strcat(new_command, " > ");
+          command = strcat(new_command, temp_file_name);
 	    /* open pipe to stdout of command */
-	    if (*command == '\0' || (yyin = popen(command, "r")) == NULL)
+		  printf("command = '%s'\n", command);
+	    if (*command == '\0' || (system(command) == -1))
 	      {
 		PopenErrorMessage(command);
 		return(1);
 	      }
+          
+          yyin = fopen(temp_file_name, "r");
 	  }
 
 #ifdef FLEX_SCANNER
@@ -2330,8 +2340,12 @@ static int Parse(char *Executable, char *Path, char *Filename, char *Parameter)
 	/* clean up parse buffer */
 	yy_delete_buffer(YY_CURRENT_BUFFER);
 
-	if (used_popen)
-	  return(pclose(yyin) ? 1 : returncode);
+	if (temp_file_name) {
+        int c = fclose(yyin);
+        unlink(temp_file_name);
+        MYFREE(temp_file_name);
+	  return (c ? 1 : returncode);
+    }
 	return(fclose(yyin) ? 1 : returncode);
 }
 

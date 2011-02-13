@@ -2301,13 +2301,11 @@ static int Parse(char *Executable, char *Path, char *Filename, char *Parameter)
           MYFREE(command);
           strcat(new_command, " > ");
           command = strcat(new_command, temp_file_name);
-	    /* open pipe to stdout of command */
-		  printf("command = '%s'\n", command);
-	    if (*command == '\0' || (system(command) == -1))
-	      {
-		PopenErrorMessage(command);
-		return(1);
-	      }
+          if (*command == '\0' || (system(command) == -1))
+            {
+                PopenErrorMessage(command);
+                return(1);
+            }
           
           yyin = fopen(temp_file_name, "r");
 	  }

@@ -286,6 +286,9 @@
 		6575A76A11FD0F00006D983A /* vendor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vendor.h; sourceTree = "<group>"; };
 		6575A7AF11FD2F88006D983A /* globalconst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globalconst.h; sourceTree = "<group>"; };
 		6575A7B411FD307F006D983A /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		6599FA4A1307584200A50260 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		6599FA4B1307584200A50260 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		6599FA4C1307584200A50260 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		65BCDFE31286479E00AE3B0B /* CocoaNetList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaNetList.h; sourceTree = "<group>"; };
 		65BCDFE41286479E00AE3B0B /* CocoaNetList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaNetList.m; sourceTree = "<group>"; };
 		65D3AD7412014F46001AAC1A /* CocoaHID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocoaHID.h; path = Classes/CocoaHID.h; sourceTree = "<group>"; };
@@ -426,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				6575A6D011FCFCF0006D983A /* Cocoa.framework */,
+				6599FA491307584200A50260 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -566,6 +570,16 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		6599FA491307584200A50260 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6599FA4A1307584200A50260 /* AppKit.framework */,
+				6599FA4B1307584200A50260 /* CoreData.framework */,
+				6599FA4C1307584200A50260 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
 		65D3AD7312014F2A001AAC1A /* HID */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,6 +666,7 @@
 			isa = PBXProject;
 			buildConfigurationList = 6575A6C311FCFCEF006D983A /* Build configuration list for PBXProject "PCB" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -841,6 +856,7 @@
 					pcb_extras,
 					pcb/src,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
@@ -863,6 +879,7 @@
 					pcb_extras,
 					pcb/src,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
 			};
@@ -878,9 +895,14 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PCB_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					HAVE_CONFIG_H,
+					NDEBUG,
+				);
 				INFOPLIST_FILE = "PCB-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = PCB;
+				SDKROOT = macosx10.6;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -895,9 +917,14 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PCB_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					HAVE_CONFIG_H,
+					NDEBUG,
+				);
 				INFOPLIST_FILE = "PCB-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = PCB;
+				SDKROOT = macosx10.6;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

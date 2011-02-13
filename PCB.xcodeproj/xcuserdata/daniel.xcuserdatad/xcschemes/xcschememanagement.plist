@@ -12,8 +12,21 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>PCB.app</key>
-		<true/>
+		<key>6575A6CC11FCFCF0006D983A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6599FA1413072DFD00A50260</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6599FA461307584200A50260</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>

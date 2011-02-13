@@ -22,6 +22,7 @@
 	
 //	NSString* tut = [NSString stringWithFormat: @"%@/tutorial/tut1.pcb", [[NSBundle mainBundle] resourcePath]];
 //	LoadPCB((char*)[tut cStringUsingEncoding: NSUTF8StringEncoding]);
+	LoadPCB("/Users/daniel/Documents/board.pcb");
 }
 
 

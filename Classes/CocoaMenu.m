@@ -116,7 +116,7 @@ int
 cocoa_call_action (const char *aname, int argc, char **argv)
 {
 	int px, py, ret;
-	HID_Action *a;
+	HID_Action *a = nil;
 
 	if (!aname)
 		return 1;
@@ -150,7 +150,10 @@ cocoa_call_action (const char *aname, int argc, char **argv)
 			printf ("%s%s", i ? "," : "", argv[i]);
 		printf (")\033[0m\n");
     }
-	ret = a->trigger_cb (argc, argv, px, py);
+    if(a) {
+        ret = a->trigger_cb (argc, argv, px, py);
+    }
+    
 	return ret;
 }
 
@@ -276,7 +279,7 @@ static CocoaMenu* instance = nil;
 	{
 		case 101:		/* named subnode */
 			title = [NSString stringWithCString: node->v[i].value encoding: NSUTF8StringEncoding];
-			item = [NSMenuItem new];
+			item = [[NSMenuItem new] autorelease];
 			[item setTitle: title];
 			[item setRepresentedObject: [NSValue valueWithPointer: &node->v[i].subres]];
 			
@@ -313,7 +316,7 @@ static CocoaMenu* instance = nil;
 
 			if (node->v[i].subres->flags & FLAG_S)
 			{
-				item = [NSMenuItem new];
+				item = [[NSMenuItem new] autorelease];
 				[item setTitle: title];
 				subMenu = [[NSMenu alloc] initWithTitle: title];
 				[item setSubmenu: subMenu];
@@ -326,7 +329,7 @@ static CocoaMenu* instance = nil;
 				char *checked = resource_value (node->v[i].subres, "checked");
 				char *label = resource_value (node->v[i].subres, "sensitive");
 				
-				item = [[NSMenuItem alloc] initWithTitle: title action: @selector(menuItemSelected:) keyEquivalent: @""];
+				item = [[[NSMenuItem alloc] initWithTitle: title action: @selector(menuItemSelected:) keyEquivalent: @""] autorelease];
 				[item setRepresentedObject: [NSValue valueWithPointer: node->v[i].subres]];
 				[item setTarget: self];
 				[menu addItem: item];

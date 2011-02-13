@@ -62,7 +62,7 @@
 RCSID ("$Id$");
 
 
-#define SLOW_ASSERTS
+#undef SLOW_ASSERTS
 /* All rectangles are closed on the bottom left and open on the
  * top right. i.e. they contain one corner point, but not the other.
  * This requires that the corner points not be equal!

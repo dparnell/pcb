@@ -392,7 +392,7 @@ cocoa_fill_circle (hidGC gc, int cx, int cy, int radius)
 	if(currentView) {
 		setupGraphicsContext(gc);
 	
-		CGContextFillEllipseInRect(context, NSMakeRect(cx-radius, cy-radius, radius*2, radius*2));
+		CGContextFillEllipseInRect(context, CGRectMake(cx-radius, cy-radius, radius*2, radius*2));
 	}
 }
 
@@ -477,14 +477,14 @@ cocoa_add_timer (void (*func) (hidval user_data),
 static void
 cocoa_stop_timer (hidval hv)
 {
-	NSLog(@"UNIMPLEMENTED: cocoa_stop_timer: %d %p", hv.lval, hv.ptr);	
+	NSLog(@"UNIMPLEMENTED: cocoa_stop_timer: %ld %p", hv.lval, hv.ptr);	
 }
 
 hidval
 cocoa_watch_file (int fd, unsigned int condition, void (*func) (hidval watch, int fd, unsigned int condition, hidval user_data),
                     hidval user_data)
 {
-	NSLog(@"UNIMPLEMENTED: cocoa_watch_file");
+	NSLog(@"UNIMPLEMENTED: cocoa_watch_file");    
 }
 
 void
@@ -721,16 +721,31 @@ Busy (int argc, char **argv, int x, int y)
 	return 0;
 }
 
+static const char zoom_syntax[] =
+"Zoom()\n"
+"Zoom(factor)";
+
+static const char zoom_help[] =
+"Various zoom factor changes.";
+
+static int
+Zoom (int argc, char **argv, int x, int y)
+{
+	NSLog(@"UNIMPELENTED: Zoom");
+	
+	return 0;
+}
+
 HID_Action cocoa_main_action_list[] = {
 	{"PCBChanged", 0, PCBChanged,
 		pcbchanged_help, pcbchanged_syntax},
 	{"PointCursor", 0, PointCursor},
 	{"Busy", 0, Busy},
+	{"Zoom", "Click on a place to zoom in", Zoom,
+		zoom_help, zoom_syntax},
 /*	
 	{"SetUnits", 0, SetUnits,
 		setunits_help, setunits_syntax},
-	{"Zoom", "Click on a place to zoom in", ZoomAction,
-		zoom_help, zoom_syntax},
 	{"Pan", "Click on a place to pan", PanAction,
 		zoom_help, zoom_syntax},
 	{"SwapSides", 0, SwapSides,

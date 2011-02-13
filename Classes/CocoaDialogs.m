@@ -46,12 +46,12 @@ Load (int argc, char **argv, int x, int y)
 	
 	
 	if (strcasecmp (function, "Netlist") == 0)
-		pattern = @"*.net";
+		pattern = @"net";
 	else if (strcasecmp (function, "ElementToBuffer") == 0)
-		pattern = @"*.fp";
+		pattern = @"fp";
 	else
-		pattern = @"*.pcb";
-	
+		pattern = @"pcb";
+	    
 	openDialog = [NSOpenPanel openPanel];
 	[openDialog setAllowedFileTypes: [NSArray arrayWithObject: pattern]];
 	

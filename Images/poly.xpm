@@ -1,0 +1,31 @@
+/* XPM */
+static char *poly[] = {
+/* columns rows colors chars-per-pixel */
+"21 21 4 1",
+"  c black",
+". c #6EA5D7",
+"X c gray100",
+"o c None",
+/* pixels */
+"ooooooooooo.ooooooooo",
+"oooooooooo..ooooooooo",
+"ooooooooo...ooooooooo",
+"oooooooo....ooooooooo",
+"ooooooo.....ooooooooo",
+"oooooo.......oooooooo",
+"ooooo.........ooooooo",
+"oooo...........oooooo",
+"oooo............ooooo",
+"oooo.............oooo",
+"oooo..............ooo",
+"ooooooooooooooooooooo",
+"o    ooo   oo oo ooo ",
+"o ooo o ooo o oo ooo ",
+"o ooo o ooo o ooo o o",
+"o    oo ooo o oooo oo",
+"o ooooo ooo o oooo oo",
+"o ooooo ooo o oooo oo",
+"o ooooo ooo o oooo oo",
+"o oooooo   oo    o oo",
+"ooooooooooooooooooooo"
+};

@@ -1,0 +1,30 @@
+/* XPM */
+static char *pan[] = {
+/* columns rows colors chars-per-pixel */
+"21 21 3 1",
+"  c black",
+". c #E7E3E7",
+"X c None",
+/* pixels */
+"XXXXXXXXXX XXXXXXXXXX",
+"XXXXXX XX X XX XXXXXX",
+"XXXXX X X X X X XX XX",
+"XXXXX X X X X X X X X",
+"XXXXX X X X X X X X X",
+"X  XX X  XX X X  X  X",
+"X X X XX XXX XX XX XX",
+"X XX  XXXXXXXXX X XXX",
+"XX XX XXXXXXXXXXX XXX",
+"XXX XXXXXXXXXXXX XXXX",
+"XXXX XXXXXXXXXXX XXXX",
+"XXXXX XXXXXXXXXX XXXX",
+"XXXXXX          XXXXX",
+"XXXXXXXXXXXXXXXXXXXXX",
+"XXXX   XXX  XX XXX XX",
+"XXXX XX X XX X  XX XX",
+"XXXX XX X XX X   X XX",
+"XXXX   XX    X X X XX",
+"XXXX XXXX XX X X   XX",
+"XXXX XXXX XX X XX  XX",
+"XXXX XXXX XX X XXX XX"
+};

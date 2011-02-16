@@ -1,0 +1,31 @@
+/* XPM */
+static char *sel[] = {
+/* columns rows colors chars-per-pixel */
+"21 21 4 1",
+"  c black",
+". c #6EA5D7",
+"X c gray100",
+"o c None",
+/* pixels */
+"oo .. ooooooooooooooo",
+"oo .... ooooooooooooo",
+"ooo ...... oooooooooo",
+"ooo ........ oooooooo",
+"ooo ....... ooooooooo",
+"oooo ..... oooooooooo",
+"oooo ...... ooooooooo",
+"ooooo .. ... oooooooo",
+"ooooo . o ... ooooooo",
+"oooooooooo ... oooooo",
+"ooooooooooo .. oooooo",
+"oooooooooooo  ooooooo",
+"ooooooooooooooooooooo",
+"ooo   oo     o oooooo",
+"oo ooo o ooooo oooooo",
+"ooo oooo ooooo oooooo",
+"oooo ooo    oo oooooo",
+"ooooo oo ooooo oooooo",
+"oooooo o ooooo oooooo",
+"oo ooo o ooooo oooooo",
+"ooo   oo     o     oo"
+};

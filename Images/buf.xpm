@@ -1,0 +1,31 @@
+/* XPM */
+static char *buf[] = {
+/* columns rows colors chars-per-pixel */
+"21 21 4 1",
+"  c black",
+". c #D0C7AD",
+"X c gray100",
+"o c None",
+/* pixels */
+"oooooooo  oo  ooooooo",
+"oooooo.. o  o ..ooooo",
+"oooooooo oooo ooooooo",
+"oooooo.. oooo ..ooooo",
+"oooooooo oooo ooooooo",
+"oooooo.. oooo ..ooooo",
+"oooooooo oooo ooooooo",
+"oooooo.. oooo ..ooooo",
+"oooooooo oooo ooooooo",
+"oooooo.. oooo ..ooooo",
+"oooooooo      ooooooo",
+"ooooooooooooooooooooo",
+"oo     oo ooo o     o",
+"ooo ooo o ooo o ooooo",
+"ooo ooo o ooo o ooooo",
+"ooo ooo o ooo o    oo",
+"ooo    oo ooo o ooooo",
+"ooo ooo o ooo o ooooo",
+"ooo ooo o ooo o ooooo",
+"oo     ooo   oo ooooo",
+"ooooooooooooooooooooo"
+};

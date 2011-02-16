@@ -1,0 +1,31 @@
+/* XPM */
+static char *ins[] = {
+/* columns rows colors chars-per-pixel */
+"21 21 4 1",
+"  c black",
+". c #7A8584",
+"X c gray100",
+"o c None",
+/* pixels */
+"oooooo...oooooooooooo",
+"ooooo.ooo.ooooooooooo",
+"ooooo.o.o.ooooooooooo",
+"oooooo....ooooooooooo",
+"ooooooooooooooooooooo",
+"oooo  ooooo  oooooooo",
+"ooooooooooooooooooooo",
+"oo...ooooooooooo...oo",
+"o.oo..ooooooooo.ooo.o",
+"o.o o...........o o.o",
+"o.ooo.ooooooooo.ooo.o",
+"oo...ooooooooooo...oo",
+"ooooooooooooooooooooo",
+"ooo   o ooo oo    ooo",
+"oooo oo ooo o ooooooo",
+"oooo oo  oo o ooooooo",
+"oooo oo o o oo   oooo",
+"oooo oo oo  ooooo ooo",
+"oooo oo ooo ooooo ooo",
+"oooo oo ooo ooooo ooo",
+"ooo   o ooo o    oooo"
+};

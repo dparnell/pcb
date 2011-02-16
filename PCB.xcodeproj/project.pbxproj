@@ -34,6 +34,21 @@
 		651D37A71203D49D000FAA99 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 651D37A61203D49D000FAA99 /* Icon.icns */; };
 		651D37E6120523AF000FAA99 /* MainPCBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 651D37E5120523AF000FAA99 /* MainPCBView.m */; };
 		652284421202458F009C97C5 /* CocoaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 652284411202458F009C97C5 /* CocoaLibrary.m */; };
+		652E4B2C130B9225008DE3D2 /* arc.png in Resources */ = {isa = PBXBuildFile; fileRef = 652E4B1D130B9225008DE3D2 /* arc.png */; };
+		652E4B2D130B9225008DE3D2 /* buf.png in Resources */ = {isa = PBXBuildFile; fileRef = 652E4B1E130B9225008DE3D2 /* buf.png */; };
+		652E4B2E130B9225008DE3D2 /* del.png in Resources */ = {isa = PBXBuildFile; fileRef = 652E4B1F130B9225008DE3D2 /* del.png */; };
+		652E4B2F130B9225008DE3D2 /* ins.png in Resources */ = {isa = PBXBuildFile; fileRef = 652E4B20130B9225008DE3D2 /* ins.png */; };
+		652E4B30130B9225008DE3D2 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 652E4B21130B9225008DE3D2 /* line.png */; };
+		652E4B31130B9225008DE3D2 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 652E4B22130B9225008DE3D2 /* lock.png */; };
+		652E4B32130B9225008DE3D2 /* pan.png in Resources */ = {isa = PBXBuildFile; fileRef = 652E4B23130B9225008DE3D2 /* pan.png */; };
+		652E4B33130B9225008DE3D2 /* poly.png in Resources */ = {isa = PBXBuildFile; fileRef = 652E4B24130B9225008DE3D2 /* poly.png */; };
+		652E4B34130B9225008DE3D2 /* polyhole.png in Resources */ = {isa = PBXBuildFile; fileRef = 652E4B25130B9225008DE3D2 /* polyhole.png */; };
+		652E4B35130B9225008DE3D2 /* rect.png in Resources */ = {isa = PBXBuildFile; fileRef = 652E4B26130B9225008DE3D2 /* rect.png */; };
+		652E4B36130B9225008DE3D2 /* rot.png in Resources */ = {isa = PBXBuildFile; fileRef = 652E4B27130B9225008DE3D2 /* rot.png */; };
+		652E4B37130B9225008DE3D2 /* sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 652E4B28130B9225008DE3D2 /* sel.png */; };
+		652E4B38130B9225008DE3D2 /* text.png in Resources */ = {isa = PBXBuildFile; fileRef = 652E4B29130B9225008DE3D2 /* text.png */; };
+		652E4B39130B9225008DE3D2 /* thrm.png in Resources */ = {isa = PBXBuildFile; fileRef = 652E4B2A130B9225008DE3D2 /* thrm.png */; };
+		652E4B3A130B9225008DE3D2 /* via.png in Resources */ = {isa = PBXBuildFile; fileRef = 652E4B2B130B9225008DE3D2 /* via.png */; };
 		654CE9961202EC5F0073C4A6 /* LibraryWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 654CE9951202EC5F0073C4A6 /* LibraryWindow.xib */; };
 		654CE9B21202EECD0073C4A6 /* CocoaPCBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CE9B11202EECD0073C4A6 /* CocoaPCBView.m */; };
 		654CE9BB1202F0B10073C4A6 /* LibraryPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 654CE9BA1202F0B10073C4A6 /* LibraryPreviewView.m */; };
@@ -151,6 +166,21 @@
 		652284401202458F009C97C5 /* CocoaLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocoaLibrary.h; path = Classes/CocoaLibrary.h; sourceTree = "<group>"; };
 		652284411202458F009C97C5 /* CocoaLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CocoaLibrary.m; path = Classes/CocoaLibrary.m; sourceTree = "<group>"; };
 		6522844B12024BC9009C97C5 /* hidint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hidint.h; path = hid/hidint.h; sourceTree = "<group>"; };
+		652E4B1D130B9225008DE3D2 /* arc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arc.png; path = Images/arc.png; sourceTree = "<group>"; };
+		652E4B1E130B9225008DE3D2 /* buf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = buf.png; path = Images/buf.png; sourceTree = "<group>"; };
+		652E4B1F130B9225008DE3D2 /* del.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = del.png; path = Images/del.png; sourceTree = "<group>"; };
+		652E4B20130B9225008DE3D2 /* ins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ins.png; path = Images/ins.png; sourceTree = "<group>"; };
+		652E4B21130B9225008DE3D2 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line.png; path = Images/line.png; sourceTree = "<group>"; };
+		652E4B22130B9225008DE3D2 /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lock.png; path = Images/lock.png; sourceTree = "<group>"; };
+		652E4B23130B9225008DE3D2 /* pan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pan.png; path = Images/pan.png; sourceTree = "<group>"; };
+		652E4B24130B9225008DE3D2 /* poly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = poly.png; path = Images/poly.png; sourceTree = "<group>"; };
+		652E4B25130B9225008DE3D2 /* polyhole.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = polyhole.png; path = Images/polyhole.png; sourceTree = "<group>"; };
+		652E4B26130B9225008DE3D2 /* rect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rect.png; path = Images/rect.png; sourceTree = "<group>"; };
+		652E4B27130B9225008DE3D2 /* rot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rot.png; path = Images/rot.png; sourceTree = "<group>"; };
+		652E4B28130B9225008DE3D2 /* sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sel.png; path = Images/sel.png; sourceTree = "<group>"; };
+		652E4B29130B9225008DE3D2 /* text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = text.png; path = Images/text.png; sourceTree = "<group>"; };
+		652E4B2A130B9225008DE3D2 /* thrm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thrm.png; path = Images/thrm.png; sourceTree = "<group>"; };
+		652E4B2B130B9225008DE3D2 /* via.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = via.png; path = Images/via.png; sourceTree = "<group>"; };
 		654CE9921202EC370073C4A6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/LibraryWindow.xib; sourceTree = "<group>"; };
 		654CE9B01202EECD0073C4A6 /* CocoaPCBView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocoaPCBView.h; path = Classes/CocoaPCBView.h; sourceTree = "<group>"; };
 		654CE9B11202EECD0073C4A6 /* CocoaPCBView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CocoaPCBView.m; path = Classes/CocoaPCBView.m; sourceTree = "<group>"; };
@@ -340,6 +370,28 @@
 			path = "pcb-20100929";
 			sourceTree = "<group>";
 		};
+		652E4AFE130B8B9F008DE3D2 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				652E4B1D130B9225008DE3D2 /* arc.png */,
+				652E4B1E130B9225008DE3D2 /* buf.png */,
+				652E4B1F130B9225008DE3D2 /* del.png */,
+				652E4B20130B9225008DE3D2 /* ins.png */,
+				652E4B21130B9225008DE3D2 /* line.png */,
+				652E4B22130B9225008DE3D2 /* lock.png */,
+				652E4B23130B9225008DE3D2 /* pan.png */,
+				652E4B24130B9225008DE3D2 /* poly.png */,
+				652E4B25130B9225008DE3D2 /* polyhole.png */,
+				652E4B26130B9225008DE3D2 /* rect.png */,
+				652E4B27130B9225008DE3D2 /* rot.png */,
+				652E4B28130B9225008DE3D2 /* sel.png */,
+				652E4B29130B9225008DE3D2 /* text.png */,
+				652E4B2A130B9225008DE3D2 /* thrm.png */,
+				652E4B2B130B9225008DE3D2 /* via.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		654CE9911202D07B0073C4A6 /* PCB Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +467,7 @@
 			isa = PBXGroup;
 			children = (
 				651D37A61203D49D000FAA99 /* Icon.icns */,
+				652E4AFE130B8B9F008DE3D2 /* Images */,
 				654CE9911202D07B0073C4A6 /* PCB Resources */,
 				6575A6D211FCFCF0006D983A /* PCB-Info.plist */,
 				6575A6D411FCFCF0006D983A /* InfoPlist.strings */,
@@ -717,6 +770,21 @@
 				651D36CE12028309000FAA99 /* tutorial in Resources */,
 				654CE9961202EC5F0073C4A6 /* LibraryWindow.xib in Resources */,
 				651D37A71203D49D000FAA99 /* Icon.icns in Resources */,
+				652E4B2C130B9225008DE3D2 /* arc.png in Resources */,
+				652E4B2D130B9225008DE3D2 /* buf.png in Resources */,
+				652E4B2E130B9225008DE3D2 /* del.png in Resources */,
+				652E4B2F130B9225008DE3D2 /* ins.png in Resources */,
+				652E4B30130B9225008DE3D2 /* line.png in Resources */,
+				652E4B31130B9225008DE3D2 /* lock.png in Resources */,
+				652E4B32130B9225008DE3D2 /* pan.png in Resources */,
+				652E4B33130B9225008DE3D2 /* poly.png in Resources */,
+				652E4B34130B9225008DE3D2 /* polyhole.png in Resources */,
+				652E4B35130B9225008DE3D2 /* rect.png in Resources */,
+				652E4B36130B9225008DE3D2 /* rot.png in Resources */,
+				652E4B37130B9225008DE3D2 /* sel.png in Resources */,
+				652E4B38130B9225008DE3D2 /* text.png in Resources */,
+				652E4B39130B9225008DE3D2 /* thrm.png in Resources */,
+				652E4B3A130B9225008DE3D2 /* via.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

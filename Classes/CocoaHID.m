@@ -11,6 +11,7 @@
 #import "hid/common/draw_helpers.h"
 #import "hidint.h"
 #import "data.h"
+#import "set.h"
 
 #pragma mark -
 #pragma mark global variables
@@ -787,6 +788,8 @@ static CocoaHID* instance = nil;
 
 @synthesize mainView;
 @synthesize scrollView;
+@synthesize toolbarBox;
+@synthesize viaButton, lineButton, arcButton, textButton, rectButton, polyButton, bufButton, delButton, rotButton, insButton, thrmButton,selButton, lockButton;
 
 +(HID*) HID {
 	return &cocoa_gui;
@@ -811,11 +814,15 @@ static CocoaHID* instance = nil;
 
 - (void) awakeFromNib {
 	instance = self;
+    currentToolButton = nil;
+    
 	[[mainView window] setAcceptsMouseMovedEvents: YES];
 	[mainView setPostsBoundsChangedNotifications: YES];
 	[mainView setPostsFrameChangedNotifications: YES];
 	[scrollView setDocumentView: mainView];
 
+    [NSTimer scheduledTimerWithTimeInterval: 0.1 target: self selector: @selector(idle:) userInfo:nil repeats: YES];
+    
 //	CrosshairOn(YES);
 //	[mainView scaleUnitSquareToSize: NSMakeSize(0.002, 0.002)];
 }
@@ -902,6 +909,28 @@ static const NSSize unitSize = {1.0, 1.0};
 - (IBAction) zoomOut:(id)sender {
 	PCB->Zoom /= 1.25;
 	[self PCBChanged];
+}
+
+- (IBAction) toobarButtonClicked:(NSButton*)sender {
+    if(currentToolButton) {
+        [currentToolButton setState: NSOffState];
+    }
+    [sender setState: NSOnState];
+    currentToolButton = sender;
+
+    SetMode(sender.tag);
+}
+
+- (IBAction) idle:(id)sender {
+    NSButton* button = [toolbarBox viewWithTag: Settings.Mode];
+    
+    if(button && button!=currentToolButton) {
+        if(currentToolButton) {
+            [currentToolButton setState: NSOffState];
+        }
+        [button setState: NSOnState];
+        currentToolButton = button;
+    }
 }
 
 @end

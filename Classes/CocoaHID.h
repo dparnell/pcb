@@ -16,6 +16,7 @@ extern int lastModifierFlags;
 @private
 	MainPCBView* mainView;
 	NSScrollView* scrollView;
+    int modalResult;
     
     NSButton* currentToolButton;
     
@@ -44,6 +45,8 @@ extern int lastModifierFlags;
 - (void) PCBChanged;
 - (void) pointCursor;
 - (NSTimer*) scheduleTimerFor:(void*)callback withInterval:(unsigned long) milliseconds andUserData:(hidval)data;
+
+- (char*) prompt:(char*)mesage withDefault:(char*)default_value;
 
 - (IBAction) idle:(id)sender;
 

@@ -569,8 +569,7 @@ cocoa_report_dialog (char *title, char *msg)
 char *
 cocoa_prompt_for (char *msg, char *default_string)
 {
-	NSLog(@"UNIMPLEMENTED: cocoa_prompt_for");
-    return default_string;
+    return [[CocoaHID instance] prompt: msg withDefault: default_string];
 }
 
 char *
@@ -888,6 +887,48 @@ static const NSSize unitSize = {1.0, 1.0};
 						  [NSValue valueWithPointer: data.ptr], @"ptr",
 						  nil];
 	return [NSTimer scheduledTimerWithTimeInterval: milliseconds/1000.0 target: self selector: @selector(timerCallback:) userInfo: dict repeats: NO];
+}
+
+- (void) promptAlertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo {
+    modalResult = returnCode;
+}
+
+- (char*) prompt:(char*)mesage withDefault:(char*)default_value {
+    NSAlert* alert = [NSAlert alertWithMessageText: @"Prompt" defaultButton: @"OK" alternateButton: nil otherButton: nil informativeTextWithFormat: [NSString stringWithCString: mesage encoding: NSUTF8StringEncoding]];
+    
+    NSTextField* text = [[NSTextField alloc] initWithFrame: NSMakeRect(0, 0, 300, 25)];
+    [text setStringValue: [NSString stringWithCString: default_value encoding: NSUTF8StringEncoding]];
+    [alert setAccessoryView: text];
+    
+    modalResult = -1;
+    [alert beginSheetModalForWindow: [mainView window] modalDelegate: self didEndSelector: @selector(promptAlertDidEnd:returnCode:contextInfo:) contextInfo: nil];
+
+    // wait for the sheet
+    NSModalSession session = [NSApp beginModalSessionForWindow:[alert window]];
+    while (modalResult == -1) {        
+        // Execute code on DefaultRunLoop
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode 
+                                 beforeDate:[NSDate distantFuture]];
+        
+        // Break the run loop if sheet was closed
+        if ([NSApp runModalSession:session] != NSRunContinuesResponse 
+            || ![[alert window] isVisible]) 
+            break;
+        
+        // Execute code on DefaultRunLoop
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode 
+                                 beforeDate:[NSDate distantFuture]];
+        
+    }
+    [NSApp endModalSession:session];
+    [NSApp endSheet:[alert window]];
+    
+    if(modalResult==NSOKButton) {
+        return strdup([[text stringValue] cStringUsingEncoding: NSUTF8StringEncoding]);
+    } else {
+        return nil;
+    }
+
 }
 
 #pragma mark -

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DBFF2827-ABBD-4941-8323-DEA1AE561A59</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PCB</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EEA068B0-BA48-43E4-8FF3-81F491C49D9C</key>
+		<string>ssh://myth.local/pcb.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PCB.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EEA068B0-BA48-43E4-8FF3-81F491C49D9C</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://myth.local/pcb.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EEA068B0-BA48-43E4-8FF3-81F491C49D9C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EEA068B0-BA48-43E4-8FF3-81F491C49D9C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PCB</string>
+		</dict>
+	</array>
+</dict>
+</plist>

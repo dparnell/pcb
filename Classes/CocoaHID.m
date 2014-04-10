@@ -111,7 +111,7 @@ cocoa_parse_arguments (int *argc, char ***argv)
 	}
 	
 	Settings.verbose = 0;
-	
+	Settings.Zoom = 0.1;
 	int c = *argc;
 	char** args = *argv;
 	
@@ -485,7 +485,12 @@ hidval
 cocoa_watch_file (int fd, unsigned int condition, void (*func) (hidval watch, int fd, unsigned int condition, hidval user_data),
                     hidval user_data)
 {
-	NSLog(@"UNIMPLEMENTED: cocoa_watch_file");    
+	NSLog(@"UNIMPLEMENTED: cocoa_watch_file");
+    
+    hidval result;
+    result.lval = 0;
+    
+    return result;
 }
 
 void
@@ -498,6 +503,11 @@ static hidval
 cocoa_add_block_hook (void (*func) (hidval data), hidval user_data )
 {
 	NSLog(@"UNIMPLEMENTED: cocoa_add_block_hook");
+    
+    hidval result;
+    result.lval = 0;
+    
+    return result;
 }
 
 static void
@@ -546,7 +556,7 @@ cocoa_confirm_dialog (char *msg, ...)
 							defaultButton: cancelString 
 						  alternateButton: okString 
 							  otherButton: nil 
-				informativeTextWithFormat: [NSString stringWithUTF8String: msg]];
+				informativeTextWithFormat: @"%@", [NSString stringWithUTF8String: msg]];
 	
 	if ([alert runModal]==NSAlertFirstButtonReturn) {
 		return 0;
@@ -834,7 +844,8 @@ static const NSSize unitSize = {1.0, 1.0};
 
 - (void) PCBChanged {
 	float zoom = PCB->Zoom/1000.0;
-
+    NSLog(@"zoom = %f", zoom);
+    
 //	NSRect r;
 //	r = [mainView convertRect: [mainView bounds] toView: nil];
 	NSSize newFrame = NSMakeSize(PCB->MaxWidth*zoom, PCB->MaxHeight*zoom);
@@ -894,7 +905,7 @@ static const NSSize unitSize = {1.0, 1.0};
 }
 
 - (char*) prompt:(char*)mesage withDefault:(char*)default_value {
-    NSAlert* alert = [NSAlert alertWithMessageText: @"Prompt" defaultButton: @"OK" alternateButton: nil otherButton: nil informativeTextWithFormat: [NSString stringWithCString: mesage encoding: NSUTF8StringEncoding]];
+    NSAlert* alert = [NSAlert alertWithMessageText: @"Prompt" defaultButton: @"OK" alternateButton: nil otherButton: nil informativeTextWithFormat: @"%@", [NSString stringWithCString: mesage encoding: NSUTF8StringEncoding]];
     
     NSTextField* text = [[NSTextField alloc] initWithFrame: NSMakeRect(0, 0, 300, 25)];
     [text setStringValue: [NSString stringWithCString: default_value encoding: NSUTF8StringEncoding]];
@@ -959,7 +970,7 @@ static const NSSize unitSize = {1.0, 1.0};
     [sender setState: NSOnState];
     currentToolButton = sender;
 
-    SetMode(sender.tag);
+    SetMode((int)sender.tag);
 }
 
 - (IBAction) idle:(id)sender {

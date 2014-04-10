@@ -16,7 +16,7 @@ extern int lastModifierFlags;
 @private
 	MainPCBView* mainView;
 	NSScrollView* scrollView;
-    int modalResult;
+    NSInteger modalResult;
     
     NSButton* currentToolButton;
     
